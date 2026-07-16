@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Credly-inspired purple palette */
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #efedff;
+  --color-brand-200: #dcd6fb;
+  --color-brand-300: #bfb0f2;
+  --color-brand-400: #8f72dd;
+  --color-brand-500: #512eab;
+  --color-brand-600: #43258f;
+  --color-brand-700: #371f77;
+  --color-brand-800: #330b77;
+  --color-brand-900: #24084f;
+
+  --font-sans: 'Open Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color-scheme: light dark;
+}
