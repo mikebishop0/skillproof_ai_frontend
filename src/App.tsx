@@ -47,9 +47,11 @@ const adminNavItems = [
 function App() {
   return (
     <Routes>
+      {/* Standalone landing page (ships its own nav/footer) */}
+      <Route path="/" element={<LandingPage />} />
+
       {/* Public marketing + auth routes */}
       <Route element={<PublicLayout />}>
-        <Route index element={<LandingPage />} />
         <Route path="pricing" element={<PricingPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />

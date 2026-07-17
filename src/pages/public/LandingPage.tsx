@@ -1,153 +1,218 @@
 import { Link } from 'react-router-dom';
-import { BadgeCheck, FileSearch, ShieldCheck, UserRound } from 'lucide-react';
-import AudienceSection from '../../components/AudienceSection';
-
-const features = [
-  {
-    icon: FileSearch,
-    title: 'Evidence-based profiles',
-    description: 'Upload real projects, GitHub links, and architecture diagrams as proof of your skills.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'AI-reviewed competency reports',
-    description: 'AI evaluates project complexity, code quality, and technical depth to score your skills.',
-  },
-  {
-    icon: BadgeCheck,
-    title: 'Verified skill badges',
-    description: 'Earn shareable badges like "Verified Java Developer" once your evidence is validated.',
-  },
-];
+import './landingPage.css';
 
 export default function LandingPage() {
   return (
-    <div>
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left: headline + CTA */}
+    <div className="spai">
+      <nav>
+        <div className="wrap">
+          <div className="logo">
+            <span className="logo-mark">S</span>SkillProof AI
+          </div>
+          <div className="nav-links">
+            <a href="#how">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#recruiters">For recruiters</a>
+          </div>
+          <div className="nav-cta">
+            <Link to="/login" className="btn btn-ghost">Log in</Link>
+            <Link to="/register" className="btn btn-primary">Get verified</Link>
+          </div>
+        </div>
+      </nav>
+
+      <header className="hero">
+        <div className="wrap hero-grid">
           <div>
-            <span className="inline-block rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">
-              AI-Powered Skill Verification
-            </span>
-            <h1 className="mt-4 text-5xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl dark:text-white">
-              Turn Skills Into <span className="text-brand-500">Verifiable Evidence</span>
+            <div className="eyebrow">Evidence-based hiring</div>
+            <h1>
+              Turn skills into <em>verifiable</em> evidence.
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-slate-500 dark:text-slate-400">
-              Zonopact SkillProof AI helps candidates prove real skills with AI-reviewed projects,
-              assessments, and verified badges &mdash; free for recruiters to explore.
+            <p className="lede">
+              Stop listing what you claim to know. Upload real projects, pass AI-reviewed
+              assessments, and earn badges recruiters can actually trust — no interview required
+              to prove you&apos;re for real.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/register"
-                className="rounded-md bg-brand-500 px-6 py-3 font-semibold text-white hover:bg-brand-600"
-              >
-                Build your profile
-              </Link>
-              <Link
-                to="/pricing"
-                className="rounded-md border border-brand-500 bg-brand-100 px-6 py-3 font-semibold text-brand-800 hover:bg-brand-200 dark:bg-brand-900/30 dark:text-brand-200"
-              >
-                See pricing
-              </Link>
+            <div className="hero-actions">
+              <Link to="/register" className="btn btn-primary">Build your profile — free</Link>
+              <a href="#recruiters" className="btn btn-ghost">I&apos;m hiring</a>
             </div>
+            <div className="hero-note">Free forever for up to 3 projects. No credit card.</div>
           </div>
-
-          {/* Right: illustration with floating proof cards, Credly-style banner */}
-          <div className="relative mx-auto aspect-square w-full max-w-md">
-            <div
-              className="absolute -right-8 -top-8 h-full w-full rounded-3xl opacity-60 dark:opacity-20"
-              style={{
-                backgroundImage: 'radial-gradient(currentColor 1.5px, transparent 1.5px)',
-                backgroundSize: '18px 18px',
-                color: '#cbd5e1',
-              }}
-            />
-
-            <div className="relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br from-teal-400 via-teal-300 to-emerald-200 shadow-xl">
-              <div className="flex h-full items-center justify-center">
-                <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white/90 shadow-lg">
-                  <UserRound className="h-16 w-16 text-teal-600" />
+          <div className="proof-visual">
+            <div className="stack">
+              <div className="card-claim">
+                <div className="label">Traditional resume</div>
+                <div className="claim-line">&quot;Expert in cloud architecture&quot;</div>
+                <div className="claim-line">&quot;Led microservices migration&quot;</div>
+                <div className="claim-line">&quot;5+ years AI engineering&quot;</div>
+              </div>
+              <div className="card-proof">
+                <div className="proof-top">
+                  <div>
+                    <div className="proof-name">Aarav Sharma</div>
+                    <div className="proof-role">Java Architecture</div>
+                  </div>
+                  <div className="stamp">✓ verified</div>
+                </div>
+                <div className="score-row">
+                  <div className="score-num">92%</div>
+                  <div className="score-label">competency score</div>
+                </div>
+                <div className="evidence-list">
+                  <div className="evidence-item">Built Spring Boot microservices</div>
+                  <div className="evidence-item">Designed event-driven systems</div>
+                  <div className="evidence-item">Completed architecture assessment</div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </header>
 
-            {/* Floating card: candidate + score */}
-            <div className="absolute -left-6 top-8 w-44 rounded-xl bg-white p-4 shadow-lg dark:bg-slate-800">
-              <p className="font-semibold text-slate-900 dark:text-white">Aarav Sharma</p>
-              <p className="text-xs font-medium text-brand-500">Java Architecture</p>
-              <p className="mt-3 text-xs text-slate-400">AI Score</p>
-              <p className="text-xl font-bold text-emerald-600">92%</p>
+      <section className="problem">
+        <div className="wrap problem-grid">
+          <div className="problem-copy">
+            <div className="section-head" style={{ marginBottom: 24 }}>
+              <div className="eyebrow">The problem</div>
+              <h2>Resumes don&apos;t prove anything anymore.</h2>
             </div>
-
-            {/* Floating card: verified badges counter */}
-            <div className="absolute -bottom-6 right-2 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg dark:bg-slate-800">
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Badges Verified</span>
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-sm font-bold text-white">
-                29
-              </span>
+            <p>
+              Anyone can write <strong>&quot;AI engineering,&quot; &quot;DevOps,&quot; &quot;cloud architecture&quot;</strong> on
+              a resume. Recruiters have no reliable way to tell a genuine expert from a confident
+              guess — so every hire becomes a bet.
+            </p>
+            <p>
+              SkillProof AI replaces the guesswork with a paper trail: real projects, AI-reviewed
+              code, scored assessments, and badges that mean something because they&apos;re earned, not
+              self-reported.
+            </p>
+          </div>
+          <div className="resume-mock">
+            <div className="rname">Unverified candidate</div>
+            <div className="resume-line">
+              Expert in cloud architecture <span className="tag">unverified</span>
+            </div>
+            <div className="resume-line">
+              Led microservices migration <span className="tag">unverified</span>
+            </div>
+            <div className="resume-line">
+              Strong cybersecurity background <span className="tag">unverified</span>
+            </div>
+            <div className="resume-line" style={{ borderBottom: 'none' }}>
+              5+ years AI engineering <span className="tag">unverified</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-slate-50 py-20 dark:border-slate-800 dark:bg-slate-900/40">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-8 sm:grid-cols-3">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-100 dark:bg-brand-900/30">
-                  <feature.icon className="h-6 w-6 text-brand-500" />
-                </div>
-                <h2 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
-                  {feature.title}
-                </h2>
-                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{feature.description}</p>
+      <section id="how">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">How it works</div>
+            <h2>From claim to proof in five steps.</h2>
+            <p>Every badge on SkillProof AI is backed by an evidence trail a recruiter can actually inspect.</p>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <div className="step-num">01</div>
+              <h3>Upload evidence</h3>
+              <p>Projects, GitHub links, architecture diagrams, certificates.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">02</div>
+              <h3>AI review</h3>
+              <p>Our AI evaluates complexity, code quality, and technical depth.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">03</div>
+              <h3>Take assessments</h3>
+              <p>Coding tests, architecture scenarios, real-world problems.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">04</div>
+              <h3>Earn your badge</h3>
+              <p>Verified skill badges tied to your actual score.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">05</div>
+              <h3>Share your profile</h3>
+              <p>One public link recruiters can view for free, no login.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="eyebrow">Pricing</div>
+            <h2>Start free. Upgrade when it pays for itself.</h2>
+          </div>
+          <div className="pricing-grid">
+            <div className="price-card">
+              <div className="price-tier">Free</div>
+              <div className="price-amount">
+                $0 <span>/ forever</span>
               </div>
-            ))}
+              <div className="price-desc">For candidates getting started.</div>
+              <ul className="price-features">
+                <li>Profile and public badge</li>
+                <li>Portfolio, up to 3 projects</li>
+                <li>AI project review</li>
+              </ul>
+              <Link to="/register" className="btn btn-ghost">Get started</Link>
+            </div>
+            <div className="price-card featured">
+              <div className="badge-pop">Most popular</div>
+              <div className="price-tier">Premium</div>
+              <div className="price-amount">
+                $9 <span>/ month</span>
+              </div>
+              <div className="price-desc">For active job seekers.</div>
+              <ul className="price-features">
+                <li>Unlimited projects</li>
+                <li>Interview preparation</li>
+                <li>AI career coach</li>
+                <li>Resume optimization</li>
+              </ul>
+              <Link to="/register" className="btn btn-primary">Upgrade to Premium</Link>
+            </div>
+            <div className="price-card">
+              <div className="price-tier">Enterprise</div>
+              <div className="price-amount">
+                $299 <span>/ month</span>
+              </div>
+              <div className="price-desc">For hiring teams and orgs.</div>
+              <ul className="price-features">
+                <li>Employee skills mapping</li>
+                <li>Team dashboards</li>
+                <li>Skills gap analysis</li>
+              </ul>
+              <Link to="/pricing" className="btn btn-ghost">Talk to sales</Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <AudienceSection
-        heading="For Candidates & Job Seekers"
-        paragraph="Build an evidence-based profile alongside thousands of verified professionals. Upload real projects, pass AI-reviewed assessments, and earn badges recruiters can actually trust — turning your skills into proof, not just claims."
-        buttonLabel="Build Your Profile"
-        buttonTo="/register"
-        imageSrc="https://picsum.photos/seed/skillproof-candidates/800/900"
-        imageAlt="Candidate reviewing their skill portfolio"
-      />
-
-      <AudienceSection
-        heading="For Recruiters & Employers"
-        paragraph="Skip the guesswork of resume screening. Search a network of AI-verified candidates, review AI-generated competency reports backed by real evidence, and hire with confidence — free for recruiters to explore."
-        buttonLabel="Search Candidates"
-        buttonTo="/recruiter/search"
-        imageSrc="https://picsum.photos/seed/skillproof-recruiters/800/900"
-        imageAlt="Recruiter reviewing a candidate's verified skill report"
-        reverse
-      />
-
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <p className="text-sm font-semibold uppercase tracking-wide text-brand-500">Example output</p>
-        <div className="mt-4 overflow-hidden rounded-xl border border-brand-200 bg-white text-left shadow-sm dark:border-brand-800 dark:bg-slate-900">
-          <div className="border-b border-brand-100 bg-brand-50 px-6 py-3 dark:border-brand-900/40 dark:bg-brand-900/20">
-            <p className="font-semibold text-slate-900 dark:text-white">Candidate: Aarav Sharma</p>
-            <p className="font-medium text-brand-600 dark:text-brand-300">Java Architecture Score: 92%</p>
-          </div>
-          <div className="px-6 py-4">
-            <ul className="list-disc space-y-1 pl-5 text-sm text-slate-500 dark:text-slate-400">
-              <li>Built Spring Boot Microservices</li>
-              <li>Designed Event-Driven Systems</li>
-              <li>Completed Architecture Assessment</li>
-            </ul>
-            <p className="mt-3 text-xs font-medium text-brand-500">&#10003; Verified by Zonopact AI</p>
-          </div>
+      <section className="final-cta" id="recruiters">
+        <div className="wrap">
+          <h2>Hire on evidence, not adjectives.</h2>
+          <p>Search verified candidates and view their full evidence trail — free for recruiters.</p>
+          <Link to="/recruiter/search" className="btn btn-primary">Browse verified candidates</Link>
         </div>
       </section>
+
+      <footer>
+        <div className="wrap">
+          <div>© {new Date().getFullYear()} SkillProof AI</div>
+          <div className="foot-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
