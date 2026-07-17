@@ -11,7 +11,7 @@ export default function LandingPage() {
           </div>
           <div className="nav-links">
             <a href="#how">How it works</a>
-            <a href="#pricing">Pricing</a>
+            <Link to="/pricing">Pricing</Link>
             <a href="#recruiters">For recruiters</a>
           </div>
           <div className="nav-cta">

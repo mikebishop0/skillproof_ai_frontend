@@ -1,0 +1,487 @@
+.spai {
+  --spai-ink: #12151b;
+  --spai-ink-light: #1b2029;
+  --spai-ink-lighter: #242a35;
+  --spai-paper: #ede7d9;
+  --spai-verified: #2fae7a;
+  --spai-verified-dim: #1d7a56;
+  --spai-claim: #d98a3d;
+  --spai-slate: #8b93a0;
+  --spai-white: #f6f4ee;
+  --spai-line: rgba(246, 244, 238, 0.12);
+
+  background: var(--spai-ink);
+  color: var(--spai-white);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.spai h1,
+.spai h2,
+.spai h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.spai .mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+.spai .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.spai a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAV */
+.spai nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(18, 21, 27, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--spai-line);
+}
+.spai nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.spai .logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+}
+.spai .logo-mark {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--spai-verified);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--spai-verified);
+  font-size: 12px;
+}
+.spai .btn {
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  border: 1px solid var(--spai-line);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+.spai .btn-ghost {
+  color: var(--spai-white);
+}
+.spai .btn-ghost:hover {
+  border-color: var(--spai-slate);
+}
+.spai .btn-primary {
+  background: var(--spai-verified);
+  color: var(--spai-ink);
+  border-color: var(--spai-verified);
+}
+.spai .btn-primary:hover {
+  background: #3ec48c;
+}
+
+/* HERO */
+.spai .profile-hero {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--spai-line);
+}
+.spai .hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.spai .identity {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.spai .avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--spai-ink-lighter);
+  border: 1px solid var(--spai-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--spai-verified);
+  flex-shrink: 0;
+}
+.spai .name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.spai .name-row h1 {
+  font-size: 30px;
+}
+.spai .stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(47, 174, 122, 0.12);
+  color: var(--spai-verified-dim);
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  border: 1px solid rgba(47, 174, 122, 0.35);
+}
+.spai .role {
+  color: var(--spai-slate);
+  font-size: 15px;
+  margin-top: 4px;
+}
+.spai .location {
+  color: var(--spai-slate);
+  font-size: 13px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.spai .hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.spai .score-strip {
+  display: flex;
+  gap: 0;
+  margin-top: 36px;
+  border: 1px solid var(--spai-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.spai .score-cell {
+  flex: 1;
+  padding: 20px 22px;
+  border-right: 1px solid var(--spai-line);
+}
+.spai .score-cell:last-child {
+  border-right: none;
+}
+.spai .score-cell .num {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  color: var(--spai-verified);
+}
+.spai .score-cell .lbl {
+  font-size: 12.5px;
+  color: var(--spai-slate);
+  margin-top: 4px;
+}
+
+/* SECTION shared */
+.spai section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--spai-line);
+}
+.spai .sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 26px;
+}
+.spai .sec-head h2 {
+  font-size: 20px;
+}
+.spai .sec-head .count {
+  font-size: 13px;
+  color: var(--spai-slate);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* SKILLS */
+.spai .skills-grid {
+  display: grid;
+  gap: 14px;
+}
+.spai .skill-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 48px;
+  gap: 16px;
+  align-items: center;
+}
+.spai .skill-name {
+  font-size: 14.5px;
+}
+.spai .bar-track {
+  height: 8px;
+  background: var(--spai-ink-lighter);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.spai .bar-fill {
+  height: 100%;
+  background: var(--spai-verified);
+  border-radius: 4px;
+}
+.spai .skill-pct {
+  font-size: 13px;
+  color: var(--spai-verified);
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: right;
+}
+
+/* PROJECTS */
+.spai .project-card {
+  background: var(--spai-ink-light);
+  border: 1px solid var(--spai-line);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.spai .project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 16px;
+}
+.spai .project-top h3 {
+  font-size: 17px;
+}
+.spai .project-score {
+  background: rgba(47, 174, 122, 0.12);
+  color: var(--spai-verified);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  white-space: nowrap;
+}
+.spai .project-desc {
+  color: var(--spai-slate);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.spai .evidence-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.spai .evidence-tag {
+  font-size: 12px;
+  background: var(--spai-ink-lighter);
+  border: 1px solid var(--spai-line);
+  color: var(--spai-white);
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.spai .ai-note {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  padding-top: 14px;
+  border-top: 1px solid var(--spai-line);
+}
+.spai .ai-note .col {
+  flex: 1;
+}
+.spai .ai-note .col-label {
+  color: var(--spai-slate);
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.spai .ai-note li {
+  list-style: none;
+  color: var(--spai-white);
+  margin-bottom: 5px;
+  padding-left: 14px;
+  position: relative;
+}
+.spai .ai-note li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--spai-verified);
+}
+.spai .ai-note .improve li::before {
+  content: '\2192';
+  color: var(--spai-claim);
+}
+.spai .project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 13px;
+}
+.spai .project-links a {
+  color: var(--spai-slate);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.spai .project-links a:hover {
+  color: var(--spai-verified);
+}
+
+/* BADGES */
+.spai .badge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.spai .badge-card {
+  background: var(--spai-ink-light);
+  border: 1px solid var(--spai-line);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.spai .badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(47, 174, 122, 0.12);
+  border: 1px solid rgba(47, 174, 122, 0.35);
+  color: var(--spai-verified);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 18px;
+}
+.spai .badge-card h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.spai .badge-card .date {
+  font-size: 12px;
+  color: var(--spai-slate);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ASSESSMENTS */
+.spai .assess-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--spai-line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.spai .assess-row {
+  background: var(--spai-ink-light);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.spai .assess-name {
+  font-size: 14px;
+}
+.spai .assess-type {
+  font-size: 12px;
+  color: var(--spai-slate);
+  margin-top: 2px;
+}
+.spai .assess-score {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: var(--spai-verified);
+}
+
+/* CTA banner */
+.spai .cta-banner {
+  background: var(--spai-paper);
+  color: var(--spai-ink);
+  border-radius: 14px;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.spai .cta-banner h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+.spai .cta-banner p {
+  font-size: 13.5px;
+  color: #5c5748;
+}
+.spai .cta-banner .btn-primary {
+  white-space: nowrap;
+}
+
+.spai footer {
+  padding: 40px 0;
+}
+.spai footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--spai-slate);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.spai footer .foot-links {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .spai .score-strip {
+    flex-wrap: wrap;
+  }
+  .spai .score-cell {
+    flex: 1 1 50%;
+    border-bottom: 1px solid var(--spai-line);
+  }
+  .spai .skill-row {
+    grid-template-columns: 110px 1fr 40px;
+  }
+  .spai .badge-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .spai .ai-note {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .spai .hero-top {
+    flex-direction: column;
+  }
+  .spai .cta-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

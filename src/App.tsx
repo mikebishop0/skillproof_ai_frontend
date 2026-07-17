@@ -47,15 +47,15 @@ const adminNavItems = [
 function App() {
   return (
     <Routes>
-      {/* Standalone landing page (ships its own nav/footer) */}
+      {/* Standalone pages (ship their own nav/footer) */}
       <Route path="/" element={<LandingPage />} />
+      <Route path="pricing" element={<PricingPage />} />
+      <Route path="profile/:username" element={<PublicProfilePage />} />
 
       {/* Public marketing + auth routes */}
       <Route element={<PublicLayout />}>
-        <Route path="pricing" element={<PricingPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route path="profile/:username" element={<PublicProfilePage />} />
       </Route>
 
       {/* Candidate dashboard */}
