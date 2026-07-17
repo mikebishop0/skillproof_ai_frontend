@@ -50,6 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   height: 72px;
 }
 .spai .logo {
@@ -59,6 +60,8 @@
   font-family: 'Fraunces', serif;
   font-size: 19px;
   font-weight: 600;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .spai .logo-mark {
   width: 26px;
@@ -84,6 +87,7 @@
   display: flex;
   gap: 14px;
   align-items: center;
+  flex-shrink: 0;
 }
 .spai .btn {
   padding: 10px 20px;
@@ -94,6 +98,7 @@
   transition: all 0.15s ease;
   display: inline-block;
   cursor: pointer;
+  white-space: nowrap;
 }
 .spai .btn-ghost {
   color: var(--spai-white);

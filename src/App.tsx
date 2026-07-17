@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-import PublicLayout from './layouts/PublicLayout';
 import DashboardLayout from './layouts/DashboardLayout';
 
 import LandingPage from './pages/public/LandingPage';
 import PricingPage from './pages/public/PricingPage';
-import LoginPage from './pages/public/LoginPage';
-import RegisterPage from './pages/public/RegisterPage';
+import AuthPage from './pages/public/AuthPage';
+import ForgotPasswordPage from './pages/public/ForgotPasswordPage';
 import PublicProfilePage from './pages/public/PublicProfilePage';
 
 import DashboardHome from './pages/candidate/DashboardHome';
@@ -51,12 +50,9 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="pricing" element={<PricingPage />} />
       <Route path="profile/:username" element={<PublicProfilePage />} />
-
-      {/* Public marketing + auth routes */}
-      <Route element={<PublicLayout />}>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
-      </Route>
+      <Route path="login" element={<AuthPage />} />
+      <Route path="register" element={<AuthPage />} />
+      <Route path="forgot-password" element={<ForgotPasswordPage />} />
 
       {/* Candidate dashboard */}
       <Route
