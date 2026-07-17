@@ -226,7 +226,7 @@
 .spai .badge-pop {
   position: absolute;
   top: -13px;
-  left: 32px;
+  left: 100px;
   background: var(--spai-verified);
   color: var(--spai-ink);
   font-size: 11px;
