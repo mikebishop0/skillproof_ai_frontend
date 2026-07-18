@@ -32,6 +32,7 @@ import AdminAssessments from './pages/admin/Assessments';
 import AdminBadges from './pages/admin/Badges';
 import Analytics from './pages/admin/Analytics';
 import AIMonitor from './pages/admin/AIMonitor';
+import UserManagement from './pages/admin/UserManagement';
 
 const candidateNavItems = [
   { label: 'Overview', to: '/dashboard' },
@@ -51,10 +52,11 @@ const recruiterNavItems = [
 ];
 
 const adminNavItems = [
+  { label: 'Dashboard', to: '/admin' },
   { label: 'Assessments', to: '/admin/assessments' },
   { label: 'Badges', to: '/admin/badges' },
-  { label: 'Analytics', to: '/admin/analytics' },
   { label: 'AI Monitor', to: '/admin/ai-monitor' },
+  { label: 'Users', to: '/admin/users' },
 ];
 
 function App() {
@@ -122,6 +124,7 @@ function App() {
         <Route path="badges" element={<AdminBadges />} />
         <Route path="analytics" element={<Analytics />} />
         <Route path="ai-monitor" element={<AIMonitor />} />
+        <Route path="users" element={<UserManagement />} />
       </Route>
     </Routes>
   );
