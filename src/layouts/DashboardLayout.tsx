@@ -1,4 +1,5 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../store/authStore';
 import './dashboard.css';
 
 interface NavItem {
@@ -12,6 +13,15 @@ interface DashboardLayoutProps {
 }
 
 export default function DashboardLayout({ roleLabel, navItems }: DashboardLayoutProps) {
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <div className="spai-dashboard">
       <div className="dash-shell">
@@ -32,6 +42,21 @@ export default function DashboardLayout({ roleLabel, navItems }: DashboardLayout
               </NavLink>
             ))}
           </nav>
+          <div style={{ marginTop: 'auto', paddingTop: 20 }}>
+            {user && (
+              <p style={{ fontSize: 12, color: 'var(--spai-slate)', padding: '0 10px', marginBottom: 8 }}>
+                {user.email}
+              </p>
+            )}
+            <button
+              type="button"
+              className="btn btn-ghost"
+              style={{ width: '100%', justifyContent: 'center' }}
+              onClick={handleLogout}
+            >
+              Log out
+            </button>
+          </div>
         </aside>
         <main className="dash-main">
           <Outlet />

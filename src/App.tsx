@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import DashboardLayout from './layouts/DashboardLayout';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import LandingPage from './pages/public/LandingPage';
 import PricingPage from './pages/public/PricingPage';
@@ -62,7 +63,11 @@ function App() {
       {/* Candidate dashboard */}
       <Route
         path="/dashboard"
-        element={<DashboardLayout roleLabel="Candidate" navItems={candidateNavItems} />}
+        element={
+          <ProtectedRoute allowedRoles={['candidate']}>
+            <DashboardLayout roleLabel="Candidate" navItems={candidateNavItems} />
+          </ProtectedRoute>
+        }
       >
         <Route index element={<DashboardHome />} />
         <Route path="profile" element={<ProfileEdit />} />
@@ -82,7 +87,11 @@ function App() {
       {/* Recruiter dashboard */}
       <Route
         path="/recruiter"
-        element={<DashboardLayout roleLabel="Recruiter" navItems={recruiterNavItems} />}
+        element={
+          <ProtectedRoute allowedRoles={['recruiter']}>
+            <DashboardLayout roleLabel="Recruiter" navItems={recruiterNavItems} />
+          </ProtectedRoute>
+        }
       >
         <Route index element={<RecruiterSearch />} />
         <Route path="search" element={<RecruiterSearch />} />
@@ -90,7 +99,14 @@ function App() {
       </Route>
 
       {/* Admin dashboard */}
-      <Route path="/admin" element={<DashboardLayout roleLabel="Admin" navItems={adminNavItems} />}>
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <DashboardLayout roleLabel="Admin" navItems={adminNavItems} />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Analytics />} />
         <Route path="assessments" element={<AdminAssessments />} />
         <Route path="badges" element={<AdminBadges />} />

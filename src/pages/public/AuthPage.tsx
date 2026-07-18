@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useAuthStore } from '../../store/authStore';
+import { candidate } from '../../data/candidateMock';
 import './authPage.css';
 
 type Mode = 'login' | 'signup';
@@ -9,8 +11,10 @@ type Role = 'candidate' | 'recruiter';
 export default function AuthPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const setUser = useAuthStore((state) => state.setUser);
   const [mode, setModeState] = useState<Mode>(location.pathname === '/register' ? 'signup' : 'login');
   const [role, setRole] = useState<Role>('candidate');
+  const [email, setEmail] = useState('');
 
   const setMode = (next: Mode) => {
     setModeState(next);
@@ -19,9 +23,15 @@ export default function AuthPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success(
-      mode === 'login' ? 'Login form submitted (backend not connected yet)' : 'Account created (backend not connected yet)',
-    );
+    // No backend yet — set a mock session so the route guard and dashboards have a signed-in user to work with.
+    setUser({
+      id: 'mock-user',
+      name: mode === 'signup' ? candidate.name : candidate.name,
+      email: email || 'mayur.ramgir@example.com',
+      role,
+    });
+    toast.success(mode === 'login' ? 'Logged in' : 'Account created');
+    navigate(role === 'recruiter' ? '/recruiter/search' : '/dashboard');
   };
 
   return (
@@ -119,7 +129,13 @@ export default function AuthPage() {
 
               <div className="field">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="name@company.com" />
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="name@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
 
               <div className="field">
