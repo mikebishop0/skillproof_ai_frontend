@@ -13,7 +13,7 @@ export default function Projects() {
         <div>
           <div className="eyebrow">Portfolio</div>
           <h1>Your projects</h1>
-          <p>Upload real work as evidence - AI reviews each one for depth and quality.</p>
+          <p>Upload real work as evidence AI reviews each one for depth and quality.</p>
         </div>
         <Link
           to={atLimit ? '/pricing' : '/dashboard/projects/new'}

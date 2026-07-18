@@ -109,7 +109,7 @@ export default function Settings() {
       </div>
 
       <p style={{ marginTop: 20, color: 'var(--spai-slate)', fontSize: 13 }}>
-        Logged in as {candidate.name} - {candidate.plan} plan
+        Logged in as {candidate.name} {candidate.plan} plan
       </p>
     </div>
   );

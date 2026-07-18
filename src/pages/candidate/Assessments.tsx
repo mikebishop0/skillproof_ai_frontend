@@ -10,7 +10,7 @@ export default function Assessments() {
       <div className="dash-head">
         <div className="eyebrow">Assessments</div>
         <h1>Prove it with a test</h1>
-        <p>Coding tests, architecture scenarios, and MCQs - each scored by AI.</p>
+        <p>Coding tests, architecture scenarios, and MCQs each scored by AI.</p>
       </div>
 
       <h2 style={{ fontSize: 16, marginBottom: 14 }}>Available</h2>
@@ -19,7 +19,7 @@ export default function Assessments() {
           <div key={assessment.id} className="card">
             <h3 style={{ fontSize: 15, marginBottom: 6 }}>{assessment.name}</h3>
             <p className="mono" style={{ fontSize: 12.5, color: 'var(--spai-slate)', marginBottom: 16 }}>
-              {assessment.type} - {assessment.durationMinutes} min - {assessment.questions.length} questions
+              {assessment.type} {assessment.durationMinutes} min {assessment.questions.length} questions
             </p>
             <Link to={`/dashboard/assessments/${assessment.id}/take`} className="btn btn-primary">
               Start assessment

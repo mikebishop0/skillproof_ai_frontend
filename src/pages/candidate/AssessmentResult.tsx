@@ -9,7 +9,7 @@ export default function AssessmentResult() {
     return <div className="card"><h1>Assessment not found</h1></div>;
   }
 
-  // Freshly-submitted assessments have no score yet in the mock data - show a plausible just-scored result.
+  // Freshly-submitted assessments have no score yet in the mock data show a plausible just-scored result.
   const score = assessment.score ?? 87;
   const passed = score >= assessment.passScore;
 
@@ -42,7 +42,7 @@ export default function AssessmentResult() {
           {score}%
         </div>
         <p style={{ color: 'var(--spai-slate)', fontSize: 14, marginTop: 6 }}>
-          {passed ? 'Passed' : 'Not passed'} - pass threshold {assessment.passScore}%
+          {passed ? 'Passed' : 'Not passed'} pass threshold {assessment.passScore}%
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export default function AssessmentResult() {
                 fontSize: 13.5,
               }}
             >
-              <span>Question {i + 1} - {q.type}</span>
+              <span>Question {i + 1} {q.type}</span>
               <span style={{ color: 'var(--spai-verified)' }}>Reviewed</span>
             </div>
           ))

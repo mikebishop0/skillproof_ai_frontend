@@ -19,7 +19,7 @@ export default function RecruiterDashboard() {
       <div className="dash-head">
         <div className="eyebrow">Recruiter</div>
         <h1>Find verified talent</h1>
-        <p>Search candidates by skill, score, and badge - free for recruiters.</p>
+        <p>Search candidates by skill, score, and badge free for recruiters.</p>
       </div>
 
       <form onSubmit={handleSearch} className="card" style={{ marginBottom: 24 }}>

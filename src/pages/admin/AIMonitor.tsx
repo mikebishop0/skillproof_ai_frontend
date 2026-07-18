@@ -79,7 +79,7 @@ export default function AIMonitor() {
             <div>
               <div style={{ fontSize: 14 }}>{entry.target}</div>
               <div className="mono" style={{ fontSize: 12, color: 'var(--spai-slate)', marginTop: 2 }}>
-                {entry.type} - {entry.timestamp}
+                {entry.type} {entry.timestamp}
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

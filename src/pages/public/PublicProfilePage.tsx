@@ -75,8 +75,8 @@ export default function PublicProfilePage() {
                   <h1>Mayur Ramgir</h1>
                   <span className="stamp">✓ verified</span>
                 </div>
-                <div className="role">Java Architecture - Backend Systems</div>
-                <div className="location">Pune, India - Open to remote roles</div>
+                <div className="role">Java Architecture Backend Systems</div>
+                <div className="location">Pune, India Open to remote roles</div>
               </div>
             </div>
             <div className="hero-actions">
@@ -131,7 +131,7 @@ export default function PublicProfilePage() {
       <section id="projects">
         <div className="wrap">
           <div className="sec-head">
-            <h2>Evidence - projects</h2>
+            <h2>Evidence projects</h2>
             <span className="count">4 reviewed</span>
           </div>
 
@@ -220,7 +220,7 @@ export default function PublicProfilePage() {
           <div className="cta-banner">
             <div>
               <h3>Hiring for a similar role?</h3>
-              <p>Search verified candidates like Mayur - free for recruiters, no login required to browse.</p>
+              <p>Search verified candidates like Mayur free for recruiters, no login required to browse.</p>
             </div>
             <Link to="/recruiter/search" className="btn btn-primary">Browse verified candidates</Link>
           </div>
@@ -229,7 +229,7 @@ export default function PublicProfilePage() {
 
       <footer>
         <div className="wrap">
-          <div>Verified by SkillProof AI - Report generated Jul 2026</div>
+          <div>Verified by SkillProof AI Report generated Jul 2026</div>
           <div className="foot-links">
             <Link to="/register">Create your profile</Link>
             <a href="#">Privacy</a>

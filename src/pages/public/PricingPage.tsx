@@ -32,11 +32,11 @@ const compareRows: Array<
 const faqs = [
   {
     q: 'Do I need a credit card for the free plan?',
-    a: 'No. The free plan is free forever - no credit card, no trial clock, no auto-charge.',
+    a: 'No. The free plan is free forever no credit card, no trial clock, no auto-charge.',
   },
   {
     q: 'Can I switch plans later?',
-    a: 'Yes. Upgrade, downgrade, or cancel anytime from your account settings - changes apply to your next billing cycle.',
+    a: 'Yes. Upgrade, downgrade, or cancel anytime from your account settings changes apply to your next billing cycle.',
   },
   {
     q: 'What happens to my badges if I downgrade?',

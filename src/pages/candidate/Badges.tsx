@@ -78,7 +78,7 @@ export default function Badges() {
         </div>
         <h2 style={{ fontSize: 19 }}>{selected.name}</h2>
         <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginTop: 6 }}>
-          Awarded to {candidate.name} - {selected.date}
+          Awarded to {candidate.name} {selected.date}
         </p>
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 20 }}>
           <button type="button" className="btn btn-primary" onClick={copyLink}>

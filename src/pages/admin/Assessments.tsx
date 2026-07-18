@@ -92,7 +92,7 @@ export default function AdminAssessments() {
             <div>
               <div style={{ fontSize: 14 }}>{assessment.name}</div>
               <div className="mono" style={{ fontSize: 12, color: 'var(--spai-slate)', marginTop: 2 }}>
-                {assessment.type} - {assessment.questionCount} questions
+                {assessment.type} {assessment.questionCount} questions
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
