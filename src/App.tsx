@@ -18,6 +18,8 @@ import AssessmentTake from './pages/candidate/AssessmentTake';
 import AssessmentResult from './pages/candidate/AssessmentResult';
 import Badges from './pages/candidate/Badges';
 import AIReport from './pages/candidate/AIReport';
+import Billing from './pages/candidate/Billing';
+import Settings from './pages/candidate/Settings';
 
 import RecruiterSearch from './pages/recruiter/Search';
 import CandidateView from './pages/recruiter/CandidateView';
@@ -33,6 +35,8 @@ const candidateNavItems = [
   { label: 'Projects', to: '/dashboard/projects' },
   { label: 'Assessments', to: '/dashboard/assessments' },
   { label: 'Badges', to: '/dashboard/badges' },
+  { label: 'Billing', to: '/dashboard/billing' },
+  { label: 'Settings', to: '/dashboard/settings' },
 ];
 
 const recruiterNavItems = [{ label: 'Search Candidates', to: '/recruiter/search' }];
@@ -71,6 +75,8 @@ function App() {
         <Route path="assessments/:id/result" element={<AssessmentResult />} />
         <Route path="badges" element={<Badges />} />
         <Route path="ai-report/:id" element={<AIReport />} />
+        <Route path="billing" element={<Billing />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
 
       {/* Recruiter dashboard */}

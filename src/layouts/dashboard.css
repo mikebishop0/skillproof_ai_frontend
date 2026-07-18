@@ -288,6 +288,54 @@
   margin-bottom: 10px;
 }
 
+/* TOGGLE SWITCH */
+.spai-dashboard .switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--spai-line);
+}
+.spai-dashboard .switch-row:last-child {
+  border-bottom: none;
+}
+.spai-dashboard .switch-row .switch-label {
+  font-size: 14px;
+}
+.spai-dashboard .switch-row .switch-desc {
+  font-size: 12.5px;
+  color: var(--spai-slate);
+  margin-top: 2px;
+}
+.spai-dashboard .toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 12px;
+  background: var(--spai-ink-lighter);
+  border: 1px solid var(--spai-line);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.spai-dashboard .toggle.on {
+  background: rgba(47, 174, 122, 0.25);
+  border-color: var(--spai-verified);
+}
+.spai-dashboard .toggle-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--spai-slate);
+  transition: transform 0.2s ease;
+}
+.spai-dashboard .toggle.on .toggle-dot {
+  background: var(--spai-verified);
+  transform: translateX(18px);
+}
+
 /* PROGRESS / QUOTA BAR */
 .spai-dashboard .bar-track {
   height: 8px;

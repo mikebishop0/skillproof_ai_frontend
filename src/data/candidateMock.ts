@@ -73,8 +73,122 @@ export const badges = [
   { id: '3', name: 'Cloud architect expert', date: 'Issued Jun 2026' },
 ];
 
-export const assessments = [
-  { name: 'Java architecture assessment', type: 'Scenario-based', score: 92 },
-  { name: 'Microservices design patterns', type: 'Architecture test', score: 88 },
-  { name: 'Distributed systems coding test', type: 'Coding test', score: 81 },
+export interface AssessmentQuestion {
+  id: string;
+  type: 'mcq' | 'coding' | 'scenario';
+  prompt: string;
+  options?: string[];
+}
+
+export interface Assessment {
+  id: string;
+  name: string;
+  type: string;
+  durationMinutes: number;
+  status: 'completed' | 'available';
+  score: number | null;
+  passScore: number;
+  badgeOnPass?: string;
+  questions: AssessmentQuestion[];
+}
+
+export const assessments: Assessment[] = [
+  {
+    id: '1',
+    name: 'Java architecture assessment',
+    type: 'Scenario-based',
+    durationMinutes: 30,
+    status: 'completed',
+    score: 92,
+    passScore: 70,
+    questions: [],
+  },
+  {
+    id: '2',
+    name: 'Microservices design patterns',
+    type: 'Architecture test',
+    durationMinutes: 25,
+    status: 'completed',
+    score: 88,
+    passScore: 70,
+    questions: [],
+  },
+  {
+    id: '3',
+    name: 'Distributed systems coding test',
+    type: 'Coding test',
+    durationMinutes: 20,
+    status: 'completed',
+    score: 81,
+    passScore: 70,
+    questions: [],
+  },
+  {
+    id: '4',
+    name: 'Event-driven systems assessment',
+    type: 'Scenario-based',
+    durationMinutes: 20,
+    status: 'available',
+    score: null,
+    passScore: 70,
+    badgeOnPass: 'Event-Driven Systems Expert',
+    questions: [
+      {
+        id: 'q1',
+        type: 'mcq',
+        prompt: 'Which pattern best decouples a producer from multiple consumers reacting to the same event?',
+        options: ['Request-response', 'Publish-subscribe', 'Two-phase commit', 'Shared database'],
+      },
+      {
+        id: 'q2',
+        type: 'mcq',
+        prompt: 'What is the main risk of "at-least-once" message delivery?',
+        options: [
+          'Messages may be lost entirely',
+          'Consumers must handle duplicate messages idempotently',
+          'Producers cannot retry failed sends',
+          'It requires a single consumer per topic',
+        ],
+      },
+      {
+        id: 'q3',
+        type: 'coding',
+        prompt: 'Write a short function (pseudocode is fine) that consumes an "OrderPlaced" event and idempotently updates an inventory count.',
+      },
+      {
+        id: 'q4',
+        type: 'scenario',
+        prompt: 'Your event pipeline is falling behind under load and consumers are lagging. Describe how you would diagnose and fix it.',
+      },
+    ],
+  },
+  {
+    id: '5',
+    name: 'Cloud security fundamentals',
+    type: 'MCQ',
+    durationMinutes: 15,
+    status: 'available',
+    score: null,
+    passScore: 70,
+    badgeOnPass: 'Cloud Security Fundamentals',
+    questions: [
+      {
+        id: 'q1',
+        type: 'mcq',
+        prompt: 'What is the principle of least privilege?',
+        options: [
+          'Giving every service admin access for simplicity',
+          'Granting only the permissions required to perform a task',
+          'Sharing one IAM role across all services',
+          'Disabling all access controls in staging',
+        ],
+      },
+      {
+        id: 'q2',
+        type: 'mcq',
+        prompt: 'Which of these should never be committed to a public repository?',
+        options: ['README.md', 'Environment variable names', 'API keys and secrets', 'Unit tests'],
+      },
+    ],
+  },
 ];
