@@ -22,8 +22,11 @@ import AIReport from './pages/candidate/AIReport';
 import Billing from './pages/candidate/Billing';
 import Settings from './pages/candidate/Settings';
 
+import RecruiterDashboard from './pages/recruiter/RecruiterDashboard';
 import RecruiterSearch from './pages/recruiter/Search';
 import CandidateView from './pages/recruiter/CandidateView';
+import Shortlist from './pages/recruiter/Shortlist';
+import TeamDashboard from './pages/recruiter/TeamDashboard';
 
 import AdminAssessments from './pages/admin/Assessments';
 import AdminBadges from './pages/admin/Badges';
@@ -40,7 +43,12 @@ const candidateNavItems = [
   { label: 'Settings', to: '/dashboard/settings' },
 ];
 
-const recruiterNavItems = [{ label: 'Search Candidates', to: '/recruiter/search' }];
+const recruiterNavItems = [
+  { label: 'Dashboard', to: '/recruiter' },
+  { label: 'Search Candidates', to: '/recruiter/search' },
+  { label: 'Shortlisted', to: '/recruiter/shortlist' },
+  { label: 'Team Dashboard', to: '/recruiter/team' },
+];
 
 const adminNavItems = [
   { label: 'Assessments', to: '/admin/assessments' },
@@ -93,9 +101,11 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<RecruiterSearch />} />
+        <Route index element={<RecruiterDashboard />} />
         <Route path="search" element={<RecruiterSearch />} />
         <Route path="candidate/:id" element={<CandidateView />} />
+        <Route path="shortlist" element={<Shortlist />} />
+        <Route path="team" element={<TeamDashboard />} />
       </Route>
 
       {/* Admin dashboard */}
