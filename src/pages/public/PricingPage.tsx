@@ -61,7 +61,7 @@ export default function PricingPage() {
   const enterprisePrice = yearly ? '$254' : '$299';
 
   return (
-    <div className="spai">
+    <div className="spai-pricing">
       <nav>
         <div className="wrap">
           <div className="logo">

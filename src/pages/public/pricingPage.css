@@ -1,4 +1,4 @@
-.spai {
+.spai-pricing {
   --spai-ink: #12151b;
   --spai-ink-light: #1b2029;
   --spai-ink-lighter: #242a35;
@@ -16,28 +16,28 @@
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-.spai h1,
-.spai h2,
-.spai h3 {
+.spai-pricing h1,
+.spai-pricing h2,
+.spai-pricing h3 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-.spai .mono {
+.spai-pricing .mono {
   font-family: 'IBM Plex Mono', monospace;
 }
-.spai .wrap {
+.spai-pricing .wrap {
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 32px;
 }
-.spai a {
+.spai-pricing a {
   color: inherit;
   text-decoration: none;
 }
 
 /* NAV */
-.spai nav {
+.spai-pricing nav {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -45,13 +45,13 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--spai-line);
 }
-.spai nav .wrap {
+.spai-pricing nav .wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
 }
-.spai .logo {
+.spai-pricing .logo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -59,7 +59,7 @@
   font-size: 19px;
   font-weight: 600;
 }
-.spai .logo-mark {
+.spai-pricing .logo-mark {
   width: 26px;
   height: 26px;
   border: 1.5px solid var(--spai-verified);
@@ -70,24 +70,24 @@
   color: var(--spai-verified);
   font-size: 13px;
 }
-.spai .nav-links {
+.spai-pricing .nav-links {
   display: flex;
   gap: 36px;
   font-size: 14px;
   color: var(--spai-slate);
 }
-.spai .nav-links a:hover {
+.spai-pricing .nav-links a:hover {
   color: var(--spai-white);
 }
-.spai .nav-links a.active {
+.spai-pricing .nav-links a.active {
   color: var(--spai-verified);
 }
-.spai .nav-cta {
+.spai-pricing .nav-cta {
   display: flex;
   gap: 14px;
   align-items: center;
 }
-.spai .btn {
+.spai-pricing .btn {
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 14px;
@@ -100,32 +100,32 @@
   color: inherit;
   font-family: inherit;
 }
-.spai .btn-ghost {
+.spai-pricing .btn-ghost {
   color: var(--spai-white);
 }
-.spai .btn-ghost:hover {
+.spai-pricing .btn-ghost:hover {
   border-color: var(--spai-slate);
 }
-.spai .btn-primary {
+.spai-pricing .btn-primary {
   background: var(--spai-verified);
   color: var(--spai-ink);
   border-color: var(--spai-verified);
 }
-.spai .btn-primary:hover {
+.spai-pricing .btn-primary:hover {
   background: #3ec48c;
 }
 @media (max-width: 800px) {
-  .spai .nav-links {
+  .spai-pricing .nav-links {
     display: none;
   }
 }
 
 /* PAGE HEAD */
-.spai .page-head {
+.spai-pricing .page-head {
   padding: 72px 0 48px;
   text-align: center;
 }
-.spai .eyebrow {
+.spai-pricing .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;
@@ -136,18 +136,18 @@
   gap: 8px;
   margin-bottom: 18px;
 }
-.spai .eyebrow::before {
+.spai-pricing .eyebrow::before {
   content: '';
   width: 6px;
   height: 6px;
   background: var(--spai-verified);
   border-radius: 50%;
 }
-.spai .page-head h1 {
+.spai-pricing .page-head h1 {
   font-size: 44px;
   margin-bottom: 14px;
 }
-.spai .page-head p {
+.spai-pricing .page-head p {
   color: var(--spai-slate);
   font-size: 17px;
   max-width: 520px;
@@ -155,21 +155,21 @@
 }
 
 /* TOGGLE */
-.spai .toggle-row {
+.spai-pricing .toggle-row {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 14px;
   margin: 36px 0 8px;
 }
-.spai .toggle-label {
+.spai-pricing .toggle-label {
   font-size: 14px;
   color: var(--spai-slate);
 }
-.spai .toggle-label.on {
+.spai-pricing .toggle-label.on {
   color: var(--spai-white);
 }
-.spai .toggle {
+.spai-pricing .toggle {
   width: 44px;
   height: 24px;
   border-radius: 14px;
@@ -178,7 +178,7 @@
   position: relative;
   cursor: pointer;
 }
-.spai .toggle-dot {
+.spai-pricing .toggle-dot {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -188,10 +188,10 @@
   background: var(--spai-verified);
   transition: transform 0.2s ease;
 }
-.spai .toggle.yearly .toggle-dot {
+.spai-pricing .toggle.yearly .toggle-dot {
   transform: translateX(20px);
 }
-.spai .save-tag {
+.spai-pricing .save-tag {
   font-size: 11px;
   background: rgba(47, 174, 122, 0.14);
   color: var(--spai-verified);
@@ -201,16 +201,16 @@
 }
 
 /* PRICING GRID */
-.spai .pricing-section {
+.spai-pricing .pricing-section {
   padding: 32px 0 96px;
 }
-.spai .pricing-grid {
+.spai-pricing .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   align-items: stretch;
 }
-.spai .price-card {
+.spai-pricing .price-card {
   background: var(--spai-ink-light);
   border: 1px solid var(--spai-line);
   border-radius: 14px;
@@ -219,11 +219,11 @@
   flex-direction: column;
   position: relative;
 }
-.spai .price-card.featured {
+.spai-pricing .price-card.featured {
   border: 1.5px solid var(--spai-verified);
   background: var(--spai-ink-lighter);
 }
-.spai .badge-pop {
+.spai-pricing .badge-pop {
   position: absolute;
   top: -13px;
   left: 100px;
@@ -235,14 +235,14 @@
   border-radius: 12px;
   font-family: 'IBM Plex Mono', monospace;
 }
-.spai .price-tier {
+.spai-pricing .price-tier {
   font-size: 13px;
   color: var(--spai-slate);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 10px;
 }
-.spai .price-amount {
+.spai-pricing .price-amount {
   font-family: 'Fraunces', serif;
   font-size: 40px;
   margin-bottom: 4px;
@@ -250,71 +250,71 @@
   align-items: baseline;
   gap: 6px;
 }
-.spai .price-amount span {
+.spai-pricing .price-amount span {
   font-size: 14px;
   color: var(--spai-slate);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
-.spai .price-desc {
+.spai-pricing .price-desc {
   font-size: 13.5px;
   color: var(--spai-slate);
   margin-bottom: 26px;
   padding-bottom: 26px;
   border-bottom: 1px solid var(--spai-line);
 }
-.spai .price-features {
+.spai-pricing .price-features {
   list-style: none;
   flex: 1;
   margin-bottom: 28px;
 }
-.spai .price-features li {
+.spai-pricing .price-features li {
   font-size: 14px;
   padding: 10px 0;
   display: flex;
   gap: 10px;
   color: var(--spai-white);
 }
-.spai .price-features li::before {
+.spai-pricing .price-features li::before {
   content: '\2713';
   color: var(--spai-verified);
   font-weight: 600;
 }
-.spai .price-features li.dim {
+.spai-pricing .price-features li.dim {
   color: var(--spai-slate);
 }
-.spai .price-features li.dim::before {
+.spai-pricing .price-features li.dim::before {
   content: '\2014';
   color: var(--spai-slate);
 }
-.spai .price-card .btn {
+.spai-pricing .price-card .btn {
   width: 100%;
   text-align: center;
 }
 
 /* COMPARE TABLE */
-.spai .compare {
+.spai-pricing .compare {
   padding: 96px 0;
   background: var(--spai-ink-light);
 }
-.spai .section-head {
+.spai-pricing .section-head {
   max-width: 600px;
   margin: 0 auto 48px;
   text-align: center;
 }
-.spai .section-head h2 {
+.spai-pricing .section-head h2 {
   font-size: 32px;
 }
-.spai .section-head p {
+.spai-pricing .section-head p {
   color: var(--spai-slate);
   margin-top: 12px;
 }
-.spai table {
+.spai-pricing table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14.5px;
 }
-.spai thead th {
+.spai-pricing thead th {
   text-align: left;
   padding: 16px 20px;
   color: var(--spai-slate);
@@ -324,7 +324,7 @@
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--spai-line);
 }
-.spai thead th.plan-col {
+.spai-pricing thead th.plan-col {
   text-align: center;
   color: var(--spai-white);
   font-family: 'Fraunces', serif;
@@ -332,23 +332,23 @@
   text-transform: none;
   letter-spacing: 0;
 }
-.spai thead th.plan-col.featured {
+.spai-pricing thead th.plan-col.featured {
   color: var(--spai-verified);
 }
-.spai tbody td {
+.spai-pricing tbody td {
   padding: 14px 20px;
   border-bottom: 1px solid var(--spai-line);
   text-align: center;
 }
-.spai tbody td:first-child {
+.spai-pricing tbody td:first-child {
   text-align: left;
   color: var(--spai-white);
   font-size: 14px;
 }
-.spai tbody tr:hover {
+.spai-pricing tbody tr:hover {
   background: rgba(246, 244, 238, 0.02);
 }
-.spai .cat-row td {
+.spai-pricing .cat-row td {
   padding-top: 26px;
   padding-bottom: 10px;
   color: var(--spai-verified);
@@ -358,99 +358,99 @@
   letter-spacing: 0.05em;
   border-bottom: none;
 }
-.spai .yes {
+.spai-pricing .yes {
   color: var(--spai-verified);
   font-size: 16px;
 }
-.spai .no {
+.spai-pricing .no {
   color: var(--spai-slate);
 }
-.spai .val {
+.spai-pricing .val {
   color: var(--spai-slate);
   font-size: 13.5px;
 }
 @media (max-width: 900px) {
-  .spai table {
+  .spai-pricing table {
     font-size: 12.5px;
   }
-  .spai thead th,
-  .spai tbody td {
+  .spai-pricing thead th,
+  .spai-pricing tbody td {
     padding: 10px 8px;
   }
 }
 
 /* FAQ */
-.spai .faq {
+.spai-pricing .faq {
   padding: 96px 0;
 }
-.spai .faq-grid {
+.spai-pricing .faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 40px;
 }
-.spai .faq-item {
+.spai-pricing .faq-item {
   border-bottom: 1px solid var(--spai-line);
   padding-bottom: 20px;
 }
-.spai .faq-item h3 {
+.spai-pricing .faq-item h3 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
 }
-.spai .faq-item p {
+.spai-pricing .faq-item p {
   font-size: 14px;
   color: var(--spai-slate);
 }
 @media (max-width: 800px) {
-  .spai .faq-grid {
+  .spai-pricing .faq-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* FINAL CTA */
-.spai .final-cta {
+.spai-pricing .final-cta {
   background: var(--spai-paper);
   color: var(--spai-ink);
   text-align: center;
   padding: 88px 0;
 }
-.spai .final-cta h2 {
+.spai-pricing .final-cta h2 {
   font-size: 36px;
   max-width: 560px;
   margin: 0 auto 18px;
   line-height: 1.15;
 }
-.spai .final-cta p {
+.spai-pricing .final-cta p {
   color: #5c5748;
   font-size: 16px;
   margin-bottom: 32px;
 }
-.spai .final-cta .btn-primary {
+.spai-pricing .final-cta .btn-primary {
   padding: 15px 32px;
   font-size: 16px;
 }
 
-.spai footer {
+.spai-pricing footer {
   padding: 48px 0;
   border-top: 1px solid var(--spai-line);
 }
-.spai footer .wrap {
+.spai-pricing footer .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
   color: var(--spai-slate);
 }
-.spai footer .foot-links {
+.spai-pricing footer .foot-links {
   display: flex;
   gap: 24px;
 }
 
 @media (max-width: 900px) {
-  .spai .pricing-grid {
+  .spai-pricing .pricing-grid {
     grid-template-columns: 1fr;
   }
-  .spai .page-head h1 {
+  .spai-pricing .page-head h1 {
     font-size: 34px;
   }
 }

@@ -40,7 +40,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="spai">
+    <div className="spai-forgot">
       <nav>
         <div className="logo">
           <span className="logo-mark">S</span>SkillProof AI

@@ -25,7 +25,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="spai">
+    <div className="spai-auth">
       <nav>
         <div className="logo">
           <span className="logo-mark">S</span>SkillProof AI

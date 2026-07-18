@@ -3,7 +3,7 @@ import './landingPage.css';
 
 export default function LandingPage() {
   return (
-    <div className="spai">
+    <div className="spai-landing">
       <nav>
         <div className="wrap">
           <div className="logo">
@@ -30,11 +30,11 @@ export default function LandingPage() {
             </h1>
             <p className="lede">
               Stop listing what you claim to know. Upload real projects, pass AI-reviewed
-              assessments, and earn badges recruiters can actually trust no interview required
+              assessments, and earn badges recruiters can actually trust — no interview required
               to prove you&apos;re for real.
             </p>
             <div className="hero-actions">
-              <Link to="/register" className="btn btn-primary">Build your profile free</Link>
+              <Link to="/register" className="btn btn-primary">Build your profile — free</Link>
               <a href="#recruiters" className="btn btn-ghost">I&apos;m hiring</a>
             </div>
             <div className="hero-note">Free forever for up to 3 projects. No credit card.</div>
@@ -50,7 +50,7 @@ export default function LandingPage() {
               <div className="card-proof">
                 <div className="proof-top">
                   <div>
-                    <div className="proof-name">Aarav Sharma</div>
+                    <div className="proof-name">Mayur Ramgir</div>
                     <div className="proof-role">Java Architecture</div>
                   </div>
                   <div className="stamp">✓ verified</div>
@@ -80,7 +80,7 @@ export default function LandingPage() {
             <p>
               Anyone can write <strong>&quot;AI engineering,&quot; &quot;DevOps,&quot; &quot;cloud architecture&quot;</strong> on
               a resume. Recruiters have no reliable way to tell a genuine expert from a confident
-              guess so every hire becomes a bet.
+              guess — so every hire becomes a bet.
             </p>
             <p>
               SkillProof AI replaces the guesswork with a paper trail: real projects, AI-reviewed

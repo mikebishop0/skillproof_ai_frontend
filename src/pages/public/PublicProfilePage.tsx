@@ -55,7 +55,7 @@ export default function PublicProfilePage() {
   };
 
   return (
-    <div className="spai">
+    <div className="spai-profile">
       <nav>
         <div className="wrap">
           <div className="logo">
