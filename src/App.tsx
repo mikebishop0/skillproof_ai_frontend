@@ -11,6 +11,7 @@ import PublicProfilePage from './pages/public/PublicProfilePage';
 import DashboardHome from './pages/candidate/DashboardHome';
 import ProfileEdit from './pages/candidate/ProfileEdit';
 import Projects from './pages/candidate/Projects';
+import ProjectForm from './pages/candidate/ProjectForm';
 import ProjectDetail from './pages/candidate/ProjectDetail';
 import Assessments from './pages/candidate/Assessments';
 import AssessmentTake from './pages/candidate/AssessmentTake';
@@ -62,7 +63,9 @@ function App() {
         <Route index element={<DashboardHome />} />
         <Route path="profile" element={<ProfileEdit />} />
         <Route path="projects" element={<Projects />} />
+        <Route path="projects/new" element={<ProjectForm />} />
         <Route path="projects/:id" element={<ProjectDetail />} />
+        <Route path="projects/:id/edit" element={<ProjectForm />} />
         <Route path="assessments" element={<Assessments />} />
         <Route path="assessments/:id/take" element={<AssessmentTake />} />
         <Route path="assessments/:id/result" element={<AssessmentResult />} />
