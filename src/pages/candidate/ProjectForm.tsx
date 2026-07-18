@@ -40,7 +40,7 @@ export default function ProjectForm() {
       <div className="dash-head">
         <div className="eyebrow">Portfolio</div>
         <h1>{isEdit ? 'Edit project' : 'Add a project'}</h1>
-        <p>Upload real evidence — our AI reviews complexity, code quality, and technical depth.</p>
+        <p>Upload real evidence - our AI reviews complexity, code quality, and technical depth.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="card" style={{ maxWidth: 560 }}>
@@ -79,7 +79,7 @@ export default function ProjectForm() {
         <div className="field">
           <label>Architecture diagrams / certificates</label>
           <input type="file" multiple />
-          <div className="field-hint">PDF, PNG, or JPG — up to 10MB each.</div>
+          <div className="field-hint">PDF, PNG, or JPG - up to 10MB each.</div>
         </div>
 
         <div className="field">

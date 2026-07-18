@@ -25,7 +25,7 @@ export default function CandidateView() {
         <div>
           <div className="eyebrow">Candidate profile</div>
           <h1>{candidate.name}</h1>
-          <p>{candidate.role} · {candidate.location}</p>
+          <p>{candidate.role} - {candidate.location}</p>
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
           <button type="button" className="btn btn-ghost" onClick={() => toggle(candidate.id)}>
@@ -73,7 +73,7 @@ export default function CandidateView() {
       </div>
 
       <div className="card" style={{ marginBottom: 16 }}>
-        <h2 style={{ fontSize: 16, marginBottom: 10 }}>Evidence — top project</h2>
+        <h2 style={{ fontSize: 16, marginBottom: 10 }}>Evidence - top project</h2>
         <h3 style={{ fontSize: 15, marginBottom: 6 }}>{candidate.topProject.title}</h3>
         <p style={{ color: 'var(--spai-slate)', fontSize: 13.5 }}>{candidate.topProject.description}</p>
       </div>

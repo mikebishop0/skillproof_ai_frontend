@@ -23,7 +23,7 @@ export default function AuthPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // No backend yet — set a mock session so the route guard and dashboards have a signed-in user to work with.
+    // No backend yet - set a mock session so the route guard and dashboards have a signed-in user to work with.
     setUser({
       id: 'mock-user',
       name: mode === 'signup' ? candidate.name : candidate.name,
@@ -47,7 +47,7 @@ export default function AuthPage() {
           <div className="eyebrow">Evidence-based hiring</div>
           <h2>Your next opportunity shouldn&apos;t hinge on a bullet point.</h2>
           <p>
-            Join a platform where your projects, assessments, and AI reviews speak for you — evidence
+            Join a platform where your projects, assessments, and AI reviews speak for you - evidence
             recruiters can actually verify.
           </p>
           <div className="mini-card">

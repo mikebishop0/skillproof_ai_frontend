@@ -30,7 +30,7 @@ export default function LandingPage() {
             </h1>
             <p className="lede">
               Stop listing what you claim to know. Upload real projects, pass AI-reviewed
-              assessments, and earn badges recruiters can actually trust — no interview required
+              assessments, and earn badges recruiters can actually trust no interview required
               to prove you&apos;re for real.
             </p>
             <div className="hero-actions">
@@ -80,7 +80,7 @@ export default function LandingPage() {
             <p>
               Anyone can write <strong>&quot;AI engineering,&quot; &quot;DevOps,&quot; &quot;cloud architecture&quot;</strong> on
               a resume. Recruiters have no reliable way to tell a genuine expert from a confident
-              guess — so every hire becomes a bet.
+              guess - so every hire becomes a bet.
             </p>
             <p>
               SkillProof AI replaces the guesswork with a paper trail: real projects, AI-reviewed
@@ -198,7 +198,7 @@ export default function LandingPage() {
       <section className="final-cta" id="recruiters">
         <div className="wrap">
           <h2>Hire on evidence, not adjectives.</h2>
-          <p>Search verified candidates and view their full evidence trail — free for recruiters.</p>
+          <p>Search verified candidates and view their full evidence trail - free for recruiters.</p>
           <Link to="/recruiter/search" className="btn btn-primary">Browse verified candidates</Link>
         </div>
       </section>

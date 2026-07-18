@@ -14,7 +14,7 @@ export const candidatePool: CandidateSummary[] = [
   {
     id: 'mayur-ramgir',
     name: 'Mayur Ramgir',
-    role: 'Java Architecture · Backend Systems',
+    role: 'Java Architecture - Backend Systems',
     location: 'Pune, India',
     score: 92,
     skills: ['Java architecture', 'Microservices design', 'Event-driven systems', 'Cloud deployment', 'Security practices'],
@@ -29,7 +29,7 @@ export const candidatePool: CandidateSummary[] = [
   {
     id: 'priya-nair',
     name: 'Priya Nair',
-    role: 'Frontend Engineer · React',
+    role: 'Frontend Engineer - React',
     location: 'Bengaluru, India',
     score: 88,
     skills: ['React', 'TypeScript', 'Accessibility', 'Performance optimization'],
@@ -43,7 +43,7 @@ export const candidatePool: CandidateSummary[] = [
   {
     id: 'arjun-mehta',
     name: 'Arjun Mehta',
-    role: 'DevOps Engineer · Cloud Infrastructure',
+    role: 'DevOps Engineer - Cloud Infrastructure',
     location: 'Hyderabad, India',
     score: 85,
     skills: ['Kubernetes', 'Terraform', 'AWS', 'CI/CD pipelines'],
@@ -57,7 +57,7 @@ export const candidatePool: CandidateSummary[] = [
   {
     id: 'sana-sheikh',
     name: 'Sana Sheikh',
-    role: 'Data Engineer · Distributed Systems',
+    role: 'Data Engineer - Distributed Systems',
     location: 'Remote',
     score: 79,
     skills: ['Apache Spark', 'Python', 'Data pipelines', 'SQL optimization'],
@@ -71,7 +71,7 @@ export const candidatePool: CandidateSummary[] = [
   {
     id: 'rohit-verma',
     name: 'Rohit Verma',
-    role: 'Security Engineer · Application Security',
+    role: 'Security Engineer - Application Security',
     location: 'Pune, India',
     score: 90,
     skills: ['Application security', 'Penetration testing', 'Threat modeling'],

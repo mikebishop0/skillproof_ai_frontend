@@ -35,7 +35,7 @@ export default function DashboardHome() {
           <div className="lbl">Badges earned</div>
         </div>
         <div className="stat-cell">
-          <div className="num">{latestScore !== null ? `${latestScore}%` : '—'}</div>
+          <div className="num">{latestScore !== null ? `${latestScore}%` : '-'}</div>
           <div className="lbl">Latest AI score</div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 export const candidate = {
   name: 'Mayur Ramgir',
-  role: 'Java Architecture · Backend Systems',
+  role: 'Java Architecture - Backend Systems',
   location: 'Pune, India',
   bio: 'Backend engineer focused on microservices architecture and event-driven systems. Open to remote roles.',
   github: 'github.com/mayurramgir',
