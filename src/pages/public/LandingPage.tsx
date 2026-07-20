@@ -48,13 +48,14 @@ export default function LandingPage() {
             <span className="logo-mark">S</span>SkillProof AI
           </div>
           <div className="nav-links">
-            <a href="#how">How it works</a>
+            <a href="#how">How it Works</a>
+            <a href="#features">Features</a>
+            <a href="#recruiters">Recruiters</a>
             <Link to="/pricing">Pricing</Link>
-            <a href="#recruiters">For recruiters</a>
           </div>
           <div className="nav-cta">
-            <Link to="/login" className="btn btn-ghost">Log in</Link>
-            <Link to="/register" className="btn btn-primary">Get verified</Link>
+            <Link to="/login" className="btn btn-ghost">Log In</Link>
+            <Link to="/register" className="btn btn-primary">Get Started</Link>
           </div>
         </div>
       </nav>
