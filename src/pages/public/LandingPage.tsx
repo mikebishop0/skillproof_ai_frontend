@@ -1,5 +1,42 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  UserRound,
+  FolderOpen,
+  ClipboardCheck,
+  Sparkles,
+  Award,
+  Share2,
+  ShieldCheck,
+  FolderKanban,
+  ClipboardList,
+  MessageCircle,
+  FileText,
+  Users,
+  TrendingUp,
+  ChevronRight,
+} from 'lucide-react';
 import './landingPage.css';
+
+const flowSteps = [
+  { icon: UserRound, title: 'Create Profile', description: 'Build your professional profile', accent: 'verified' as const },
+  { icon: FolderOpen, title: 'Upload Projects', description: 'Add projects and evidence', accent: 'claim' as const },
+  { icon: ClipboardCheck, title: 'Take Assessment', description: 'Attempt skill assessments', accent: 'verified' as const },
+  { icon: Sparkles, title: 'AI Review', description: 'AI analyzes your skills', accent: 'claim' as const },
+  { icon: Award, title: 'Earn Badge', description: 'Get verified skill badges', accent: 'verified' as const },
+  { icon: Share2, title: 'Share Profile', description: 'Share with recruiters', accent: 'claim' as const },
+];
+
+const features = [
+  { icon: ShieldCheck, title: 'AI Skill Verification', description: 'Advanced AI analyzes your projects and assessments' },
+  { icon: FolderKanban, title: 'Portfolio Showcase', description: 'Showcase your work, projects, achievements' },
+  { icon: ClipboardList, title: 'Skill Assessments', description: 'Technical tests across multiple technologies' },
+  { icon: Award, title: 'Verified Badges', description: 'Earn industry-recognized skill badges' },
+  { icon: MessageCircle, title: 'AI Career Coach', description: 'Get personalized career guidance and tips' },
+  { icon: FileText, title: 'Resume Optimizer', description: 'Improve your resume with AI suggestions' },
+  { icon: Users, title: 'Recruiter Access', description: 'Public profile accessible to recruiters' },
+  { icon: TrendingUp, title: 'Analytics & Insights', description: 'Track your progress and skill growth' },
+];
 
 export default function LandingPage() {
   return (
@@ -108,37 +145,43 @@ export default function LandingPage() {
 
       <section id="how">
         <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">How it works</div>
-            <h2>From claim to proof in five steps.</h2>
-            <p>Every badge on SkillProof AI is backed by an evidence trail a recruiter can actually inspect.</p>
+          <div className="section-head" style={{ textAlign: 'center', margin: '0 auto 48px' }}>
+            <h2>How It Works</h2>
+            <p>Simple steps to get your skills verified</p>
           </div>
-          <div className="steps">
-            <div className="step">
-              <div className="step-num">01</div>
-              <h3>Upload evidence</h3>
-              <p>Projects, GitHub links, architecture diagrams, certificates.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">02</div>
-              <h3>AI review</h3>
-              <p>Our AI evaluates complexity, code quality, and technical depth.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">03</div>
-              <h3>Take assessments</h3>
-              <p>Coding tests, architecture scenarios, real-world problems.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">04</div>
-              <h3>Earn your badge</h3>
-              <p>Verified skill badges tied to your actual score.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">05</div>
-              <h3>Share your profile</h3>
-              <p>One public link recruiters can view for free, no login.</p>
-            </div>
+          <div className="flow-steps">
+            {flowSteps.map((step, index) => (
+              <Fragment key={step.title}>
+                <div className="flow-step">
+                  <div className={`flow-icon ${step.accent === 'claim' ? 'claim' : ''}`}>
+                    <step.icon size={24} />
+                  </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+                {index < flowSteps.length - 1 && <ChevronRight className="flow-arrow" size={20} />}
+              </Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div className="wrap">
+          <div className="section-head" style={{ textAlign: 'center', margin: '0 auto 48px' }}>
+            <h2>Powerful Features</h2>
+            <p>Everything you need to prove your skills and grow your career</p>
+          </div>
+          <div className="features-grid">
+            {features.map((feature) => (
+              <div className="feature-card" key={feature.title}>
+                <div className="feature-icon">
+                  <feature.icon size={20} />
+                </div>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
