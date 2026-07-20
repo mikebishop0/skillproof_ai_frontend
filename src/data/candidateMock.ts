@@ -192,3 +192,43 @@ export const assessments: Assessment[] = [
     ],
   },
 ];
+
+export interface AiReportEntry {
+  id: string;
+  type: 'Project review' | 'Assessment scoring';
+  title: string;
+  score: number;
+  date: string;
+  strengths: string[];
+  improvements: string[];
+}
+
+const reviewedProjects = projects.filter((p) => p.status === 'reviewed');
+const completedAssessments = assessments.filter((a) => a.status === 'completed');
+
+export const aiReports: AiReportEntry[] = [
+  ...reviewedProjects.map((project, index) => ({
+    id: `project-${project.id}`,
+    type: 'Project review' as const,
+    title: project.title,
+    score: project.score as number,
+    date: ['12 Jun 2026', '28 May 2026'][index] ?? '1 Jan 2026',
+    strengths: project.strengths,
+    improvements: project.improvements,
+  })),
+  ...completedAssessments.map((assessment, index) => ({
+    id: `assessment-${assessment.id}`,
+    type: 'Assessment scoring' as const,
+    title: assessment.name,
+    score: assessment.score as number,
+    date: ['15 Jun 2026', '2 Jun 2026', '20 May 2026'][index] ?? '1 Jan 2026',
+    strengths:
+      (assessment.score as number) >= assessment.passScore
+        ? [`Cleared the ${assessment.passScore}% pass threshold`]
+        : [],
+    improvements:
+      (assessment.score as number) < assessment.passScore
+        ? [`Retake recommended to reach the ${assessment.passScore}% threshold`]
+        : [],
+  })),
+];
