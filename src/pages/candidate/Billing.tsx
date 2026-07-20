@@ -55,7 +55,7 @@ export default function Billing() {
             style={{
               fontSize: 12,
               color: 'var(--spai-claim)',
-              background: 'rgba(217,138,61,0.12)',
+              background: 'rgba(92,211,234,0.12)',
               padding: '5px 12px',
               borderRadius: 12,
             }}

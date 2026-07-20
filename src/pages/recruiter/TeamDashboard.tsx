@@ -24,7 +24,7 @@ export default function TeamDashboard() {
           style={{
             fontSize: 12,
             color: 'var(--spai-verified)',
-            background: 'rgba(47,174,122,0.12)',
+            background: 'rgba(19,170,216,0.12)',
             padding: '5px 12px',
             borderRadius: 12,
           }}

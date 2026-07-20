@@ -1,14 +1,14 @@
 .spai-pricing {
-  --spai-ink: #12151b;
-  --spai-ink-light: #1b2029;
-  --spai-ink-lighter: #242a35;
-  --spai-paper: #ede7d9;
-  --spai-verified: #2fae7a;
-  --spai-verified-dim: #1d7a56;
-  --spai-claim: #d98a3d;
-  --spai-slate: #8b93a0;
-  --spai-white: #f6f4ee;
-  --spai-line: rgba(246, 244, 238, 0.12);
+  --spai-ink: #0b1420;
+  --spai-ink-light: #10192a;
+  --spai-ink-lighter: #0e243a;
+  --spai-paper: #eaf8fc;
+  --spai-verified: #13aad8;
+  --spai-verified-dim: #0e86ac;
+  --spai-claim: #5cd3ea;
+  --spai-slate: #6b7c8c;
+  --spai-white: #ffffff;
+  --spai-line: rgba(255, 255, 255, 0.12);
 
   background: var(--spai-ink);
   color: var(--spai-white);
@@ -41,7 +41,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(18, 21, 27, 0.9);
+  background: rgba(11, 20, 32, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--spai-line);
 }
@@ -112,7 +112,7 @@
   border-color: var(--spai-verified);
 }
 .spai-pricing .btn-primary:hover {
-  background: #3ec48c;
+  background: #2fc3ec;
 }
 @media (max-width: 800px) {
   .spai-pricing .nav-links {
@@ -193,7 +193,7 @@
 }
 .spai-pricing .save-tag {
   font-size: 11px;
-  background: rgba(47, 174, 122, 0.14);
+  background: rgba(19, 170, 216, 0.14);
   color: var(--spai-verified);
   padding: 3px 9px;
   border-radius: 10px;
@@ -346,7 +346,7 @@
   font-size: 14px;
 }
 .spai-pricing tbody tr:hover {
-  background: rgba(246, 244, 238, 0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 .spai-pricing .cat-row td {
   padding-top: 26px;

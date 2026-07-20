@@ -1,14 +1,14 @@
 .spai-auth {
-  --spai-ink: #12151b;
-  --spai-ink-light: #1b2029;
-  --spai-ink-lighter: #242a35;
-  --spai-paper: #ede7d9;
-  --spai-verified: #2fae7a;
-  --spai-verified-dim: #1d7a56;
-  --spai-claim: #d98a3d;
-  --spai-slate: #8b93a0;
-  --spai-white: #f6f4ee;
-  --spai-line: rgba(246, 244, 238, 0.12);
+  --spai-ink: #0b1420;
+  --spai-ink-light: #10192a;
+  --spai-ink-lighter: #0e243a;
+  --spai-paper: #eaf8fc;
+  --spai-verified: #13aad8;
+  --spai-verified-dim: #0e86ac;
+  --spai-claim: #5cd3ea;
+  --spai-slate: #6b7c8c;
+  --spai-white: #ffffff;
+  --spai-line: rgba(255, 255, 255, 0.12);
   --spai-danger: #d96b5c;
 
   background: var(--spai-ink);
@@ -128,7 +128,7 @@
 }
 .spai-auth .mini-stamp {
   font-size: 11px;
-  background: rgba(47, 174, 122, 0.14);
+  background: rgba(19, 170, 216, 0.14);
   color: var(--spai-verified-dim);
   padding: 3px 9px;
   border-radius: 14px;
@@ -186,7 +186,7 @@
 }
 .spai-auth .role-opt.active {
   border-color: var(--spai-verified);
-  background: rgba(47, 174, 122, 0.06);
+  background: rgba(19, 170, 216, 0.06);
 }
 .spai-auth .role-opt .r-icon {
   width: 30px;
@@ -201,7 +201,7 @@
   color: var(--spai-slate);
 }
 .spai-auth .role-opt.active .r-icon {
-  background: rgba(47, 174, 122, 0.15);
+  background: rgba(19, 170, 216, 0.15);
   color: var(--spai-verified);
 }
 .spai-auth .role-opt h3 {
@@ -315,7 +315,7 @@
   border-color: var(--spai-verified);
 }
 .spai-auth .btn-primary:hover {
-  background: #3ec48c;
+  background: #2fc3ec;
 }
 
 .spai-auth .divider {

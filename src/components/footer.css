@@ -1,0 +1,140 @@
+.site-footer {
+  --sf-ink: #0b1420;
+  --sf-ink-light: #10192a;
+  --sf-verified: #13aad8;
+  --sf-slate: #6b7c8c;
+  --sf-white: #ffffff;
+  --sf-line: rgba(255, 255, 255, 0.12);
+
+  background: var(--sf-ink-light);
+  color: var(--sf-white);
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid var(--sf-line);
+  padding: 56px 0 0;
+}
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-footer-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.3fr;
+  gap: 32px;
+  padding-bottom: 40px;
+}
+.site-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.site-footer .footer-logo .logo-mark {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--sf-verified);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sf-verified);
+  font-size: 12px;
+}
+.site-footer .footer-brand p {
+  font-size: 13px;
+  color: var(--sf-slate);
+  margin-bottom: 16px;
+  max-width: 220px;
+}
+.site-footer .footer-social {
+  display: flex;
+  gap: 10px;
+}
+.site-footer .footer-social a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--sf-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sf-slate);
+  transition: all 0.15s ease;
+}
+.site-footer .footer-social a:hover {
+  color: var(--sf-white);
+  border-color: var(--sf-slate);
+}
+.site-footer .footer-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--sf-white);
+}
+.site-footer .footer-col a,
+.site-footer .footer-col span {
+  display: block;
+  font-size: 13px;
+  color: var(--sf-slate);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.site-footer .footer-col a:hover {
+  color: var(--sf-white);
+}
+.site-footer .newsletter p {
+  font-size: 13px;
+  color: var(--sf-slate);
+  margin-bottom: 12px;
+}
+.site-footer .newsletter-form {
+  display: flex;
+  border: 1px solid var(--sf-line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.site-footer .newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  background: var(--sf-ink);
+  border: none;
+  padding: 10px 12px;
+  color: var(--sf-white);
+  font-size: 13px;
+}
+.site-footer .newsletter-form input:focus {
+  outline: none;
+}
+.site-footer .newsletter-form button {
+  background: var(--sf-verified);
+  border: none;
+  color: var(--sf-ink);
+  padding: 0 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-footer .newsletter-form button:hover {
+  background: #2fc3ec;
+}
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--sf-line);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--sf-slate);
+}
+
+@media (max-width: 900px) {
+  .site-footer .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

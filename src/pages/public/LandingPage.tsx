@@ -16,6 +16,7 @@ import {
   TrendingUp,
   ChevronRight,
 } from 'lucide-react';
+import Footer from '../../components/Footer';
 import './landingPage.css';
 
 const flowSteps = [
@@ -246,16 +247,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer>
-        <div className="wrap">
-          <div>© {new Date().getFullYear()} SkillProof AI</div>
-          <div className="foot-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
