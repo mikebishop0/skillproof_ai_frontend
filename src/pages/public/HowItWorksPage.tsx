@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
+import bannerImg from '../../assets/bannerimg1.jpeg';
 import './howItWorksPage.css';
 
 const journeySteps = [
@@ -108,23 +109,7 @@ export default function HowItWorksPage() {
           </div>
           <div className="hero-visual">
             <div className="hero-scene">
-              <div className="hero-monitor">
-                <div className="hero-panel">
-                  <div className="hero-panel-top">
-                    <span>AI Assessment Platform</span>
-                    <BadgeCheck size={15} />
-                  </div>
-                  <div className="hero-panel-title">Candidate Evaluation Report</div>
-                  <div className="hero-panel-rows">
-                    <div className="hero-panel-row" />
-                    <div className="hero-panel-row short" />
-                    <div className="hero-panel-row" />
-                  </div>
-                </div>
-                <div className="hero-monitor-stand" />
-              </div>
-              <div className="hero-desk-plant" />
-              <div className="hero-desk-cup" />
+              <img src={bannerImg} alt="AI Assessment Platform dashboard" className="hero-banner-img" />
             </div>
           </div>
         </div>
