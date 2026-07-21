@@ -18,6 +18,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
+import logo from '../assets/logo1.png';
 import './dashboard.css';
 
 interface NavItem {
@@ -58,11 +59,10 @@ export default function DashboardLayout({ roleLabel, navItems }: DashboardLayout
 
   return (
     <div className="spai-dashboard">
-      <div className="dash-shell">
+      <div className={`dash-shell ${roleLabel.toLowerCase()}-shell`}>
         <aside className="dash-sidebar">
           <Link to="/" className="dash-logo">
-            <img src="/favicon.svg" alt="Zonopact" className="logo-mark" />
-            <span>Zonopact SkillProof AI</span>
+            <img src={logo} alt="SkillProof AI" className="logo-img" />
           </Link>
           <p className="dash-role">{roleLabel} workspace</p>
           <nav className="dash-nav">
