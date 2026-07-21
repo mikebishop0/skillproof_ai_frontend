@@ -58,7 +58,7 @@
   flex-shrink: 0;
 }
 .spai-how .logo-img {
-  height: 28px;
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -114,6 +114,14 @@
 @media (max-width: 800px) {
   .spai-how .nav-links {
     display: none;
+  }
+  .spai-how .logo-img {
+    height: 32px;
+  }
+}
+@media (max-width: 480px) {
+  .spai-how .logo-img {
+    height: 26px;
   }
 }
 
