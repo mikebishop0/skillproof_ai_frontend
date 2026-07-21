@@ -107,17 +107,24 @@ export default function HowItWorksPage() {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-panel">
-              <div className="hero-panel-top">
-                <span>AI Assessment Platform</span>
-                <BadgeCheck size={15} />
+            <div className="hero-scene">
+              <div className="hero-monitor">
+                <div className="hero-panel">
+                  <div className="hero-panel-top">
+                    <span>AI Assessment Platform</span>
+                    <BadgeCheck size={15} />
+                  </div>
+                  <div className="hero-panel-title">Candidate Evaluation Report</div>
+                  <div className="hero-panel-rows">
+                    <div className="hero-panel-row" />
+                    <div className="hero-panel-row short" />
+                    <div className="hero-panel-row" />
+                  </div>
+                </div>
+                <div className="hero-monitor-stand" />
               </div>
-              <div className="hero-panel-title">Candidate Evaluation Report</div>
-              <div className="hero-panel-rows">
-                <div className="hero-panel-row" />
-                <div className="hero-panel-row short" />
-                <div className="hero-panel-row" />
-              </div>
+              <div className="hero-desk-plant" />
+              <div className="hero-desk-cup" />
             </div>
           </div>
         </div>
@@ -183,6 +190,9 @@ export default function HowItWorksPage() {
                 We ensure the work belongs to the person claiming it. Biometric monitoring and
                 code-style fingerprinting maintain the highest trust levels.
               </p>
+              <div className="globe-frame">
+                <div className="globe" />
+              </div>
             </div>
 
             <div className="engine-card">
@@ -226,6 +236,14 @@ export default function HowItWorksPage() {
                   <span>AWS</span>
                   <span>Kubernetes</span>
                 </div>
+                <svg className="engine-report-graph" viewBox="0 0 300 50" preserveAspectRatio="none">
+                  <polyline
+                    points="0,40 40,30 80,34 120,18 160,24 200,10 240,16 300,4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
               </div>
             </div>
           </div>
@@ -234,7 +252,19 @@ export default function HowItWorksPage() {
 
       <section className="how-hiring">
         <div className="wrap how-hiring-grid">
-          <div className="hiring-visual" />
+          <div className="hiring-visual">
+            <div className="hiring-board">
+              <svg viewBox="0 0 200 70" preserveAspectRatio="none">
+                <polyline points="0,55 30,40 60,45 90,20 120,30 150,12 180,22" fill="none" stroke="#0058be" strokeWidth="2.5" />
+                <polyline points="0,60 30,58 60,50 90,52 120,40 150,44 180,35" fill="none" stroke="#22c07a" strokeWidth="2.5" />
+              </svg>
+            </div>
+            <div className="hiring-people">
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
           <div>
             <h2>Evidence-Based Hiring</h2>
             <p>Stop gambling on interviews. Start hiring with the confidence of verified evidence.</p>

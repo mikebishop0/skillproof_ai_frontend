@@ -302,6 +302,7 @@
   background: none;
   color: inherit;
   font-family: inherit;
+  transition: all 0.2s ease;
 }
 .spai-auth .btn-primary {
   background: var(--spai-verified);
@@ -310,6 +311,8 @@
 }
 .spai-auth .btn-primary:hover {
   background: #1a73d1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 88, 190, 0.28);
 }
 
 .spai-auth .divider {

@@ -136,6 +136,7 @@
   border: 1px solid var(--spai-line);
   border-radius: 12px;
   padding: 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
 }
 
 /* STAT GRID (reused pattern from profile page score strip) */
@@ -179,6 +180,7 @@
   background: none;
   color: inherit;
   font-family: inherit;
+  transition: all 0.2s ease;
 }
 .spai-dashboard .btn-ghost {
   color: var(--spai-white);
@@ -193,6 +195,8 @@
 }
 .spai-dashboard .btn-primary:hover {
   background: #1a73d1;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 88, 190, 0.22);
 }
 .spai-dashboard .btn-danger {
   color: var(--spai-danger);

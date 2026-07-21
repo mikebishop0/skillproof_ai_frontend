@@ -16,6 +16,10 @@
   --font-sans: 'Open Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #root {

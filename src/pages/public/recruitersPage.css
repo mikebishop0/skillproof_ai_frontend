@@ -112,6 +112,8 @@
 }
 .spai-recruiters .btn-primary:hover {
   background: #1a73d1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 88, 190, 0.28);
 }
 .spai-recruiters .btn-small {
   padding: 8px 16px;
@@ -243,6 +245,12 @@
   border-top: 3px solid var(--spai-verified);
   border-radius: 12px;
   padding: 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.spai-recruiters .candidate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.1);
 }
 .spai-recruiters .candidate-top {
   display: flex;
@@ -395,6 +403,11 @@
   padding: 14px;
   font-size: 13px;
   color: var(--spai-slate);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.spai-recruiters .placement-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
 }
 .spai-recruiters .placement-card svg {
   color: var(--spai-verified);
@@ -417,6 +430,12 @@
   border: 1px solid var(--spai-line);
   border-radius: 14px;
   padding: 26px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.spai-recruiters .intel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.1);
 }
 .spai-recruiters .intel-card-dark {
   background: var(--spai-ink);

@@ -63,8 +63,10 @@
   transition: all 0.15s ease;
 }
 .site-footer .footer-social a:hover {
-  color: var(--sf-white);
-  border-color: var(--sf-slate);
+  color: #ffffff;
+  background: var(--sf-verified);
+  border-color: var(--sf-verified);
+  transform: translateY(-3px);
 }
 .site-footer .footer-col h4 {
   font-size: 13px;
@@ -115,6 +117,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.2s ease;
 }
 .site-footer .newsletter-form button:hover {
   background: #1a73d1;
