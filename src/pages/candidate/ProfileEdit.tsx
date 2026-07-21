@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { BriefcaseBusiness, CheckCircle2, Code2, Link2, MapPin, Sparkles } from 'lucide-react';
 import { candidate, skills as initialSkills } from '../../data/candidateMock';
 
 export default function ProfileEdit() {
@@ -11,6 +12,8 @@ export default function ProfileEdit() {
   const [linkedin, setLinkedin] = useState(candidate.linkedin);
   const [skillTags, setSkillTags] = useState(initialSkills.map((s) => s.name));
   const [skillInput, setSkillInput] = useState('');
+  const completedFields = [name, role, location, bio, github, linkedin, skillTags.length > 0].filter(Boolean).length;
+  const profileCompletion = Math.round((completedFields / 7) * 100);
 
   const addSkill = () => {
     const value = skillInput.trim();
@@ -37,7 +40,12 @@ export default function ProfileEdit() {
         <p>This is what recruiters see on your public evidence page.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="card" style={{ maxWidth: 560 }}>
+      <div className="profile-editor-layout">
+      <form onSubmit={handleSubmit} className="card profile-form-card">
+        <div className="profile-form-heading">
+          <div><span>Public profile details</span><p>Keep this clear, specific, and easy to verify.</p></div>
+          <div className="profile-completion">{profileCompletion}% complete</div>
+        </div>
         <div className="field-row">
           <div className="field">
             <label htmlFor="name">Full name</label>
@@ -104,6 +112,30 @@ export default function ProfileEdit() {
           Save profile
         </button>
       </form>
+      <aside className="profile-preview-column">
+        <div className="profile-preview-card">
+          <div className="profile-preview-top">
+            <div className="profile-avatar-large">{name.charAt(0) || 'M'}</div>
+            <div className="profile-ready"><CheckCircle2 size={14} /> Recruiter ready</div>
+          </div>
+          <h2>{name || 'Your name'}</h2>
+          <p className="profile-preview-role"><BriefcaseBusiness size={15} /> {role || 'Your professional title'}</p>
+          <p className="profile-preview-location"><MapPin size={15} /> {location || 'Add your location'}</p>
+          <p className="profile-preview-bio">{bio || 'Add a short introduction so recruiters understand your strengths.'}</p>
+          <div className="preview-skill-list">
+            {skillTags.slice(0, 4).map((skill) => <span key={skill}>{skill}</span>)}
+            {skillTags.length > 4 && <span>+{skillTags.length - 4}</span>}
+          </div>
+          <div className="preview-links">
+            <span><Code2 size={15} /> GitHub</span><span><Link2 size={15} /> LinkedIn</span>
+          </div>
+        </div>
+        <div className="profile-tips-card">
+          <div className="profile-tips-icon"><Sparkles size={18} /></div>
+          <div><h3>Make a stronger first impression</h3><p>Add evidence-rich skills and a concise bio so recruiters can understand your impact in seconds.</p></div>
+        </div>
+      </aside>
+      </div>
     </div>
   );
 }
