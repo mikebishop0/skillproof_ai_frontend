@@ -67,9 +67,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   position: relative;
   overflow: hidden;
   border-right: 1px solid var(--spai-line);
+}
+.spai-auth .side-glow {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 88, 190, 0.14), transparent 70%);
+  pointer-events: none;
+}
+.spai-auth .side-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .spai-auth .side .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
@@ -138,6 +157,41 @@
   font-size: 12px;
   color: #6b7280;
   margin-top: 2px;
+}
+.spai-auth .side-stats {
+  display: flex;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--spai-line);
+  max-width: 400px;
+}
+.spai-auth .side-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.spai-auth .side-stat svg {
+  color: var(--spai-verified);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.spai-auth .side-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.spai-auth .side-stat-label {
+  font-size: 11.5px;
+  color: var(--spai-slate);
+  margin-top: 2px;
+}
+.spai-auth .side-trust {
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: var(--spai-slate);
+  max-width: 360px;
 }
 
 /* RIGHT: form */

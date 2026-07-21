@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { Users, ShieldCheck, TrendingUp } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { candidate } from '../../data/candidateMock';
 import logo from '../../assets/logo1.png';
@@ -8,6 +9,12 @@ import './authPage.css';
 
 type Mode = 'login' | 'signup';
 type Role = 'candidate' | 'recruiter';
+
+const trustStats = [
+  { icon: Users, value: '50K+', label: 'Verified profiles' },
+  { icon: ShieldCheck, value: '98.4%', label: 'AI accuracy' },
+  { icon: TrendingUp, value: '600+', label: 'Companies hiring' },
+];
 
 export default function AuthPage() {
   const location = useLocation();
@@ -45,19 +52,39 @@ export default function AuthPage() {
 
       <div className="page">
         <div className="side">
-          <div className="eyebrow">Evidence-based hiring</div>
-          <h2>Your next opportunity shouldn&apos;t hinge on a bullet point.</h2>
-          <p>
-            Join a platform where your projects, assessments, and AI reviews speak for you evidence
-            recruiters can actually verify.
-          </p>
-          <div className="mini-card">
-            <div className="mini-top">
-              <div className="mini-name">Mayur Ramgir</div>
-              <div className="mini-stamp">✓ verified</div>
+          <div className="side-glow" />
+          <div className="side-content">
+            <div className="eyebrow">Evidence-based hiring</div>
+            <h2>Your next opportunity shouldn&apos;t hinge on a bullet point.</h2>
+            <p>
+              Join a platform where your projects, assessments, and AI reviews speak for you
+              evidence recruiters can actually verify.
+            </p>
+
+            <div className="mini-card">
+              <div className="mini-top">
+                <div className="mini-name">Mayur Ramgir</div>
+                <div className="mini-stamp">✓ verified</div>
+              </div>
+              <div className="mini-score">92%</div>
+              <div className="mini-label">Java architecture score</div>
             </div>
-            <div className="mini-score">92%</div>
-            <div className="mini-label">Java architecture score</div>
+
+            <div className="side-stats">
+              {trustStats.map((stat) => (
+                <div className="side-stat" key={stat.label}>
+                  <stat.icon size={16} />
+                  <div>
+                    <div className="side-stat-value">{stat.value}</div>
+                    <div className="side-stat-label">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="side-trust">
+              Trusted by engineering teams at CloudScale, NeoVibe, and 600+ more.
+            </p>
           </div>
         </div>
 
