@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '../../store/authStore';
 import { candidate } from '../../data/candidateMock';
+import logo from '../../assets/logo1.png';
 import './authPage.css';
 
 type Mode = 'login' | 'signup';
@@ -38,7 +39,7 @@ export default function AuthPage() {
     <div className="spai-auth">
       <nav>
         <div className="logo">
-          <span className="logo-mark">S</span>SkillProof AI
+          <img src={logo} alt="SkillProof AI" className="logo-img" />
         </div>
       </nav>
 

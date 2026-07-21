@@ -1,14 +1,14 @@
 .spai-auth {
-  --spai-ink: #0b1420;
-  --spai-ink-light: #10192a;
-  --spai-ink-lighter: #0e243a;
-  --spai-paper: #eaf8fc;
-  --spai-verified: #13aad8;
-  --spai-verified-dim: #0e86ac;
-  --spai-claim: #5cd3ea;
-  --spai-slate: #6b7c8c;
-  --spai-white: #ffffff;
-  --spai-line: rgba(255, 255, 255, 0.12);
+  --spai-ink: #ffffff;
+  --spai-ink-light: #f5f8fc;
+  --spai-ink-lighter: #eaf1fb;
+  --spai-paper: #e5eefb;
+  --spai-verified: #0058be;
+  --spai-verified-dim: #003f8a;
+  --spai-claim: #003f8a;
+  --spai-slate: #64748b;
+  --spai-white: #0f172a;
+  --spai-line: rgba(15, 23, 42, 0.1);
   --spai-danger: #d96b5c;
 
   background: var(--spai-ink);
@@ -48,16 +48,10 @@
   font-size: 17px;
   font-weight: 600;
 }
-.spai-auth .logo-mark {
-  width: 24px;
-  height: 24px;
-  border: 1.5px solid var(--spai-verified);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--spai-verified);
-  font-size: 12px;
+.spai-auth .logo-img {
+  height: 26px;
+  width: auto;
+  display: block;
 }
 
 .spai-auth .page {
@@ -108,8 +102,8 @@
   margin-bottom: 36px;
 }
 .spai-auth .mini-card {
-  background: var(--spai-white);
-  color: var(--spai-ink);
+  background: #ffffff;
+  color: #0f172a;
   border-radius: 12px;
   padding: 20px 22px;
   max-width: 340px;
@@ -128,7 +122,7 @@
 }
 .spai-auth .mini-stamp {
   font-size: 11px;
-  background: rgba(19, 170, 216, 0.14);
+  background: rgba(0, 88, 190, 0.14);
   color: var(--spai-verified-dim);
   padding: 3px 9px;
   border-radius: 14px;
@@ -186,7 +180,7 @@
 }
 .spai-auth .role-opt.active {
   border-color: var(--spai-verified);
-  background: rgba(19, 170, 216, 0.06);
+  background: rgba(0, 88, 190, 0.06);
 }
 .spai-auth .role-opt .r-icon {
   width: 30px;
@@ -201,7 +195,7 @@
   color: var(--spai-slate);
 }
 .spai-auth .role-opt.active .r-icon {
-  background: rgba(19, 170, 216, 0.15);
+  background: rgba(0, 88, 190, 0.15);
   color: var(--spai-verified);
 }
 .spai-auth .role-opt h3 {
@@ -315,7 +309,7 @@
   border-color: var(--spai-verified);
 }
 .spai-auth .btn-primary:hover {
-  background: #2fc3ec;
+  background: #1a73d1;
 }
 
 .spai-auth .divider {

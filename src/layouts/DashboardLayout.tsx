@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
+import logo from '../assets/logo1.png';
 import './dashboard.css';
 
 interface NavItem {
@@ -27,7 +28,7 @@ export default function DashboardLayout({ roleLabel, navItems }: DashboardLayout
       <div className="dash-shell">
         <aside className="dash-sidebar">
           <Link to="/" className="dash-logo">
-            <span className="logo-mark">S</span>SkillProof AI
+            <img src={logo} alt="SkillProof AI" className="logo-img" />
           </Link>
           <p className="dash-role">{roleLabel}</p>
           <nav className="dash-nav">

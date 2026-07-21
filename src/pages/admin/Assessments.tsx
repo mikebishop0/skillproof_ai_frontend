@@ -102,7 +102,7 @@ export default function AdminAssessments() {
                   fontSize: 11.5,
                   textTransform: 'uppercase',
                   color: assessment.status === 'published' ? 'var(--spai-verified)' : 'var(--spai-slate)',
-                  background: assessment.status === 'published' ? 'rgba(19,170,216,0.12)' : 'var(--spai-ink-lighter)',
+                  background: assessment.status === 'published' ? 'rgba(0,88,190,0.12)' : 'var(--spai-ink-lighter)',
                   padding: '3px 9px',
                   borderRadius: 10,
                 }}

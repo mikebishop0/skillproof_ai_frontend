@@ -15,8 +15,13 @@ import {
   Users,
   TrendingUp,
   ChevronRight,
+  BarChart3,
+  Fingerprint,
+  Brain,
+  CheckCircle2,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
+import logo from '../../assets/logo1.png';
 import './landingPage.css';
 
 const flowSteps = [
@@ -45,12 +50,12 @@ export default function LandingPage() {
       <nav>
         <div className="wrap">
           <div className="logo">
-            <span className="logo-mark">S</span>SkillProof AI
+            <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <div className="nav-links">
             <a href="#how">How it Works</a>
-            <a href="#features">Features</a>
-            <a href="#recruiters">Recruiters</a>
+            <Link to="/features">Features</Link>
+            <Link to="/recruiters">Recruiters</Link>
             <Link to="/pricing">Pricing</Link>
           </div>
           <div className="nav-cta">
@@ -184,6 +189,94 @@ export default function LandingPage() {
                 <p>{feature.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="engine">
+        <div className="wrap">
+          <div className="section-head" style={{ textAlign: 'center', margin: '0 auto 48px' }}>
+            <h2>The SkillProof AI Engine</h2>
+            <p>We don&apos;t just look at code. We look at context, creativity, and critical thinking.</p>
+          </div>
+          <div className="engine-grid">
+            <div className="engine-card engine-card-wide">
+              <div className="engine-icon">
+                <BarChart3 size={22} />
+              </div>
+              <h3>Multimodal Evidence Analysis</h3>
+              <p>
+                Our engine parses video transcripts, commit history, and technical architecture
+                diagrams to identify the specific contributions of a candidate.
+              </p>
+              <ul className="engine-checklist">
+                <li><CheckCircle2 size={15} /> Code Quality &amp; Scalability</li>
+                <li><CheckCircle2 size={15} /> Communication Effectiveness</li>
+                <li><CheckCircle2 size={15} /> Logical Reasoning Depth</li>
+              </ul>
+              <div className="engine-mock">
+                <div className="engine-mock-bar" />
+                <div className="engine-mock-bar short" />
+                <div className="engine-mock-chart">
+                  <TrendingUp size={28} />
+                </div>
+              </div>
+            </div>
+
+            <div className="engine-card engine-card-accent">
+              <div className="engine-icon">
+                <Fingerprint size={22} />
+              </div>
+              <h3>Advanced Anti-Fraud</h3>
+              <p>
+                We ensure the work belongs to the person claiming it. Biometric monitoring and
+                code-style fingerprinting maintain the highest trust levels.
+              </p>
+            </div>
+
+            <div className="engine-card">
+              <div className="engine-icon">
+                <Brain size={22} />
+              </div>
+              <h3>Adaptive Challenges</h3>
+              <p>
+                The AI adjusts difficulty in real-time, identifying the ceiling of a candidate&apos;s
+                skill rather than just checking for &quot;passed&quot; answers.
+              </p>
+              <div className="engine-difficulty">
+                <div className="engine-difficulty-label">Current difficulty: Senior III</div>
+                <div className="engine-bar-track">
+                  <div className="engine-bar-fill" style={{ width: '82%' }} />
+                </div>
+              </div>
+            </div>
+
+            <div className="engine-card engine-card-wide">
+              <div className="engine-card-top">
+                <div>
+                  <h3>Recruiter Transparency</h3>
+                  <p>Eliminate resume bias with direct evidence links.</p>
+                </div>
+                <Link to="/profile/mayur-ramgir" className="btn btn-primary btn-small">
+                  View Sample Report
+                </Link>
+              </div>
+              <div className="engine-report-mock">
+                <div className="engine-report-row">
+                  <div className="engine-report-avatar">M</div>
+                  <div>
+                    <div className="engine-report-name">Mayur Ramgir</div>
+                    <div className="engine-report-role">Java Architecture, Verified</div>
+                  </div>
+                </div>
+                <div className="engine-report-tags">
+                  <span>Python</span>
+                  <span>System Design</span>
+                  <span>AWS</span>
+                  <span>Kubernetes</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

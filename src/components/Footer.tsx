@@ -1,6 +1,7 @@
 import { Globe, Share2, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import logo from '../assets/logo1.png';
 import './footer.css';
 
 export default function Footer() {
@@ -15,7 +16,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="logo-mark">S</span>SkillProof AI
+              <img src={logo} alt="SkillProof AI" className="logo-img" />
             </div>
             <p>Turn skills into verifiable evidence with AI.</p>
             <div className="footer-social">

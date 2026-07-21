@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo1.png';
 import './forgotPasswordPage.css';
 
 type Step = 'request' | 'otp' | 'new-password' | 'success';
@@ -43,7 +44,7 @@ export default function ForgotPasswordPage() {
     <div className="spai-forgot">
       <nav>
         <div className="logo">
-          <span className="logo-mark">S</span>SkillProof AI
+          <img src={logo} alt="SkillProof AI" className="logo-img" />
         </div>
       </nav>
 

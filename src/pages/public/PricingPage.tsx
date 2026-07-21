@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo1.png';
 import './pricingPage.css';
 
 const compareRows: Array<
@@ -65,12 +66,12 @@ export default function PricingPage() {
       <nav>
         <div className="wrap">
           <div className="logo">
-            <span className="logo-mark">S</span>SkillProof AI
+            <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <div className="nav-links">
             <a href="/#how">How it Works</a>
-            <a href="/#features">Features</a>
-            <a href="/#recruiters">Recruiters</a>
+            <Link to="/features">Features</Link>
+            <Link to="/recruiters">Recruiters</Link>
             <Link to="/pricing" className="active">Pricing</Link>
           </div>
           <div className="nav-cta">

@@ -8,6 +8,8 @@ import PricingPage from './pages/public/PricingPage';
 import AuthPage from './pages/public/AuthPage';
 import ForgotPasswordPage from './pages/public/ForgotPasswordPage';
 import PublicProfilePage from './pages/public/PublicProfilePage';
+import RecruitersPage from './pages/public/RecruitersPage';
+import FeaturesPage from './pages/public/FeaturesPage';
 
 import DashboardHome from './pages/candidate/DashboardHome';
 import ProfileEdit from './pages/candidate/ProfileEdit';
@@ -67,6 +69,8 @@ function App() {
       {/* Standalone pages (ship their own nav/footer) */}
       <Route path="/" element={<LandingPage />} />
       <Route path="pricing" element={<PricingPage />} />
+      <Route path="recruiters" element={<RecruitersPage />} />
+      <Route path="features" element={<FeaturesPage />} />
       <Route path="profile/:username" element={<PublicProfilePage />} />
       <Route path="login" element={<AuthPage />} />
       <Route path="register" element={<AuthPage />} />

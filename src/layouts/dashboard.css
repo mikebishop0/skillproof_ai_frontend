@@ -1,14 +1,14 @@
 .spai-dashboard {
-  --spai-ink: #0b1420;
-  --spai-ink-light: #10192a;
-  --spai-ink-lighter: #0e243a;
-  --spai-paper: #eaf8fc;
-  --spai-verified: #13aad8;
-  --spai-verified-dim: #0e86ac;
-  --spai-claim: #5cd3ea;
-  --spai-slate: #6b7c8c;
-  --spai-white: #ffffff;
-  --spai-line: rgba(255, 255, 255, 0.12);
+  --spai-ink: #ffffff;
+  --spai-ink-light: #f5f8fc;
+  --spai-ink-lighter: #eaf1fb;
+  --spai-paper: #e5eefb;
+  --spai-verified: #0058be;
+  --spai-verified-dim: #003f8a;
+  --spai-claim: #003f8a;
+  --spai-slate: #64748b;
+  --spai-white: #0f172a;
+  --spai-line: rgba(15, 23, 42, 0.1);
   --spai-danger: #d96b5c;
 
   background: var(--spai-ink);
@@ -58,16 +58,10 @@
   font-weight: 600;
   padding: 0 8px;
 }
-.spai-dashboard .logo-mark {
-  width: 22px;
+.spai-dashboard .logo-img {
   height: 22px;
-  border: 1.5px solid var(--spai-verified);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--spai-verified);
-  font-size: 11px;
+  width: auto;
+  display: block;
 }
 .spai-dashboard .dash-role {
   font-family: 'IBM Plex Mono', monospace;
@@ -97,7 +91,7 @@
 }
 .spai-dashboard .dash-nav a.active {
   color: var(--spai-verified);
-  background: rgba(19, 170, 216, 0.1);
+  background: rgba(0, 88, 190, 0.1);
 }
 
 /* MAIN */
@@ -198,7 +192,7 @@
   border-color: var(--spai-verified);
 }
 .spai-dashboard .btn-primary:hover {
-  background: #2fc3ec;
+  background: #1a73d1;
 }
 .spai-dashboard .btn-danger {
   color: var(--spai-danger);
@@ -318,7 +312,7 @@
   flex-shrink: 0;
 }
 .spai-dashboard .toggle.on {
-  background: rgba(19, 170, 216, 0.25);
+  background: rgba(0, 88, 190, 0.25);
   border-color: var(--spai-verified);
 }
 .spai-dashboard .toggle-dot {

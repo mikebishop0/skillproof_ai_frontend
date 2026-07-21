@@ -93,7 +93,7 @@ export default function AssessmentTake() {
                     answers[question.id] === option
                       ? '1px solid var(--spai-verified)'
                       : '1px solid var(--spai-line)',
-                  background: answers[question.id] === option ? 'rgba(19,170,216,0.06)' : 'transparent',
+                  background: answers[question.id] === option ? 'rgba(0,88,190,0.06)' : 'transparent',
                   cursor: 'pointer',
                   fontSize: 14,
                 }}

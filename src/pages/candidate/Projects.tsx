@@ -57,7 +57,7 @@ export default function Projects() {
                   style={{
                     fontSize: 12,
                     color: 'var(--spai-verified)',
-                    background: 'rgba(19,170,216,0.12)',
+                    background: 'rgba(0,88,190,0.12)',
                     padding: '3px 9px',
                     borderRadius: 12,
                     whiteSpace: 'nowrap',

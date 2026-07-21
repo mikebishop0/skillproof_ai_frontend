@@ -1,14 +1,14 @@
 .spai-profile {
-  --spai-ink: #0b1420;
-  --spai-ink-light: #10192a;
-  --spai-ink-lighter: #0e243a;
-  --spai-paper: #eaf8fc;
-  --spai-verified: #13aad8;
-  --spai-verified-dim: #0e86ac;
-  --spai-claim: #5cd3ea;
-  --spai-slate: #6b7c8c;
-  --spai-white: #ffffff;
-  --spai-line: rgba(255, 255, 255, 0.12);
+  --spai-ink: #ffffff;
+  --spai-ink-light: #f5f8fc;
+  --spai-ink-lighter: #eaf1fb;
+  --spai-paper: #e5eefb;
+  --spai-verified: #0058be;
+  --spai-verified-dim: #003f8a;
+  --spai-claim: #003f8a;
+  --spai-slate: #64748b;
+  --spai-white: #0f172a;
+  --spai-line: rgba(15, 23, 42, 0.1);
 
   background: var(--spai-ink);
   color: var(--spai-white);
@@ -41,7 +41,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(11, 20, 32, 0.92);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--spai-line);
 }
@@ -59,16 +59,10 @@
   font-size: 17px;
   font-weight: 600;
 }
-.spai-profile .logo-mark {
-  width: 24px;
-  height: 24px;
-  border: 1.5px solid var(--spai-verified);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--spai-verified);
-  font-size: 12px;
+.spai-profile .logo-img {
+  height: 26px;
+  width: auto;
+  display: block;
 }
 .spai-profile .btn {
   padding: 9px 18px;
@@ -97,7 +91,7 @@
   border-color: var(--spai-verified);
 }
 .spai-profile .btn-primary:hover {
-  background: #2fc3ec;
+  background: #1a73d1;
 }
 
 /* HERO */
@@ -145,14 +139,14 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(19, 170, 216, 0.12);
+  background: rgba(0, 88, 190, 0.12);
   color: var(--spai-verified-dim);
   padding: 5px 11px;
   border-radius: 20px;
   font-size: 11.5px;
   font-weight: 600;
   font-family: 'IBM Plex Mono', monospace;
-  border: 1px solid rgba(19, 170, 216, 0.35);
+  border: 1px solid rgba(0, 88, 190, 0.35);
 }
 .spai-profile .role {
   color: var(--spai-slate);
@@ -271,7 +265,7 @@
   font-size: 17px;
 }
 .spai-profile .project-score {
-  background: rgba(19, 170, 216, 0.12);
+  background: rgba(0, 88, 190, 0.12);
   color: var(--spai-verified);
   font-size: 13px;
   font-weight: 600;
@@ -368,8 +362,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(19, 170, 216, 0.12);
-  border: 1px solid rgba(19, 170, 216, 0.35);
+  background: rgba(0, 88, 190, 0.12);
+  border: 1px solid rgba(0, 88, 190, 0.35);
   color: var(--spai-verified);
   display: flex;
   align-items: center;
@@ -420,7 +414,7 @@
 /* CTA banner */
 .spai-profile .cta-banner {
   background: var(--spai-paper);
-  color: var(--spai-ink);
+  color: var(--spai-white);
   border-radius: 14px;
   padding: 36px 40px;
   display: flex;

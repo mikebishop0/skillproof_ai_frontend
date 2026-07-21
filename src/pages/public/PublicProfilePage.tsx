@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo1.png';
 import './profilePage.css';
 
 const skills = [
@@ -59,7 +60,7 @@ export default function PublicProfilePage() {
       <nav>
         <div className="wrap">
           <div className="logo">
-            <span className="logo-mark">S</span>SkillProof AI
+            <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <Link to="/register" className="btn btn-primary">Create your own profile</Link>
         </div>

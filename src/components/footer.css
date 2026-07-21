@@ -1,10 +1,10 @@
 .site-footer {
-  --sf-ink: #0b1420;
-  --sf-ink-light: #10192a;
-  --sf-verified: #13aad8;
-  --sf-slate: #6b7c8c;
-  --sf-white: #ffffff;
-  --sf-line: rgba(255, 255, 255, 0.12);
+  --sf-ink: #ffffff;
+  --sf-ink-light: #f5f8fc;
+  --sf-verified: #0058be;
+  --sf-slate: #64748b;
+  --sf-white: #0f172a;
+  --sf-line: rgba(15, 23, 42, 0.1);
 
   background: var(--sf-ink-light);
   color: var(--sf-white);
@@ -36,16 +36,10 @@
   font-weight: 600;
   margin-bottom: 12px;
 }
-.site-footer .footer-logo .logo-mark {
-  width: 24px;
+.site-footer .footer-logo .logo-img {
   height: 24px;
-  border: 1.5px solid var(--sf-verified);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--sf-verified);
-  font-size: 12px;
+  width: auto;
+  display: block;
 }
 .site-footer .footer-brand p {
   font-size: 13px;
@@ -123,7 +117,7 @@
   justify-content: center;
 }
 .site-footer .newsletter-form button:hover {
-  background: #2fc3ec;
+  background: #1a73d1;
 }
 .site-footer .footer-bottom {
   border-top: 1px solid var(--sf-line);
