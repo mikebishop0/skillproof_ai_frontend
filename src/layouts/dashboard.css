@@ -574,3 +574,43 @@
   .spai-dashboard .profile-form-heading { display: block; }
   .spai-dashboard .profile-completion { display: inline-block; margin-top: 10px; }
 }
+
+/* Candidate badges */
+.spai-dashboard .badges-summary-row { display: flex; align-items: center; gap: 26px; padding: 18px 24px; border: 1px solid #dbe9fb; border-radius: 16px; background: linear-gradient(110deg, #f5f9ff, #eaf3ff); margin-bottom: 20px; }
+.spai-dashboard .badges-summary-row > div:not(.badges-summary-divider):not(.badges-summary-mark) { display: grid; gap: 1px; }
+.spai-dashboard .badges-summary-row span { color: #557092; font-size: 11px; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .05em; }
+.spai-dashboard .badges-summary-row strong { color: #123768; font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; }
+.spai-dashboard .badges-summary-row p { color: var(--spai-slate); font-size: 11.5px; }
+.spai-dashboard .badges-summary-divider { height: 46px; width: 1px; background: #cfe0f5; }
+.spai-dashboard .badges-summary-mark { margin-left: auto; display: grid; place-items: center; color: #0764cf; width: 50px; height: 50px; border-radius: 14px; background: #dcecff; }
+.spai-dashboard .badges-grid { margin-bottom: 22px; }
+.spai-dashboard .badge-choice { cursor: pointer; text-align: left; padding: 22px !important; border: 1px solid #dfe7f0 !important; background: #fff; }
+.spai-dashboard .badge-choice.selected { border: 1.5px solid var(--spai-verified) !important; background: linear-gradient(145deg, #fff, #eff6ff); box-shadow: 0 12px 26px rgba(0, 88, 190, .1); }
+.spai-dashboard .badge-choice-icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 16px; color: var(--spai-verified); background: #e2efff; border: 1px solid #9ec5fa; border-radius: 14px; }
+.spai-dashboard .badge-choice-label { color: var(--spai-verified); font-size: 10px; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+.spai-dashboard .badge-choice h3 { font-family: 'Fraunces', serif; font-size: 17px !important; margin: 6px 0 5px; }
+.spai-dashboard .badge-choice .mono { color: var(--spai-slate); font-size: 11.5px; }
+.spai-dashboard .badges-detail-grid { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(260px, .62fr); gap: 20px; max-width: 990px; }
+.spai-dashboard .badge-certificate-card { position: relative; overflow: hidden; min-height: 328px; padding: 28px 34px; text-align: center; border: 1px solid #d8e5f4; border-radius: 17px; background: linear-gradient(145deg, #fff, #f4f8fe); box-shadow: 0 14px 28px rgba(15, 23, 42, .045); }
+.spai-dashboard .certificate-watermark { position: absolute; right: -36px; top: -46px; color: #dfeeff; opacity: .7; }
+.spai-dashboard .badge-certificate-card .eyebrow { position: relative; justify-content: center; }
+.spai-dashboard .certificate-medallion { position: relative; display: grid; place-items: center; width: 60px; height: 60px; margin: 14px auto; border: 1px solid #79adef; border-radius: 50%; color: var(--spai-verified); background: #e1efff; }
+.spai-dashboard .certificate-issued, .spai-dashboard .certificate-title { position: relative; color: var(--spai-slate); font-size: 12px; }
+.spai-dashboard .badge-certificate-card h2 { position: relative; color: #102c52; font-family: 'Fraunces', serif; font-size: 24px; margin: 5px 0 12px; }
+.spai-dashboard .badge-certificate-card h3 { position: relative; color: #075abb; font-family: 'Fraunces', serif; font-size: 20px; margin: 5px 0; }
+.spai-dashboard .certificate-date { position: relative; color: #526c91; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; }
+.spai-dashboard .certificate-actions { position: relative; display: flex; justify-content: center; gap: 9px; margin-top: 20px; }
+.spai-dashboard .badge-side-stack { display: grid; gap: 16px; align-content: start; }
+.spai-dashboard .badge-insight-card, .spai-dashboard .badge-share-card { border-radius: 16px; padding: 20px; }
+.spai-dashboard .badge-insight-card { display: flex; gap: 12px; background: #f0f7ff; border: 1px solid #d8e9fc; }
+.spai-dashboard .badge-insight-icon { display: grid; place-items: center; flex: 0 0 38px; height: 38px; border-radius: 11px; color: var(--spai-verified); background: #dcecff; }
+.spai-dashboard .badge-insight-card span, .spai-dashboard .badge-share-card > span { color: var(--spai-verified); font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
+.spai-dashboard .badge-insight-card h2, .spai-dashboard .badge-share-card h2 { color: #18375f; font-size: 17px; margin: 5px 0; }
+.spai-dashboard .badge-insight-card p, .spai-dashboard .badge-share-card p { color: var(--spai-slate); font-size: 12px; line-height: 1.5; }
+.spai-dashboard .badge-share-card { background: #10254a; color: #fff; }
+.spai-dashboard .badge-share-card h2 { color: #fff; }
+.spai-dashboard .badge-share-card p { color: #cedcf0; }
+.spai-dashboard .badge-share-card > span { color: #9dc8ff; }
+.spai-dashboard .badge-link-button { padding: 0; margin-top: 14px; border: 0; background: none; color: #fff; display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+@media (max-width: 880px) { .spai-dashboard .badges-detail-grid { grid-template-columns: 1fr; } .spai-dashboard .badge-side-stack { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .spai-dashboard .badges-summary-row { gap: 15px; padding: 15px; } .spai-dashboard .badges-summary-divider, .spai-dashboard .badges-summary-mark { display: none; } .spai-dashboard .badge-side-stack { grid-template-columns: 1fr; } .spai-dashboard .badge-certificate-card { padding: 24px 16px; } .spai-dashboard .certificate-actions { flex-direction: column; } }

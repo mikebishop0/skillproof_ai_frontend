@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { Award, Check, Copy, Medal, Share2, Sparkles } from 'lucide-react';
 import { badges, candidate } from '../../data/candidateMock';
 
 export default function Badges() {
@@ -11,82 +12,57 @@ export default function Badges() {
   };
 
   return (
-    <div>
+    <div className="badges-page">
       <div className="dash-head">
         <div className="eyebrow">Badges</div>
         <h1>Your verified badges</h1>
         <p>Each badge is backed by a scored assessment and reviewed evidence.</p>
       </div>
 
-      <div className="grid-3" style={{ marginBottom: 24 }}>
+      <div className="badges-summary-row">
+        <div><span>Verified credentials</span><strong>{badges.length}</strong><p>Ready to show recruiters</p></div>
+        <div className="badges-summary-divider" />
+        <div><span>Latest achievement</span><strong>Jun 2026</strong><p>Cloud architecture expert</p></div>
+        <div className="badges-summary-mark"><Medal size={30} /></div>
+      </div>
+
+      <div className="grid-3 badges-grid">
         {badges.map((badge) => (
-          <button
-            key={badge.id}
-            type="button"
-            onClick={() => setSelected(badge)}
-            className="card"
-            style={{
-              textAlign: 'center',
-              cursor: 'pointer',
-              border:
-                selected.id === badge.id
-                  ? '1.5px solid var(--spai-verified)'
-                  : '1px solid var(--spai-line)',
-            }}
-          >
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: '50%',
-                background: 'rgba(0,88,190,0.12)',
-                border: '1px solid rgba(0,88,190,0.35)',
-                color: 'var(--spai-verified)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 12px',
-                fontSize: 18,
-              }}
-            >
-              ✓
-            </div>
-            <h3 style={{ fontSize: 14, marginBottom: 4 }}>{badge.name}</h3>
-            <div className="mono" style={{ fontSize: 12, color: 'var(--spai-slate)' }}>{badge.date}</div>
+          <button key={badge.id} type="button" onClick={() => setSelected(badge)} className={`card badge-choice ${selected.id === badge.id ? 'selected' : ''}`}>
+            <div className="badge-choice-icon"><Check size={22} strokeWidth={2.5} /></div>
+            <span className="badge-choice-label">Verified skill</span>
+            <h3>{badge.name}</h3>
+            <div className="mono">{badge.date}</div>
           </button>
         ))}
       </div>
 
-      <div className="card" style={{ maxWidth: 480, margin: '0 auto', textAlign: 'center' }}>
-        <div className="eyebrow" style={{ justifyContent: 'center' }}>Certificate</div>
-        <div
-          style={{
-            width: 64,
-            height: 64,
-            borderRadius: '50%',
-            background: 'rgba(0,88,190,0.14)',
-            border: '1px solid rgba(0,88,190,0.4)',
-            color: 'var(--spai-verified)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '12px auto 18px',
-            fontSize: 26,
-          }}
-        >
-          ✓
+      <div className="badges-detail-grid">
+        <div className="badge-certificate-card">
+          <div className="certificate-watermark"><Award size={150} /></div>
+          <div className="eyebrow">Selected certificate</div>
+          <div className="certificate-medallion"><Check size={29} strokeWidth={2.5} /></div>
+          <p className="certificate-issued">This certifies that</p>
+          <h2>{candidate.name}</h2>
+          <p className="certificate-title">has demonstrated verified competency in</p>
+          <h3>{selected.name}</h3>
+          <p className="certificate-date">{selected.date}</p>
+          <div className="certificate-actions">
+            <button type="button" className="btn btn-primary" onClick={copyLink}><Share2 size={16} /> Share certificate</button>
+            <button type="button" className="btn btn-ghost"><Copy size={16} /> Download PDF</button>
+          </div>
         </div>
-        <h2 style={{ fontSize: 19 }}>{selected.name}</h2>
-        <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginTop: 6 }}>
-          Awarded to {candidate.name} {selected.date}
-        </p>
-        <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 20 }}>
-          <button type="button" className="btn btn-primary" onClick={copyLink}>
-            Share certificate
-          </button>
-          <button type="button" className="btn btn-ghost">
-            Download PDF
-          </button>
+        <div className="badge-side-stack">
+          <div className="badge-insight-card">
+            <div className="badge-insight-icon"><Sparkles size={19} /></div>
+            <div><span>Profile strength</span><h2>Top 12% of Java candidates</h2><p>Your verified evidence makes your profile easier for recruiters to trust.</p></div>
+          </div>
+          <div className="badge-share-card">
+            <span>Share your proof</span>
+            <h2>Make every application stronger.</h2>
+            <p>Verified badges travel with your public profile and give recruiters a fast, credible signal.</p>
+            <button type="button" className="badge-link-button" onClick={copyLink}>Copy public profile link <Copy size={15} /></button>
+          </div>
         </div>
       </div>
     </div>
