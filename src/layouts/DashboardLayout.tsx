@@ -12,7 +12,6 @@ import {
   LayoutDashboard,
   LogOut,
   Search,
-  Settings,
   ShieldCheck,
   UserRound,
   Users,
@@ -82,7 +81,6 @@ export default function DashboardLayout({ roleLabel, navItems }: DashboardLayout
               <span>{roleLabel === 'Candidate' ? 'Improve with AI' : 'Analyze with AI'}</span>
             </Link>
             <div className="dash-secondary-nav">
-              <Link to={roleLabel === 'Candidate' ? '/dashboard/settings' : roleLabel === 'Admin' ? '/admin' : '/recruiter'}><Settings size={18} /> Settings</Link>
               <a href="mailto:developer@zonopact.com"><HelpCircle size={18} /> Support</a>
             </div>
             <div className="dash-account">
