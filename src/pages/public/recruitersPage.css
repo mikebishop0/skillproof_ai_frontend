@@ -18,11 +18,16 @@
   -webkit-font-smoothing: antialiased;
 }
 .spai-recruiters h1,
-.spai-recruiters h2,
 .spai-recruiters h3 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
   letter-spacing: -0.01em;
+}
+.spai-recruiters h2{
+   font-family: 'Fraunces', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 42px;
 }
 .spai-recruiters .wrap {
   max-width: 1120px;
@@ -218,8 +223,9 @@
   margin-bottom: 32px;
 }
 .spai-recruiters .sec-head-row h2 {
-  font-size: 26px;
+  font-size: 40px;
   margin-bottom: 8px;
+  font-weight: 700;
 }
 .spai-recruiters .sec-head-row p {
   color: var(--spai-slate);

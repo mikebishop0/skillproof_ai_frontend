@@ -17,12 +17,17 @@
   -webkit-font-smoothing: antialiased;
 }
 .spai-features h1,
-.spai-features h2,
 .spai-features h3,
 .spai-features h4 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
   letter-spacing: -0.01em;
+}
+.spai-features h2{
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 42px;
 }
 .spai-features .wrap {
   max-width: 1120px;
@@ -148,6 +153,7 @@
   font-size: 44px;
   line-height: 1.12;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 .spai-features .accent-line {
   color: var(--spai-verified);
