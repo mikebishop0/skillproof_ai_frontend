@@ -77,6 +77,9 @@
 .spai-landing .nav-links a:hover {
   color: var(--spai-white);
 }
+.spai-landing .nav-links a.active {
+  color: var(--spai-verified);
+}
 .spai-landing .nav-cta {
   display: flex;
   gap: 14px;

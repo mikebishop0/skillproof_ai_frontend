@@ -76,7 +76,7 @@ export default function RecruitersPage() {
             <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <div className="nav-links">
-            <Link to="/how-it-works">How it Works</Link>
+            <Link to="/">How it Works</Link>
             <Link to="/features">Features</Link>
             <Link to="/recruiters" className="active">Recruiters</Link>
             <Link to="/pricing">Pricing</Link>

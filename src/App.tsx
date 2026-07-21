@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 
-import LandingPage from './pages/public/LandingPage';
 import PricingPage from './pages/public/PricingPage';
 import AuthPage from './pages/public/AuthPage';
 import ForgotPasswordPage from './pages/public/ForgotPasswordPage';
@@ -68,11 +67,10 @@ function App() {
   return (
     <Routes>
       {/* Standalone pages (ship their own nav/footer) */}
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<HowItWorksPage />} />
       <Route path="pricing" element={<PricingPage />} />
       <Route path="recruiters" element={<RecruitersPage />} />
       <Route path="features" element={<FeaturesPage />} />
-      <Route path="how-it-works" element={<HowItWorksPage />} />
       <Route path="profile/:username" element={<PublicProfilePage />} />
       <Route path="login" element={<AuthPage />} />
       <Route path="register" element={<AuthPage />} />
