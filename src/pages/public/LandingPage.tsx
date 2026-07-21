@@ -1,12 +1,6 @@
-import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  UserRound,
-  FolderOpen,
-  ClipboardCheck,
-  Sparkles,
   Award,
-  Share2,
   ShieldCheck,
   FolderKanban,
   ClipboardList,
@@ -14,7 +8,6 @@ import {
   FileText,
   Users,
   TrendingUp,
-  ChevronRight,
   BarChart3,
   Fingerprint,
   Brain,
@@ -23,15 +16,6 @@ import {
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
 import './landingPage.css';
-
-const flowSteps = [
-  { icon: UserRound, title: 'Create Profile', description: 'Build your professional profile', accent: 'verified' as const },
-  { icon: FolderOpen, title: 'Upload Projects', description: 'Add projects and evidence', accent: 'claim' as const },
-  { icon: ClipboardCheck, title: 'Take Assessment', description: 'Attempt skill assessments', accent: 'verified' as const },
-  { icon: Sparkles, title: 'AI Review', description: 'AI analyzes your skills', accent: 'claim' as const },
-  { icon: Award, title: 'Earn Badge', description: 'Get verified skill badges', accent: 'verified' as const },
-  { icon: Share2, title: 'Share Profile', description: 'Share with recruiters', accent: 'claim' as const },
-];
 
 const features = [
   { icon: ShieldCheck, title: 'AI Skill Verification', description: 'Advanced AI analyzes your projects and assessments' },
@@ -53,7 +37,7 @@ export default function LandingPage() {
             <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <div className="nav-links">
-            <a href="#how">How it Works</a>
+            <Link to="/how-it-works">How it Works</Link>
             <Link to="/features">Features</Link>
             <Link to="/recruiters">Recruiters</Link>
             <Link to="/pricing">Pricing</Link>
@@ -146,29 +130,6 @@ export default function LandingPage() {
             <div className="resume-line" style={{ borderBottom: 'none' }}>
               5+ years AI engineering <span className="tag">unverified</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="how">
-        <div className="wrap">
-          <div className="section-head" style={{ textAlign: 'center', margin: '0 auto 48px' }}>
-            <h2>How It Works</h2>
-            <p>Simple steps to get your skills verified</p>
-          </div>
-          <div className="flow-steps">
-            {flowSteps.map((step, index) => (
-              <Fragment key={step.title}>
-                <div className="flow-step">
-                  <div className={`flow-icon ${step.accent === 'claim' ? 'claim' : ''}`}>
-                    <step.icon size={24} />
-                  </div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-                {index < flowSteps.length - 1 && <ChevronRight className="flow-arrow" size={20} />}
-              </Fragment>
-            ))}
           </div>
         </div>
       </section>

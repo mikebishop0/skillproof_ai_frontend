@@ -77,7 +77,7 @@ export default function FeaturesPage() {
             <img src={logo} alt="SkillProof AI" className="logo-img" />
           </div>
           <div className="nav-links">
-            <a href="/#how">How it Works</a>
+            <Link to="/how-it-works">How it Works</Link>
             <Link to="/features" className="active">Features</Link>
             <Link to="/recruiters">Recruiters</Link>
             <Link to="/pricing">Pricing</Link>

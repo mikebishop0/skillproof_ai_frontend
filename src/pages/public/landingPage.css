@@ -372,64 +372,6 @@
   font-weight: 500;
 }
 
-/* HOW IT WORKS (icon flow) */
-.spai-landing .flow-steps {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  gap: 6px;
-}
-.spai-landing .flow-step {
-  flex: 1 1 0;
-  min-width: 0;
-  text-align: center;
-}
-.spai-landing .flow-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 14px;
-  background: rgba(0, 88, 190, 0.12);
-  border: 1px solid rgba(0, 88, 190, 0.3);
-  color: var(--spai-verified);
-}
-.spai-landing .flow-icon.claim {
-  background: rgba(0, 63, 138, 0.12);
-  border-color: rgba(0, 63, 138, 0.3);
-  color: var(--spai-claim);
-}
-.spai-landing .flow-step h3 {
-  font-size: 14.5px;
-  margin-bottom: 6px;
-}
-.spai-landing .flow-step p {
-  font-size: 12.5px;
-  color: var(--spai-slate);
-}
-.spai-landing .flow-arrow {
-  color: var(--spai-line);
-  flex: 0 0 auto;
-  margin-top: 16px;
-}
-@media (max-width: 900px) {
-  .spai-landing .flow-arrow {
-    display: none;
-  }
-  .spai-landing .flow-steps {
-    flex-wrap: wrap;
-    gap: 28px;
-    justify-content: center;
-  }
-  .spai-landing .flow-step {
-    flex: 1 1 140px;
-    min-width: 120px;
-  }
-}
-
 /* POWERFUL FEATURES */
 .spai-landing .features-grid {
   display: grid;
