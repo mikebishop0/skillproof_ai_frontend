@@ -1,7 +1,34 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Zap,
+  Crown,
+  Building2,
+  Users,
+  ShieldCheck,
+  Sparkles,
+  Cloud,
+  Layers,
+  Database,
+  Network,
+  Lock,
+} from 'lucide-react';
 import logo from '../../assets/logo1.png';
 import './pricingPage.css';
+
+const heroStats = [
+  { icon: Users, value: '50K+', label: 'Verified profiles' },
+  { icon: ShieldCheck, value: '98.4%', label: 'AI accuracy' },
+  { icon: Sparkles, value: '600+', label: 'Companies hiring' },
+];
+
+const trustedCompanies = [
+  { name: 'CloudScale', icon: Cloud },
+  { name: 'NeoVibe', icon: Layers },
+  { name: 'StructIQ', icon: Database },
+  { name: 'OpenNode', icon: Network },
+  { name: 'SecureLayer', icon: Lock },
+];
 
 const compareRows: Array<
   | { category: string }
@@ -99,13 +126,39 @@ export default function PricingPage() {
             <span className={`toggle-label ${yearly ? 'on' : ''}`}>Yearly</span>
             <span className="save-tag">Save 15%</span>
           </div>
+          <div className="hero-stats">
+            {heroStats.map((stat) => (
+              <div className="hero-stat" key={stat.label}>
+                <stat.icon size={16} />
+                <div>
+                  <div className="hero-stat-value">{stat.value}</div>
+                  <div className="hero-stat-label">{stat.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </header>
+
+      <div className="trusted-strip">
+        <div className="wrap">
+          <span className="trusted-label">Trusted by hiring teams at</span>
+          <div className="trusted-row">
+            {trustedCompanies.map((company) => (
+              <div className="trusted-item" key={company.name}>
+                <company.icon size={15} />
+                {company.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <section className="pricing-section">
         <div className="wrap">
           <div className="pricing-grid">
             <div className="price-card">
+              <div className="price-tier-icon"><Zap size={18} /></div>
               <div className="price-tier">Free</div>
               <div className="price-amount">
                 $0 <span>/ forever</span>
@@ -123,6 +176,7 @@ export default function PricingPage() {
 
             <div className="price-card featured">
               <div className="badge-pop">Most popular</div>
+              <div className="price-tier-icon price-tier-icon-featured"><Crown size={18} /></div>
               <div className="price-tier">Premium</div>
               <div className="price-amount">
                 <span>{premiumPrice}</span>
@@ -140,6 +194,7 @@ export default function PricingPage() {
             </div>
 
             <div className="price-card">
+              <div className="price-tier-icon"><Building2 size={18} /></div>
               <div className="price-tier">Enterprise</div>
               <div className="price-amount">
                 <span>{enterprisePrice}</span>

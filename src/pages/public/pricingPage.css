@@ -193,6 +193,73 @@
   border-radius: 10px;
 }
 
+/* HERO STATS */
+.spai-pricing .hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--spai-line);
+}
+.spai-pricing .hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--spai-verified);
+}
+.spai-pricing .hero-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  color: var(--spai-white);
+  line-height: 1.1;
+}
+.spai-pricing .hero-stat-label {
+  font-size: 12px;
+  color: var(--spai-slate);
+  margin-top: 2px;
+}
+@media (max-width: 700px) {
+  .spai-pricing .hero-stats {
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+}
+
+/* TRUSTED STRIP */
+.spai-pricing .trusted-strip {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--spai-line);
+}
+.spai-pricing .trusted-strip .wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.spai-pricing .trusted-label {
+  font-size: 12.5px;
+  color: var(--spai-slate);
+  white-space: nowrap;
+}
+.spai-pricing .trusted-row {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.spai-pricing .trusted-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--spai-slate);
+  transition: color 0.15s ease;
+}
+.spai-pricing .trusted-item:hover {
+  color: var(--spai-verified);
+}
+
 /* PRICING GRID */
 .spai-pricing .pricing-section {
   padding: 32px 0 96px;
@@ -232,6 +299,21 @@
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 12px;
+}
+.spai-pricing .price-tier-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(0, 88, 190, 0.1);
+  color: var(--spai-verified);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.spai-pricing .price-tier-icon-featured {
+  background: var(--spai-verified);
+  color: var(--spai-ink);
 }
 .spai-pricing .price-tier {
   font-size: 13px;
