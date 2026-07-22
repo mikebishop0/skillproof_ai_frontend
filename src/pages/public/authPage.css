@@ -33,21 +33,6 @@
   text-decoration: none;
 }
 
-.spai-auth nav {
-  padding: 0 32px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--spai-line);
-}
-.spai-auth .logo {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-family: 'Fraunces', serif;
-  font-size: 17px;
-  font-weight: 600;
-}
 .spai-auth .logo-img {
   height: 36px;
   width: auto;
@@ -57,12 +42,13 @@
 .spai-auth .page {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - 65px);
+  min-height: 100vh;
 }
 
 /* LEFT: evidence panel */
 .spai-auth .side {
-  background: var(--spai-ink-light);
+  background: linear-gradient(135deg, var(--spai-verified) 0%, #0b1420 100%);
+  color: #ffffff;
   padding: 64px 56px;
   display: flex;
   flex-direction: column;
@@ -71,7 +57,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-right: 1px solid var(--spai-line);
+  border-right: none;
 }
 .spai-auth .side-glow {
   position: absolute;
@@ -80,8 +66,20 @@
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 88, 190, 0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 70%);
   pointer-events: none;
+}
+.spai-auth .side-logo {
+  position: absolute;
+  top: 40px;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+.spai-auth .side-logo .logo-img {
+  height: 30px;
 }
 .spai-auth .side-content {
   display: flex;
@@ -90,12 +88,19 @@
   position: relative;
   z-index: 1;
 }
+.spai-auth .side h2 {
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  max-width: 380px;
+}
 .spai-auth .side .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--spai-verified);
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -105,17 +110,11 @@
   content: '';
   width: 6px;
   height: 6px;
-  background: var(--spai-verified);
+  background: #ffffff;
   border-radius: 50%;
 }
-.spai-auth .side h2 {
-  font-size: 30px;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  max-width: 380px;
-}
 .spai-auth .side p {
-  color: var(--spai-slate);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 15px;
   max-width: 360px;
   margin-bottom: 36px;
@@ -163,7 +162,7 @@
   gap: 24px;
   margin-top: 36px;
   padding-top: 28px;
-  border-top: 1px solid var(--spai-line);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   max-width: 400px;
 }
 .spai-auth .side-stat {
@@ -172,7 +171,7 @@
   gap: 8px;
 }
 .spai-auth .side-stat svg {
-  color: var(--spai-verified);
+  color: #ffffff;
   margin-top: 3px;
   flex-shrink: 0;
 }
@@ -181,16 +180,17 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.1;
+  color: #ffffff;
 }
 .spai-auth .side-stat-label {
   font-size: 11.5px;
-  color: var(--spai-slate);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: 2px;
 }
 .spai-auth .side-trust {
   margin-top: 24px;
   font-size: 12.5px;
-  color: var(--spai-slate);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 360px;
 }
 
