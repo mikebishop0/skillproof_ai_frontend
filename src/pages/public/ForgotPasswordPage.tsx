@@ -52,10 +52,10 @@ export default function ForgotPasswordPage() {
       <div className="page">
         <div className="side">
           <div className="side-glow" />
-          <div className="side-logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
           <div className="side-content">
+            <div className="side-logo">
+              <img src={logo} alt="SkillProof AI" className="logo-img" />
+            </div>
             <div className="eyebrow">Account security</div>
             <h2>Losing access shouldn&apos;t cost you your progress.</h2>
             <p>

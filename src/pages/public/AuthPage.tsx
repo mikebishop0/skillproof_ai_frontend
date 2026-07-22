@@ -47,10 +47,10 @@ export default function AuthPage() {
       <div className="page">
         <div className="side">
           <div className="side-glow" />
-          <div className="side-logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
           <div className="side-content">
+            <div className="side-logo">
+              <img src={logo} alt="SkillProof AI" className="logo-img" />
+            </div>
             <div className="eyebrow">Evidence-based hiring</div>
             <h2>Your next opportunity shouldn&apos;t hinge on a bullet point.</h2>
             <p>
