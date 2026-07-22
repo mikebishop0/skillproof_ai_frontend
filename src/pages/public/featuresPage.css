@@ -41,7 +41,7 @@
   font-weight: 500;
 }
 .spai-features section {
-  padding: 88px 0;
+  padding: 60px 0;
 }
 
 /* NAV */
@@ -129,7 +129,7 @@
 
 /* HERO */
 .spai-features .feat-hero {
-  padding: 80px 0;
+  padding: 56px 0;
 }
 .spai-features .feat-hero-grid {
   display: grid;

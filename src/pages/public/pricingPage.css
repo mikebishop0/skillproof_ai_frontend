@@ -117,7 +117,7 @@
 
 /* PAGE HEAD */
 .spai-pricing .page-head {
-  padding: 72px 0 48px;
+  padding: 52px 0 36px;
   text-align: center;
 }
 .spai-pricing .eyebrow {
@@ -262,7 +262,7 @@
 
 /* PRICING GRID */
 .spai-pricing .pricing-section {
-  padding: 32px 0 96px;
+  padding: 24px 0 60px;
 }
 .spai-pricing .pricing-grid {
   display: grid;
@@ -374,7 +374,7 @@
 
 /* COMPARE TABLE */
 .spai-pricing .compare {
-  padding: 96px 0;
+  padding: 60px 0;
   background: var(--spai-ink-light);
 }
 .spai-pricing .section-head {
@@ -461,7 +461,7 @@
 
 /* FAQ */
 .spai-pricing .faq {
-  padding: 96px 0;
+  padding: 60px 0;
 }
 .spai-pricing .faq-grid {
   display: grid;
@@ -492,7 +492,7 @@
   background: var(--spai-paper);
   color: var(--spai-white);
   text-align: center;
-  padding: 88px 0;
+  padding: 60px 0;
 }
 .spai-pricing .final-cta h2 {
   font-size: 36px;
