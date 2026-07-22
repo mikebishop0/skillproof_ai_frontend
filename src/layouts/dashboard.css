@@ -210,7 +210,7 @@
 .spai-dashboard .dash-main {
   flex: 1;
   padding: 42px 54px;
-  max-width: 1120px;
+  min-width: 0;
 }
 .spai-dashboard .dash-head {
   margin-bottom: 32px;
@@ -487,7 +487,6 @@
 
 /* CANDIDATE OVERVIEW */
 .spai-dashboard .candidate-shell .dash-main {
-  max-width: 1180px;
   padding: 48px 58px 70px;
   background:
     radial-gradient(circle at 90% 0%, rgba(100, 154, 255, .11), transparent 27rem),
