@@ -24,9 +24,6 @@
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-.spai-landing .mono {
-  font-family: 'IBM Plex Mono', monospace;
-}
 .spai-landing .wrap {
   max-width: 1120px;
   margin: 0 auto;
@@ -130,7 +127,6 @@
   align-items: center;
 }
 .spai-landing .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -258,7 +254,6 @@
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  font-family: 'IBM Plex Mono', monospace;
   border: 1px solid rgba(0, 88, 190, 0.35);
   animation: spai-stamp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: 1.1s;
@@ -300,7 +295,6 @@
   font-size: 13px;
   color: #4b5261;
   margin-bottom: 8px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-landing .evidence-item::before {
   content: '\2713';
@@ -360,7 +354,6 @@
 .spai-landing .resume-line span.tag {
   font-size: 11px;
   color: var(--spai-claim);
-  font-family: 'IBM Plex Mono', monospace;
   border: 1px solid rgba(0, 63, 138, 0.4);
   padding: 3px 8px;
   border-radius: 12px;
@@ -496,7 +489,6 @@
   color: var(--spai-verified);
 }
 .spai-landing .engine-difficulty-label {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -577,7 +569,6 @@
   border: 1px solid var(--spai-line);
   padding: 4px 10px;
   border-radius: 12px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 @media (max-width: 900px) {
   .spai-landing .engine-grid {
@@ -617,7 +608,6 @@
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 12px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-landing .price-tier {
   font-size: 13px;

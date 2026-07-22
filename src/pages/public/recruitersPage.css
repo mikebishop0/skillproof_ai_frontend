@@ -143,7 +143,6 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -322,7 +321,6 @@
   border: 1px solid var(--spai-line);
   padding: 3px 9px;
   border-radius: 12px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-recruiters .candidate-bar-track {
   height: 6px;
@@ -373,7 +371,6 @@
   text-align: center;
 }
 .spai-recruiters .placements-label {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -463,7 +460,6 @@
   display: flex;
   gap: 6px;
   font-size: 12px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-recruiters .map-toggle span {
   padding: 4px 10px;
@@ -497,7 +493,6 @@
   padding: 5px 10px;
   border-radius: 12px;
   white-space: nowrap;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-recruiters .trend-list {
   margin-bottom: 22px;
@@ -517,7 +512,6 @@
   align-items: center;
   gap: 4px;
   color: var(--spai-verified);
-  font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
 }
 .spai-recruiters .trend-top .down {
@@ -525,7 +519,6 @@
   align-items: center;
   gap: 4px;
   color: var(--spai-danger);
-  font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
 }
 .spai-recruiters .trend-track {

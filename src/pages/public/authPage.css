@@ -25,9 +25,6 @@
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-.spai-auth .mono {
-  font-family: 'IBM Plex Mono', monospace;
-}
 .spai-auth a {
   color: inherit;
   text-decoration: none;
@@ -94,7 +91,6 @@
   max-width: 380px;
 }
 .spai-auth .side .eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -142,7 +138,6 @@
   color: var(--spai-verified-dim);
   padding: 3px 9px;
   border-radius: 14px;
-  font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
 }
 .spai-auth .mini-score {

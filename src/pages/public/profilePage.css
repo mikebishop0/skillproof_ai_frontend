@@ -23,9 +23,6 @@
   font-weight: 500;
   letter-spacing: -0.01em;
 }
-.spai-profile .mono {
-  font-family: 'IBM Plex Mono', monospace;
-}
 .spai-profile .wrap {
   max-width: 1000px;
   margin: 0 auto;
@@ -147,7 +144,6 @@
   border-radius: 20px;
   font-size: 11.5px;
   font-weight: 600;
-  font-family: 'IBM Plex Mono', monospace;
   border: 1px solid rgba(0, 88, 190, 0.35);
 }
 .spai-profile .role {
@@ -213,7 +209,6 @@
 .spai-profile .sec-head .count {
   font-size: 13px;
   color: var(--spai-slate);
-  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* SKILLS */
@@ -244,7 +239,6 @@
 .spai-profile .skill-pct {
   font-size: 13px;
   color: var(--spai-verified);
-  font-family: 'IBM Plex Mono', monospace;
   text-align: right;
 }
 
@@ -279,7 +273,6 @@
   font-weight: 600;
   padding: 4px 11px;
   border-radius: 14px;
-  font-family: 'IBM Plex Mono', monospace;
   white-space: nowrap;
 }
 .spai-profile .project-desc {
@@ -300,7 +293,6 @@
   color: var(--spai-white);
   padding: 4px 10px;
   border-radius: 14px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-profile .ai-note {
   display: flex;
@@ -318,7 +310,6 @@
   font-size: 10.5px;
   letter-spacing: 0.05em;
   margin-bottom: 8px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 .spai-profile .ai-note li {
   list-style: none;
@@ -391,7 +382,6 @@
 .spai-profile .badge-card .date {
   font-size: 12px;
   color: var(--spai-slate);
-  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* ASSESSMENTS */
@@ -419,7 +409,6 @@
   margin-top: 2px;
 }
 .spai-profile .assess-score {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   color: var(--spai-verified);
 }
