@@ -86,8 +86,7 @@
   transform: rotate(180deg);
 }
 .spai-dashboard .dash-sidebar.collapsed .dash-sidebar-header {
-  flex-direction: column;
-  gap: 12px;
+  justify-content: center;
 }
 .spai-dashboard .dash-logo {
   display: flex;
@@ -104,9 +103,6 @@
   height: 42px;
   width: auto;
   display: block;
-}
-.spai-dashboard .dash-sidebar.collapsed .logo-img {
-  height: 30px;
 }
 .spai-dashboard .dash-role {
   font-size: 10.5px;
