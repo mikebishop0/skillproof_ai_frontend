@@ -45,12 +45,12 @@
   align-items: center;
   gap: 9px;
   background: #ffffff;
-  padding: 7px 12px;
+  padding: 4px 4px;
   border-radius: 9px;
   margin-bottom: 16px;
 }
 .site-footer .footer-logo .logo-img {
-  height: 26px;
+  height: 35px;
   width: auto;
   display: block;
 }

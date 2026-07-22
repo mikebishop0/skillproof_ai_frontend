@@ -105,9 +105,13 @@
   min-width: 0;
 }
 .spai-dashboard .logo-img {
-  height: 42px;
+  height: 38px;
   width: auto;
   display: block;
+  border-radius: 10px;
+}
+.spai-dashboard .logo{
+    padding: 4px 4px;
 }
 .spai-dashboard .dash-role {
   font-size: 10.5px;
