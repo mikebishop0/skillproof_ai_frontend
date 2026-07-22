@@ -13,6 +13,7 @@ import {
   Network,
   Lock,
 } from 'lucide-react';
+import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
 import './pricingPage.css';
 
@@ -272,16 +273,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <footer>
-        <div className="wrap">
-          <div>© {new Date().getFullYear()} SkillProof AI</div>
-          <div className="foot-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

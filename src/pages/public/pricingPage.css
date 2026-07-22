@@ -510,22 +510,6 @@
   font-size: 16px;
 }
 
-.spai-pricing footer {
-  padding: 48px 0;
-  border-top: 1px solid var(--spai-line);
-}
-.spai-pricing footer .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: var(--spai-slate);
-}
-.spai-pricing footer .foot-links {
-  display: flex;
-  gap: 24px;
-}
-
 @media (max-width: 900px) {
   .spai-pricing .pricing-grid {
     grid-template-columns: 1fr;
