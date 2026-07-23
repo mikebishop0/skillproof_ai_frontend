@@ -13,6 +13,7 @@ import {
   PiggyBank,
   Copy,
   Check,
+  X,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
@@ -89,6 +90,20 @@ const hiringPoints = [
   },
 ];
 
+const resumeClaims = [
+  'Self-reported skill level',
+  'No way to verify claims',
+  'Same bullet points as everyone else',
+  'Recruiter has to just trust it',
+];
+
+const skillProofClaims = [
+  'AI-scored, evidence-backed skill level',
+  'Every claim links to real work',
+  'Verified badges, not adjectives',
+  'Recruiter can inspect the evidence directly',
+];
+
 export default function HowItWorksPage() {
   const [copied, setCopied] = useState(false);
 
@@ -146,6 +161,38 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </header>
+
+      <section className="how-compare">
+        <div className="wrap">
+          <h2>Resume claim vs. SkillProof evidence</h2>
+          <div className="compare-grid">
+            <div className="compare-card compare-card-old">
+              <h3>Traditional resume</h3>
+              <div className="compare-divider" />
+              <ul>
+                {resumeClaims.map((claim) => (
+                  <li key={claim}>
+                    <X size={15} />
+                    {claim}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="compare-card compare-card-new">
+              <h3>SkillProof AI profile</h3>
+              <div className="compare-divider" />
+              <ul>
+                {skillProofClaims.map((claim) => (
+                  <li key={claim}>
+                    <Check size={15} />
+                    {claim}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="how-journey">
         <div className="wrap">
