@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  Play,
   FolderKanban,
   Sparkles,
   FileText,
@@ -120,9 +119,6 @@ export default function FeaturesPage() {
             <div className="hero-actions">
               <a href="#capabilities" className="btn btn-primary">
                 Explore the Engine <ArrowRight size={15} />
-              </a>
-              <a href="#" className="btn btn-ghost">
-                <Play size={15} /> Watch Tech Demo
               </a>
             </div>
           </div>
@@ -312,9 +308,6 @@ export default function FeaturesPage() {
             </p>
             <div className="cta-actions">
               <Link to="/register" className="btn btn-primary">Start Free Assessment</Link>
-              <a href="#" className="btn btn-ghost">
-                <Play size={15} /> Watch Tech Demo
-              </a>
             </div>
             <div className="cta-note">
               <ShieldCheck size={13} /> SOC2 Type II compliant end-to-end encryption
