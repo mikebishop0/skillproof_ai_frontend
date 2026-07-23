@@ -1,13 +1,16 @@
 import { Link, useParams } from 'react-router-dom';
-import { Star, Check } from 'lucide-react';
+import { Star, Check, Bookmark } from 'lucide-react';
 import { candidatePool } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
+import { useSavedProfilesStore } from '../../store/savedProfilesStore';
 
 export default function CandidateView() {
   const { id } = useParams();
   const candidate = candidatePool.find((c) => c.id === id);
   const toggle = useShortlistStore((state) => state.toggle);
   const isShortlisted = useShortlistStore((state) => state.isShortlisted);
+  const toggleSaved = useSavedProfilesStore((state) => state.toggle);
+  const isSaved = useSavedProfilesStore((state) => state.isSaved);
 
   if (!candidate) {
     return (
@@ -37,6 +40,15 @@ export default function CandidateView() {
           >
             <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
             {isShortlisted(candidate.id) ? 'Shortlisted' : 'Shortlist'}
+          </button>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => toggleSaved(candidate.id)}
+            style={isSaved(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+          >
+            <Bookmark size={14} fill={isSaved(candidate.id) ? 'currentColor' : 'none'} />
+            {isSaved(candidate.id) ? 'Saved' : 'Save profile'}
           </button>
           <Link to={`/profile/${candidate.id}`} className="btn btn-ghost">
             Open public profile

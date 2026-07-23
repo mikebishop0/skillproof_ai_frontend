@@ -85,3 +85,73 @@ export const platformUsers: PlatformUser[] = [
   { id: '5', name: 'Sana Sheikh', email: 'sana.sheikh@example.com', role: 'candidate', status: 'suspended' },
   { id: '6', name: 'Admin Ops', email: 'admin@example.com', role: 'admin', status: 'active' },
 ];
+
+export interface RecruiterAccount {
+  id: string;
+  companyName: string;
+  contactName: string;
+  email: string;
+  plan: 'Free' | 'Enterprise';
+  candidatesViewed: number;
+  shortlisted: number;
+  status: 'active' | 'suspended';
+}
+
+export const recruiterAccounts: RecruiterAccount[] = [
+  { id: '1', companyName: 'CloudScale', contactName: 'Neel Bhatia', email: 'neel@cloudscale.io', plan: 'Enterprise', candidatesViewed: 284, shortlisted: 18, status: 'active' },
+  { id: '2', companyName: 'NeoVibe', contactName: 'Ritika Shah', email: 'ritika@neovibe.com', plan: 'Enterprise', candidatesViewed: 156, shortlisted: 9, status: 'active' },
+  { id: '3', companyName: 'StructIQ', contactName: 'Devansh Rao', email: 'devansh@structiq.dev', plan: 'Free', candidatesViewed: 42, shortlisted: 3, status: 'active' },
+  { id: '4', companyName: 'OpenNode', contactName: 'Alia Fernandes', email: 'alia@opennode.tech', plan: 'Enterprise', candidatesViewed: 198, shortlisted: 12, status: 'active' },
+  { id: '5', companyName: 'SecureLayer', contactName: 'Karan Malhotra', email: 'karan@securelayer.io', plan: 'Free', candidatesViewed: 27, shortlisted: 1, status: 'suspended' },
+];
+
+export interface QuestionBankEntry {
+  id: string;
+  text: string;
+  assessmentId: string;
+  assessmentName: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+}
+
+export const questionBank: QuestionBankEntry[] = [
+  { id: '1', text: 'Explain the trade-offs between synchronous and event-driven service communication.', assessmentId: '1', assessmentName: 'Java architecture assessment', difficulty: 'Hard' },
+  { id: '2', text: 'How would you handle schema evolution in a Kafka-based event pipeline?', assessmentId: '4', assessmentName: 'Event-driven systems assessment', difficulty: 'Hard' },
+  { id: '3', text: 'Design a rate limiter for a public API used by multiple client tiers.', assessmentId: '2', assessmentName: 'Microservices design patterns', difficulty: 'Medium' },
+  { id: '4', text: 'Implement a function to detect a cycle in a directed graph.', assessmentId: '3', assessmentName: 'Distributed systems coding test', difficulty: 'Medium' },
+  { id: '5', text: 'What is the shared responsibility model in cloud security?', assessmentId: '5', assessmentName: 'Cloud security fundamentals', difficulty: 'Easy' },
+];
+
+export interface SubscriptionPlanSummary {
+  plan: 'Free' | 'Premium' | 'Enterprise';
+  subscribers: number;
+  mrr: number;
+}
+
+export const subscriptionPlans: SubscriptionPlanSummary[] = [
+  { plan: 'Free', subscribers: 486, mrr: 0 },
+  { plan: 'Premium', subscribers: 94, mrr: 846 },
+  { plan: 'Enterprise', subscribers: 18, mrr: 5382 },
+];
+
+export const revenueByMonth = [
+  { month: 'Feb', revenue: 3200 },
+  { month: 'Mar', revenue: 3850 },
+  { month: 'Apr', revenue: 4400 },
+  { month: 'May', revenue: 5120 },
+  { month: 'Jun', revenue: 5760 },
+  { month: 'Jul', revenue: 6228 },
+];
+
+export interface ReportDefinition {
+  id: string;
+  name: string;
+  description: string;
+  lastGenerated: string;
+}
+
+export const availableReports: ReportDefinition[] = [
+  { id: '1', name: 'User growth report', description: 'Monthly signups and activation rate across all roles.', lastGenerated: '18 Jul 2026' },
+  { id: '2', name: 'Assessment completion report', description: 'Completion and pass rates broken down by assessment.', lastGenerated: '17 Jul 2026' },
+  { id: '3', name: 'Revenue report', description: 'MRR, plan breakdown, and churn for the current quarter.', lastGenerated: '15 Jul 2026' },
+  { id: '4', name: 'Recruiter activity report', description: 'Candidates viewed, shortlisted, and hired per recruiter account.', lastGenerated: '12 Jul 2026' },
+];

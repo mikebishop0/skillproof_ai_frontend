@@ -30,12 +30,23 @@ import RecruiterSearch from './pages/recruiter/Search';
 import CandidateView from './pages/recruiter/CandidateView';
 import Shortlist from './pages/recruiter/Shortlist';
 import TeamDashboard from './pages/recruiter/TeamDashboard';
+import RecruiterAIReports from './pages/recruiter/AIReports';
+import SavedProfiles from './pages/recruiter/SavedProfiles';
+import Interviews from './pages/recruiter/Interviews';
+import Messages from './pages/recruiter/Messages';
+import CompanyProfile from './pages/recruiter/CompanyProfile';
+import RecruiterSettings from './pages/recruiter/Settings';
 
 import AdminAssessments from './pages/admin/Assessments';
 import AdminBadges from './pages/admin/Badges';
 import Analytics from './pages/admin/Analytics';
 import AIMonitor from './pages/admin/AIMonitor';
 import UserManagement from './pages/admin/UserManagement';
+import AdminRecruiters from './pages/admin/Recruiters';
+import AdminQuestions from './pages/admin/Questions';
+import AdminSubscriptions from './pages/admin/Subscriptions';
+import AdminReports from './pages/admin/Reports';
+import AdminSettings from './pages/admin/Settings';
 
 const candidateNavItems = [
   { label: 'Overview', to: '/dashboard' },
@@ -52,15 +63,26 @@ const recruiterNavItems = [
   { label: 'Dashboard', to: '/recruiter' },
   { label: 'Search Candidates', to: '/recruiter/search' },
   { label: 'Shortlisted', to: '/recruiter/shortlist' },
+  { label: 'AI Reports', to: '/recruiter/ai-reports' },
+  { label: 'Saved Profiles', to: '/recruiter/saved-profiles' },
+  { label: 'Interviews', to: '/recruiter/interviews' },
+  { label: 'Messages', to: '/recruiter/messages' },
   { label: 'Team Dashboard', to: '/recruiter/team' },
+  { label: 'Company Profile', to: '/recruiter/company-profile' },
+  { label: 'Settings', to: '/recruiter/settings' },
 ];
 
 const adminNavItems = [
   { label: 'Dashboard', to: '/admin' },
-  { label: 'Assessments', to: '/admin/assessments' },
-  { label: 'Badges', to: '/admin/badges' },
-  { label: 'AI Monitor', to: '/admin/ai-monitor' },
   { label: 'Users', to: '/admin/users' },
+  { label: 'Recruiters', to: '/admin/recruiters' },
+  { label: 'Assessments', to: '/admin/assessments' },
+  { label: 'Questions', to: '/admin/questions' },
+  { label: 'Badges', to: '/admin/badges' },
+  { label: 'Subscriptions', to: '/admin/subscriptions' },
+  { label: 'AI Monitor', to: '/admin/ai-monitor' },
+  { label: 'Reports', to: '/admin/reports' },
+  { label: 'Settings', to: '/admin/settings' },
 ];
 
 function App() {
@@ -115,6 +137,12 @@ function App() {
         <Route path="candidate/:id" element={<CandidateView />} />
         <Route path="shortlist" element={<Shortlist />} />
         <Route path="team" element={<TeamDashboard />} />
+        <Route path="ai-reports" element={<RecruiterAIReports />} />
+        <Route path="saved-profiles" element={<SavedProfiles />} />
+        <Route path="interviews" element={<Interviews />} />
+        <Route path="messages" element={<Messages />} />
+        <Route path="company-profile" element={<CompanyProfile />} />
+        <Route path="settings" element={<RecruiterSettings />} />
       </Route>
 
       {/* Admin dashboard */}
@@ -132,6 +160,11 @@ function App() {
         <Route path="analytics" element={<Analytics />} />
         <Route path="ai-monitor" element={<AIMonitor />} />
         <Route path="users" element={<UserManagement />} />
+        <Route path="recruiters" element={<AdminRecruiters />} />
+        <Route path="questions" element={<AdminQuestions />} />
+        <Route path="subscriptions" element={<AdminSubscriptions />} />
+        <Route path="reports" element={<AdminReports />} />
+        <Route path="settings" element={<AdminSettings />} />
       </Route>
     </Routes>
   );

@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Star } from 'lucide-react';
+import { Star, Bookmark } from 'lucide-react';
 import { allBadges, allSkills, candidatePool } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
+import { useSavedProfilesStore } from '../../store/savedProfilesStore';
 
 export default function Search() {
   const [searchParams] = useSearchParams();
@@ -13,6 +14,8 @@ export default function Search() {
 
   const toggle = useShortlistStore((state) => state.toggle);
   const isShortlisted = useShortlistStore((state) => state.isShortlisted);
+  const toggleSaved = useSavedProfilesStore((state) => state.toggle);
+  const isSaved = useSavedProfilesStore((state) => state.isSaved);
 
   const results = useMemo(() => {
     return candidatePool.filter((candidate) => {
@@ -121,10 +124,20 @@ export default function Search() {
                 type="button"
                 className="btn btn-ghost"
                 onClick={() => toggle(candidate.id)}
+                title={isShortlisted(candidate.id) ? 'Remove from shortlist' : 'Add to shortlist'}
                 style={isShortlisted(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
               >
                 <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
-                {isShortlisted(candidate.id) ? 'Saved' : 'Save'}
+                {isShortlisted(candidate.id) ? 'Shortlisted' : 'Shortlist'}
+              </button>
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => toggleSaved(candidate.id)}
+                title={isSaved(candidate.id) ? 'Remove from saved profiles' : 'Save profile'}
+                style={isSaved(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+              >
+                <Bookmark size={14} fill={isSaved(candidate.id) ? 'currentColor' : 'none'} />
               </button>
             </div>
           </div>

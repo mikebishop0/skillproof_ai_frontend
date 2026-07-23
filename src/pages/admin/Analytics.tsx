@@ -1,8 +1,19 @@
-import { platformStats, topSkills, userGrowth } from '../../data/adminMock';
+import {
+  platformStats,
+  platformUsers,
+  topSkills,
+  userGrowth,
+  assessmentDefinitions,
+  badgeDefinitions,
+  recruiterAccounts,
+  subscriptionPlans,
+} from '../../data/adminMock';
 
 export default function Analytics() {
   const maxUsers = Math.max(...userGrowth.map((m) => m.users));
   const maxSkillCount = Math.max(...topSkills.map((s) => s.candidates));
+  const totalMrr = subscriptionPlans.reduce((sum, p) => sum + p.mrr, 0);
+  const activeUsers = platformUsers.filter((u) => u.status === 'active').length;
 
   return (
     <div>
@@ -18,16 +29,24 @@ export default function Analytics() {
           <div className="lbl">Total users</div>
         </div>
         <div className="stat-cell">
-          <div className="num">{platformStats.assessmentCompletionRate}%</div>
-          <div className="lbl">Assessment completion rate</div>
+          <div className="num">{recruiterAccounts.length}</div>
+          <div className="lbl">Recruiters</div>
         </div>
         <div className="stat-cell">
-          <div className="num">{platformStats.avgCompetencyScore}%</div>
-          <div className="lbl">Avg competency score</div>
+          <div className="num">{assessmentDefinitions.length}</div>
+          <div className="lbl">Assessments</div>
         </div>
         <div className="stat-cell">
-          <div className="num">{platformStats.activeRecruiters}</div>
-          <div className="lbl">Active recruiters</div>
+          <div className="num">{badgeDefinitions.length}</div>
+          <div className="lbl">Badges</div>
+        </div>
+        <div className="stat-cell">
+          <div className="num">${totalMrr.toLocaleString()}</div>
+          <div className="lbl">Revenue (MRR)</div>
+        </div>
+        <div className="stat-cell">
+          <div className="num">{activeUsers}</div>
+          <div className="lbl">Active users</div>
         </div>
       </div>
 
