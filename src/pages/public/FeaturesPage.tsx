@@ -108,7 +108,9 @@ export default function FeaturesPage() {
       <header className="feat-hero-v2">
         <div className="wrap feat-hero-split">
           <div>
-            <div className="eyebrow">AI-Powered Verification</div>
+            <div className="eyebrow">
+              <Cpu size={13} /> The Verification Engine
+            </div>
             <h1>The Tech Behind The Truth</h1>
             <div className="feat-hero-subhead">Evidence Speaks Louder Than Buzzwords.</div>
             <p className="lede">
