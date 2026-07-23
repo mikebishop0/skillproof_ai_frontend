@@ -271,6 +271,30 @@ export default function FeaturesPage() {
         </div>
       </section>
 
+      <section className="feat-cta">
+        <div className="wrap">
+          <div className="cta-card">
+            <div className="cta-icon">
+              <Cpu size={22} />
+            </div>
+            <h2>See the Engine in Action</h2>
+            <p>
+              Run a real assessment through our Multilayered Verification engine and get your
+              own evidence-backed competency report in minutes.
+            </p>
+            <div className="cta-actions">
+              <Link to="/register" className="btn btn-primary">Start Free Assessment</Link>
+              <a href="#" className="btn btn-ghost">
+                <Play size={15} /> Watch Tech Demo
+              </a>
+            </div>
+            <div className="cta-note">
+              <ShieldCheck size={13} /> SOC2 Type II compliant end-to-end encryption
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
