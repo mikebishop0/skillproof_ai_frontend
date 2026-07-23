@@ -203,56 +203,275 @@
 }
 
 /* VERIFICATION JOURNEY */
-.spai-how .journey-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+.spai-how .how-journey {
+  background: #0b1420;
+  color: #ffffff;
 }
-.spai-how .journey-card {
+.spai-how .journey-head {
   text-align: center;
-  padding: 28px 16px;
-  border-radius: 16px;
-  border: 1px solid transparent;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  max-width: 700px;
+  margin: 0 auto 56px;
 }
-.spai-how .journey-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--spai-line);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+.spai-how .journey-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6fa8ff;
+  margin-bottom: 18px;
 }
-.spai-how .journey-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--spai-ink-lighter);
-  color: var(--spai-verified);
+.spai-how .journey-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fa8ff;
+}
+.spai-how .journey-head h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+.spai-how .journey-accent {
+  color: #6fa8ff;
+  font-style: italic;
+}
+.spai-how .journey-head p {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.spai-how .journey-timeline {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.spai-how .journey-row {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 24px;
+}
+.spai-how .journey-marker-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.spai-how .journey-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #6fa8ff;
+  color: #6fa8ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 14px;
-  transition: transform 0.25s ease;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: #0b1420;
 }
-.spai-how .journey-card:hover .journey-icon {
-  transform: scale(1.08);
+.spai-how .journey-line {
+  width: 1.5px;
+  flex: 1;
+  background: rgba(111, 168, 255, 0.35);
+  margin: 6px 0;
 }
-.spai-how .journey-step {
-  font-size: 11px;
-  letter-spacing: 0.06em;
+.spai-how .journey-body {
+  padding-bottom: 48px;
+}
+.spai-how .journey-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--spai-verified);
+  color: #ff9d5c;
   margin-bottom: 8px;
 }
-.spai-how .journey-card h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
+.spai-how .journey-body h3 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.spai-how .journey-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 26px 28px;
 }
 .spai-how .journey-card p {
-  font-size: 12.5px;
-  color: var(--spai-slate);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
 }
-@media (max-width: 900px) {
-  .spai-how .journey-grid {
-    grid-template-columns: 1fr 1fr;
+.spai-how .journey-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 20px 0;
+}
+
+/* step 1: tags */
+.spai-how .journey-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.spai-how .journey-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* step 2: bars */
+.spai-how .journey-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.spai-how .journey-bar-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 40px;
+  align-items: center;
+  gap: 14px;
+}
+.spai-how .journey-bar-label {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.spai-how .journey-bar-track {
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.spai-how .journey-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: #6fa8ff;
+}
+.spai-how .journey-bar-pct {
+  font-size: 13px;
+  color: #6fa8ff;
+  text-align: right;
+}
+
+/* step 3: 2x2 grid */
+.spai-how .journey-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.spai-how .journey-grid2-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.spai-how .journey-grid2-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6fa8ff;
+  margin-bottom: 6px;
+}
+.spai-how .journey-grid2-title {
+  font-size: 14.5px;
+  color: #ffffff;
+}
+
+/* step 4: badge */
+.spai-how .journey-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.spai-how .journey-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(111, 168, 255, 0.18);
+  color: #6fa8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.spai-how .journey-badge-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.spai-how .journey-badge-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+/* step 5: link box */
+.spai-how .journey-link-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 18px;
+  gap: 12px;
+}
+.spai-how .journey-link-box span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.spai-how .journey-link-box button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #6fa8ff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+.spai-how .journey-link-box button:hover {
+  color: #a5c9ff;
+}
+
+@media (max-width: 700px) {
+  .spai-how .journey-row {
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+  }
+  .spai-how .journey-marker {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+  .spai-how .journey-head h2 {
+    font-size: 28px;
+  }
+  .spai-how .journey-card {
+    padding: 20px;
+  }
+  .spai-how .journey-bar-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .spai-how .journey-grid2 {
+    grid-template-columns: 1fr;
   }
 }
 

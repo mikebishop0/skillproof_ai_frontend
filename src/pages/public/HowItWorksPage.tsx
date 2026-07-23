@@ -1,11 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Sparkles,
   Play,
-  UserRound,
-  FileText,
-  Layers,
-  BadgeCheck,
   BarChart3,
   Fingerprint,
   Brain,
@@ -14,6 +11,8 @@ import {
   Percent,
   Scale,
   PiggyBank,
+  Copy,
+  Check,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
@@ -22,28 +21,53 @@ import './howItWorksPage.css';
 
 const journeySteps = [
   {
-    step: 'Step 01',
-    icon: UserRound,
-    title: 'Build Profile',
-    description: 'Import your GitHub, Portfolio, and work history to set the foundation.',
+    label: 'Step One',
+    title: 'Upload your evidence',
+    description:
+      "Add real work — not a description of it. Projects, GitHub repos, architecture diagrams, and certificates all count as evidence.",
+    type: 'tags' as const,
+    tags: ['Project files', 'GitHub link', 'Architecture diagram', 'Certificate'],
   },
   {
-    step: 'Step 02',
-    icon: FileText,
-    title: 'Upload Projects',
-    description: 'Securely share actual work samples, repositories, or documentation.',
+    label: 'Step Two',
+    title: 'AI reviews the work',
+    description:
+      'Our AI evaluates what you submitted across four dimensions — the same criteria a senior engineer would use in a real code review.',
+    type: 'bars' as const,
+    bars: [
+      { label: 'Code quality', pct: 90 },
+      { label: 'Architecture design', pct: 85 },
+      { label: 'Technical depth', pct: 88 },
+      { label: 'Problem solving', pct: 82 },
+    ],
   },
   {
-    step: 'Step 03',
-    icon: Layers,
-    title: 'Take Assessments',
-    description: 'Engage with AI-driven, adaptive challenges that probe deep expertise.',
+    label: 'Step Three',
+    title: 'Prove it under pressure',
+    description:
+      "Projects show what you've built. Assessments show what you can do live — scored the moment you submit.",
+    type: 'grid' as const,
+    grid: [
+      { tag: 'MCQ', title: 'Core concept checks' },
+      { tag: 'Coding test', title: 'Live problem solving' },
+      { tag: 'Architecture test', title: 'System design scenarios' },
+      { tag: 'Scenario-based', title: 'Real-world decision making' },
+    ],
   },
   {
-    step: 'Step 04',
-    icon: BadgeCheck,
-    title: 'Get Verified',
-    description: 'Receive your SkillProof badge and a detailed evidence-based report.',
+    label: 'Step Four',
+    title: 'Earn a verified badge',
+    description:
+      "Badges aren't awarded for showing up — they're issued when your combined project and assessment scores clear the bar.",
+    type: 'badge' as const,
+    badge: { name: 'Verified Java Developer', sub: 'Issued after 92% architecture score' },
+  },
+  {
+    label: 'Step Five',
+    title: 'Share one link',
+    description: 'Your public profile is free to view — no login, no paywall. Recruiters see the evidence instantly.',
+    type: 'link' as const,
+    link: 'skillproof.ai/p/mayur-ramgir',
   },
 ];
 
@@ -66,6 +90,14 @@ const hiringPoints = [
 ];
 
 export default function HowItWorksPage() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard?.writeText(`https://${journeySteps[4].link}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="spai-how">
       <nav>
@@ -117,19 +149,89 @@ export default function HowItWorksPage() {
 
       <section className="how-journey">
         <div className="wrap">
-          <div className="section-head" style={{ textAlign: 'center', margin: '0 auto 44px' }}>
-            <h2>The Verification Journey</h2>
-            <p>Simple, robust, and lightning-fast for candidates.</p>
+          <div className="journey-head">
+            <div className="journey-eyebrow">
+              <span className="journey-dot" /> How it works
+            </div>
+            <h2>
+              From claim to <span className="journey-accent">verified proof</span>, in five steps.
+            </h2>
+            <p>
+              Every badge on SkillProof AI is backed by evidence a recruiter can actually inspect —
+              here&apos;s exactly how it gets built.
+            </p>
           </div>
-          <div className="journey-grid">
-            {journeySteps.map((step) => (
-              <div className="journey-card" key={step.title}>
-                <div className="journey-icon">
-                  <step.icon size={22} />
+
+          <div className="journey-timeline">
+            {journeySteps.map((step, index) => (
+              <div className="journey-row" key={step.title}>
+                <div className="journey-marker-col">
+                  <div className="journey-marker">{String(index + 1).padStart(2, '0')}</div>
+                  {index < journeySteps.length - 1 && <div className="journey-line" />}
                 </div>
-                <div className="journey-step">{step.step}</div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+                <div className="journey-body">
+                  <div className="journey-label">{step.label}</div>
+                  <h3>{step.title}</h3>
+                  <div className="journey-card">
+                    <p>{step.description}</p>
+                    <div className="journey-divider" />
+
+                    {step.type === 'tags' && (
+                      <div className="journey-tags">
+                        {step.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
+                    )}
+
+                    {step.type === 'bars' && (
+                      <div className="journey-bars">
+                        {step.bars.map((bar) => (
+                          <div className="journey-bar-row" key={bar.label}>
+                            <span className="journey-bar-label">{bar.label}</span>
+                            <div className="journey-bar-track">
+                              <div className="journey-bar-fill" style={{ width: `${bar.pct}%` }} />
+                            </div>
+                            <span className="journey-bar-pct">{bar.pct}%</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {step.type === 'grid' && (
+                      <div className="journey-grid2">
+                        {step.grid.map((item) => (
+                          <div className="journey-grid2-item" key={item.tag}>
+                            <div className="journey-grid2-tag">{item.tag}</div>
+                            <div className="journey-grid2-title">{item.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {step.type === 'badge' && (
+                      <div className="journey-badge">
+                        <div className="journey-badge-icon">
+                          <Check size={16} />
+                        </div>
+                        <div>
+                          <div className="journey-badge-name">{step.badge.name}</div>
+                          <div className="journey-badge-sub">{step.badge.sub}</div>
+                        </div>
+                      </div>
+                    )}
+
+                    {step.type === 'link' && (
+                      <div className="journey-link-box">
+                        <span>{step.link}</span>
+                        <button type="button" onClick={handleCopyLink}>
+                          {copied ? <Check size={13} /> : <Copy size={13} />}
+                          {copied ? 'Copied' : 'Copy link'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
