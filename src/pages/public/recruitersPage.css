@@ -564,9 +564,10 @@
 .spai-recruiters .rec-cta h2 {
   font-size: 26px;
   margin-bottom: 12px;
+  color: #ffffff;
 }
 .spai-recruiters .rec-cta p {
-  color: var(--spai-slate);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 14.5px;
   margin-bottom: 28px;
 }
@@ -577,10 +578,17 @@
   flex-wrap: wrap;
   margin-bottom: 22px;
 }
+.spai-recruiters .rec-cta .cta-actions .btn-ghost {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.spai-recruiters .rec-cta .cta-actions .btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
 .spai-recruiters .cta-note {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: var(--spai-slate);
+  color: rgba(255, 255, 255, 0.55);
 }
