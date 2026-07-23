@@ -271,19 +271,6 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <section className="feat-cta">
-        <div className="wrap">
-          <div className="cta-card">
-            <h2>Ready to Verify Your Expertise?</h2>
-            <p>Join 50,000+ professionals who are proving their worth with SkillProof AI. Secure your career&apos;s future today.</p>
-            <div className="cta-actions">
-              <Link to="/register" className="btn btn-cta-primary">Start Free Assessment</Link>
-              <a href="#" className="btn btn-cta-ghost">Talk to Sales</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
