@@ -9,6 +9,7 @@
   --spai-slate: #64748b;
   --spai-white: #0f172a;
   --spai-line: rgba(15, 23, 42, 0.1);
+  --spai-danger: #d96b5c;
 
   background: var(--spai-ink);
   color: var(--spai-white);
@@ -204,13 +205,13 @@
 
 /* RESUME VS EVIDENCE COMPARE */
 .spai-how .how-compare {
-  background: #0b1420;
-  color: #ffffff;
+  background: var(--spai-ink);
+  color: var(--spai-white);
   text-align: center;
 }
 .spai-how .how-compare h2 {
   font-size: 32px;
-  color: #ffffff;
+  color: var(--spai-white);
   margin-bottom: 44px;
 }
 .spai-how .compare-grid {
@@ -222,26 +223,26 @@
   margin: 0 auto;
 }
 .spai-how .compare-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--spai-ink-light);
+  border: 1px solid var(--spai-line);
   border-radius: 14px;
   padding: 28px 30px;
 }
 .spai-how .compare-card-new {
-  border-color: rgba(111, 168, 255, 0.5);
+  border-color: rgba(0, 88, 190, 0.35);
 }
 .spai-how .compare-card h3 {
   font-size: 18px;
   margin-bottom: 18px;
 }
 .spai-how .compare-card-old h3 {
-  color: #ff9d5c;
+  color: var(--spai-danger);
 }
 .spai-how .compare-card-new h3 {
-  color: #6fa8ff;
+  color: var(--spai-verified);
 }
 .spai-how .compare-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--spai-line);
   margin-bottom: 4px;
 }
 .spai-how .compare-card ul {
@@ -252,19 +253,19 @@
   align-items: center;
   gap: 12px;
   font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--spai-white);
   padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--spai-line);
 }
 .spai-how .compare-card li:last-child {
   border-bottom: none;
 }
 .spai-how .compare-card-old li svg {
-  color: #ff9d5c;
+  color: var(--spai-danger);
   flex-shrink: 0;
 }
 .spai-how .compare-card-new li svg {
-  color: #6fa8ff;
+  color: var(--spai-verified);
   flex-shrink: 0;
 }
 @media (max-width: 700px) {
