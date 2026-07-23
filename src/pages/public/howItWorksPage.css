@@ -279,6 +279,9 @@
 .spai-how .how-journey {
   background: #0b1420;
   color: #ffffff;
+  width: fit-content;
+  margin: auto;
+  border-radius: 20px;
 }
 .spai-how .journey-head {
   text-align: center;
