@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
+import heroImg from '../../assets/bannerimg2.jpeg';
 import './featuresPage.css';
 
 const heroStats = [
@@ -106,25 +107,36 @@ export default function FeaturesPage() {
       </nav>
 
       <header className="feat-hero-v2">
-        <div className="wrap">
-          <div className="eyebrow" style={{ margin: '0 auto 20px' }}>AI-Powered Verification</div>
-          <h1>
-            Evidence Speaks Louder <span className="accent-line">Than Buzzwords.</span>
-          </h1>
-          <p className="lede">
-            SkillProof AI goes beyond questionnaires. Our proprietary Multilayered Verification
-            engine analyzes real-world evidence code, video, and technical logic to provide an
-            objective truth about expertise.
-          </p>
-          <div className="hero-actions">
-            <a href="#capabilities" className="btn btn-primary">
-              Explore the Engine <ArrowRight size={15} />
-            </a>
-            <a href="#" className="btn btn-ghost">
-              <Play size={15} /> Watch Tech Demo
-            </a>
+        <div className="wrap feat-hero-split">
+          <div>
+            <div className="eyebrow">AI-Powered Verification</div>
+            <h1>The Tech Behind The Truth</h1>
+            <div className="feat-hero-subhead">Evidence Speaks Louder Than Buzzwords.</div>
+            <p className="lede">
+              SkillProof AI goes beyond questionnaires. Our proprietary Multilayered Verification
+              engine analyzes real-world evidence code, video, and technical logic to provide an
+              objective truth about expertise.
+            </p>
+            <div className="hero-actions">
+              <a href="#capabilities" className="btn btn-primary">
+                Explore the Engine <ArrowRight size={15} />
+              </a>
+              <a href="#" className="btn btn-ghost">
+                <Play size={15} /> Watch Tech Demo
+              </a>
+            </div>
           </div>
+          <div className="feat-hero-visual">
+            <div className="feat-hero-img-card">
+              <img src={heroImg} alt="AI evaluating candidate evidence" />
+            </div>
+            <p className="feat-hero-quote">
+              &quot;Every claim, backed by evidence a recruiter can actually inspect.&quot;
+            </p>
+          </div>
+        </div>
 
+        <div className="wrap">
           <div className="hero-stats">
             {heroStats.map((stat) => (
               <div className="hero-stat" key={stat.label}>
