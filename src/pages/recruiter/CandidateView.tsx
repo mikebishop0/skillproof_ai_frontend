@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { Star, Check } from 'lucide-react';
 import { candidatePool } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
 
@@ -28,8 +29,14 @@ export default function CandidateView() {
           <p>{candidate.role} {candidate.location}</p>
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
-          <button type="button" className="btn btn-ghost" onClick={() => toggle(candidate.id)}>
-            {isShortlisted(candidate.id) ? '★ Shortlisted' : '☆ Shortlist'}
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => toggle(candidate.id)}
+            style={isShortlisted(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+          >
+            <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
+            {isShortlisted(candidate.id) ? 'Shortlisted' : 'Shortlist'}
           </button>
           <Link to={`/profile/${candidate.id}`} className="btn btn-ghost">
             Open public profile
@@ -98,7 +105,7 @@ export default function CandidateView() {
                     margin: '0 auto 8px',
                   }}
                 >
-                  ✓
+                  <Check size={18} />
                 </div>
                 <p style={{ fontSize: 12.5 }}>{badge}</p>
               </div>

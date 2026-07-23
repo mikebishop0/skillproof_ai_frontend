@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { Star } from 'lucide-react';
 import { allBadges, allSkills, candidatePool } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
 
@@ -120,8 +121,10 @@ export default function Search() {
                 type="button"
                 className="btn btn-ghost"
                 onClick={() => toggle(candidate.id)}
+                style={isShortlisted(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
               >
-                {isShortlisted(candidate.id) ? '★ Saved' : '☆ Save'}
+                <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
+                {isShortlisted(candidate.id) ? 'Saved' : 'Save'}
               </button>
             </div>
           </div>

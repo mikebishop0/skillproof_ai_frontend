@@ -489,6 +489,158 @@
   gap: 16px;
 }
 
+/* SHARED DASHBOARD POLISH (all roles) */
+.spai-dashboard .candidate-shell .card,
+.spai-dashboard .recruiter-shell .card,
+.spai-dashboard .admin-shell .card {
+  border-color: rgba(15, 23, 42, .09);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .045);
+}
+.spai-dashboard .candidate-shell .card:hover,
+.spai-dashboard .recruiter-shell .card:hover,
+.spai-dashboard .admin-shell .card:hover {
+  border-color: rgba(0, 88, 190, .2);
+}
+.spai-dashboard .candidate-shell .grid-2 > .card,
+.spai-dashboard .candidate-shell .grid-3 > .card,
+.spai-dashboard .recruiter-shell .grid-2 > .card,
+.spai-dashboard .recruiter-shell .grid-3 > .card,
+.spai-dashboard .admin-shell .grid-2 > .card,
+.spai-dashboard .admin-shell .grid-3 > .card {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.spai-dashboard .candidate-shell .grid-2 > a.card:hover,
+.spai-dashboard .candidate-shell .grid-3 > button.card:hover,
+.spai-dashboard .recruiter-shell .grid-2 > a.card:hover,
+.spai-dashboard .recruiter-shell .grid-3 > a.card:hover,
+.spai-dashboard .admin-shell .grid-2 > a.card:hover,
+.spai-dashboard .admin-shell .grid-3 > a.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, .09);
+}
+.spai-dashboard .candidate-shell .stat-grid,
+.spai-dashboard .recruiter-shell .stat-grid,
+.spai-dashboard .admin-shell .stat-grid {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, .035);
+}
+.spai-dashboard .candidate-shell .stat-cell,
+.spai-dashboard .recruiter-shell .stat-cell,
+.spai-dashboard .admin-shell .stat-cell {
+  padding: 22px 24px;
+  position: relative;
+}
+.spai-dashboard .candidate-shell .stat-cell .num,
+.spai-dashboard .recruiter-shell .stat-cell .num,
+.spai-dashboard .admin-shell .stat-cell .num {
+  font-size: 30px;
+}
+.spai-dashboard .candidate-shell .stat-cell .lbl,
+.spai-dashboard .recruiter-shell .stat-cell .lbl,
+.spai-dashboard .admin-shell .stat-cell .lbl {
+  font-size: 12px;
+  font-weight: 500;
+}
+.spai-dashboard .candidate-shell .btn,
+.spai-dashboard .recruiter-shell .btn,
+.spai-dashboard .admin-shell .btn {
+  border-radius: 9px;
+  font-weight: 600;
+}
+.spai-dashboard .candidate-shell .btn-ghost,
+.spai-dashboard .recruiter-shell .btn-ghost,
+.spai-dashboard .admin-shell .btn-ghost {
+  background: #fff;
+}
+.spai-dashboard .candidate-shell .btn-ghost:hover,
+.spai-dashboard .recruiter-shell .btn-ghost:hover,
+.spai-dashboard .admin-shell .btn-ghost:hover {
+  color: var(--spai-verified);
+  border-color: rgba(0, 88, 190, .35);
+  background: #f5f9ff;
+}
+.spai-dashboard .candidate-shell .field input,
+.spai-dashboard .candidate-shell .field textarea,
+.spai-dashboard .candidate-shell .field select,
+.spai-dashboard .recruiter-shell .field input,
+.spai-dashboard .recruiter-shell .field textarea,
+.spai-dashboard .recruiter-shell .field select,
+.spai-dashboard .admin-shell .field input,
+.spai-dashboard .admin-shell .field textarea,
+.spai-dashboard .admin-shell .field select {
+  background: #fbfdff;
+  border-color: rgba(15, 23, 42, .13);
+}
+.spai-dashboard .candidate-shell .field input:focus,
+.spai-dashboard .candidate-shell .field textarea:focus,
+.spai-dashboard .candidate-shell .field select:focus,
+.spai-dashboard .recruiter-shell .field input:focus,
+.spai-dashboard .recruiter-shell .field textarea:focus,
+.spai-dashboard .recruiter-shell .field select:focus,
+.spai-dashboard .admin-shell .field input:focus,
+.spai-dashboard .admin-shell .field textarea:focus,
+.spai-dashboard .admin-shell .field select:focus {
+  box-shadow: 0 0 0 3px rgba(0, 88, 190, .1);
+}
+.spai-dashboard .candidate-shell .field label,
+.spai-dashboard .recruiter-shell .field label,
+.spai-dashboard .admin-shell .field label {
+  color: #40506a;
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.spai-dashboard .candidate-shell .tag,
+.spai-dashboard .recruiter-shell .tag,
+.spai-dashboard .admin-shell .tag {
+  background: #f0f6ff;
+  border-color: #d7e6fb;
+  color: #31537f;
+  font-size: 11.5px;
+}
+.spai-dashboard .candidate-shell .bar-track,
+.spai-dashboard .recruiter-shell .bar-track,
+.spai-dashboard .admin-shell .bar-track {
+  height: 9px;
+  background: #eaf1fa;
+}
+.spai-dashboard .candidate-shell .bar-fill,
+.spai-dashboard .recruiter-shell .bar-fill,
+.spai-dashboard .admin-shell .bar-fill {
+  background: linear-gradient(90deg, #0564d7, #448ef0);
+}
+.spai-dashboard .candidate-shell .card h2,
+.spai-dashboard .recruiter-shell .card h2,
+.spai-dashboard .admin-shell .card h2 {
+  font-size: 18px;
+}
+.spai-dashboard .candidate-shell .card h3,
+.spai-dashboard .recruiter-shell .card h3,
+.spai-dashboard .admin-shell .card h3 {
+  color: #14213a;
+}
+.spai-dashboard .candidate-shell .card > [style*='borderBottom'],
+.spai-dashboard .recruiter-shell .card > [style*='borderBottom'],
+.spai-dashboard .admin-shell .card > [style*='borderBottom'] {
+  border-color: rgba(15, 23, 42, .08) !important;
+}
+.spai-dashboard .candidate-shell .card > div > .mono,
+.spai-dashboard .recruiter-shell .card > div > .mono,
+.spai-dashboard .admin-shell .card > div > .mono {
+  font-weight: 600;
+}
+.spai-dashboard .candidate-shell .grid-3 > .card,
+.spai-dashboard .recruiter-shell .grid-3 > .card,
+.spai-dashboard .admin-shell .grid-3 > .card {
+  min-height: 100%;
+}
+.spai-dashboard .candidate-shell .card[style*='text-align: center'],
+.spai-dashboard .recruiter-shell .card[style*='text-align: center'],
+.spai-dashboard .admin-shell .card[style*='text-align: center'] {
+  background: linear-gradient(145deg, #fff, #f4f8ff);
+}
+
 /* CANDIDATE OVERVIEW */
 .spai-dashboard .candidate-shell .dash-main {
   padding: 48px 58px 70px;
@@ -499,49 +651,16 @@
 .spai-dashboard .candidate-shell .dash-head { margin-bottom: 30px; }
 .spai-dashboard .candidate-shell .dash-head h1 { font-size: clamp(27px, 3vw, 34px); line-height: 1.16; }
 .spai-dashboard .candidate-shell .dash-head p { max-width: 640px; font-size: 14.5px; }
-.spai-dashboard .candidate-shell .card {
-  border-color: rgba(15, 23, 42, .09);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, .045);
-}
-.spai-dashboard .candidate-shell .card:hover { border-color: rgba(0, 88, 190, .2); }
-.spai-dashboard .candidate-shell .grid-2 > .card,
-.spai-dashboard .candidate-shell .grid-3 > .card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-.spai-dashboard .candidate-shell .grid-2 > a.card:hover,
-.spai-dashboard .candidate-shell .grid-3 > button.card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(15, 23, 42, .09); }
-.spai-dashboard .candidate-shell .stat-grid { background: #fff; border-radius: 16px; box-shadow: 0 10px 28px rgba(15, 23, 42, .035); }
-.spai-dashboard .candidate-shell .stat-cell { padding: 22px 24px; position: relative; }
-.spai-dashboard .candidate-shell .stat-cell .num { font-size: 30px; }
-.spai-dashboard .candidate-shell .stat-cell .lbl { font-size: 12px; font-weight: 500; }
-.spai-dashboard .candidate-shell .btn { border-radius: 9px; font-weight: 600; }
-.spai-dashboard .candidate-shell .btn-ghost { background: #fff; }
-.spai-dashboard .candidate-shell .btn-ghost:hover { color: var(--spai-verified); border-color: rgba(0, 88, 190, .35); background: #f5f9ff; }
-.spai-dashboard .candidate-shell .field input,
-.spai-dashboard .candidate-shell .field textarea,
-.spai-dashboard .candidate-shell .field select { background: #fbfdff; border-color: rgba(15, 23, 42, .13); }
-.spai-dashboard .candidate-shell .field input:focus,
-.spai-dashboard .candidate-shell .field textarea:focus,
-.spai-dashboard .candidate-shell .field select:focus { box-shadow: 0 0 0 3px rgba(0, 88, 190, .1); }
-.spai-dashboard .candidate-shell .field label { color: #40506a; font-weight: 600; font-size: 12.5px; }
-.spai-dashboard .candidate-shell .tag { background: #f0f6ff; border-color: #d7e6fb; color: #31537f; font-size: 11.5px; }
-.spai-dashboard .candidate-shell .bar-track { height: 9px; background: #eaf1fa; }
-.spai-dashboard .candidate-shell .bar-fill { background: linear-gradient(90deg, #0564d7, #448ef0); }
 .spai-dashboard .candidate-shell .quota-row { font-size: 13.5px; }
 .spai-dashboard .candidate-shell .switch-row { padding: 16px 0; }
 .spai-dashboard .candidate-shell .switch-label { font-weight: 600; color: #23334e; }
 .spai-dashboard .candidate-shell .toggle { background: #e8edf4; }
 
 /* Candidate page patterns: project, assessment, report, plan, and certificate cards */
-.spai-dashboard .candidate-shell .card h2 { font-size: 18px; }
-.spai-dashboard .candidate-shell .card h3 { color: #14213a; }
 .spai-dashboard .candidate-shell input[type='file'] { width: 100%; border: 1px dashed #a9c5e9; background: #f7fbff; border-radius: 10px; padding: 12px; color: var(--spai-slate); }
 .spai-dashboard .candidate-shell input[type='file']::file-selector-button { border: 0; color: var(--spai-verified); background: #e3efff; border-radius: 6px; padding: 6px 10px; margin-right: 10px; font-weight: 600; cursor: pointer; }
-.spai-dashboard .candidate-shell .card > [style*='borderBottom'] { border-color: rgba(15, 23, 42, .08) !important; }
-.spai-dashboard .candidate-shell .card > div > .mono { font-weight: 600; }
-.spai-dashboard .candidate-shell .grid-3 > .card { min-height: 100%; }
 .spai-dashboard .candidate-shell .grid-3 > button.card { background: #fff; font-family: inherit; }
 .spai-dashboard .candidate-shell .grid-3 > button.card:focus-visible { outline: 3px solid rgba(0, 88, 190, .2); outline-offset: 2px; }
-.spai-dashboard .candidate-shell .card[style*='text-align: center'] { background: linear-gradient(145deg, #fff, #f4f8ff); }
 .spai-dashboard .candidate-shell .card [style*='font-size: 44px'] { text-shadow: 0 8px 18px rgba(0, 88, 190, .13); }
 .spai-dashboard .candidate-shell .card [style*='font-size: 32px'] { text-shadow: 0 6px 14px rgba(0, 88, 190, .1); }
 

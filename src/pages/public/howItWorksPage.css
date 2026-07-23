@@ -297,7 +297,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6fa8ff;
+  color: #0058be;
   margin-bottom: 18px;
 }
 .spai-how .journey-dot {
@@ -313,7 +313,7 @@
   margin-bottom: 16px;
 }
 .spai-how .journey-accent {
-  color: #6fa8ff;
+  color: #0058be;
   font-style: italic;
 }
 .spai-how .journey-head p {
@@ -339,8 +339,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid #6fa8ff;
-  color: #6fa8ff;
+  border: 1.5px solid #0058be;
+  color: #0058be;
   display: flex;
   align-items: center;
   justify-content: center;
