@@ -141,19 +141,6 @@ export default function PricingPage() {
         </div>
       </header>
 
-      <div className="trusted-strip">
-        <div className="wrap">
-          <span className="trusted-label">Trusted by hiring teams at</span>
-          <div className="trusted-row">
-            {trustedCompanies.map((company) => (
-              <div className="trusted-item" key={company.name}>
-                <company.icon size={15} />
-                {company.name}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <section className="pricing-section">
         <div className="wrap">

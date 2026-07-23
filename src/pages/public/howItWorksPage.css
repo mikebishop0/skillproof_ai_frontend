@@ -293,7 +293,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -301,10 +301,10 @@
   margin-bottom: 18px;
 }
 .spai-how .journey-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #6fa8ff;
+  background: #0058be;
 }
 .spai-how .journey-head h2 {
   font-size: 36px;
@@ -339,8 +339,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid #0058be;
-  color: #0058be;
+  border: 2px solid #fff;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -352,7 +352,7 @@
 .spai-how .journey-line {
   width: 1.5px;
   flex: 1;
-  background: rgba(111, 168, 255, 0.35);
+  background: #fff;
   margin: 6px 0;
 }
 .spai-how .journey-body {
