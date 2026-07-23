@@ -61,6 +61,26 @@
   width: auto;
   display: block;
 }
+.spai-profile .nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  color: var(--spai-slate);
+}
+.spai-profile .nav-links a:hover {
+  color: var(--spai-white);
+}
+.spai-profile .nav-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+@media (max-width: 800px) {
+  .spai-profile .nav-links {
+    display: none;
+  }
+}
 .spai-profile .btn {
   padding: 9px 18px;
   border-radius: 6px;
@@ -436,23 +456,6 @@
 }
 .spai-profile .cta-banner .btn-primary {
   white-space: nowrap;
-}
-
-.spai-profile footer {
-  padding: 40px 0;
-}
-.spai-profile footer .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: var(--spai-slate);
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.spai-profile footer .foot-links {
-  display: flex;
-  gap: 20px;
 }
 
 @media (max-width: 700px) {
