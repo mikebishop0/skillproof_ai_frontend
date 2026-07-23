@@ -15,10 +15,26 @@ import {
   ShieldCheck,
   Lock,
   ScanEye,
+  Video,
+  Layers,
+  BookOpen,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
 import './featuresPage.css';
+
+const heroStats = [
+  { value: '4', label: 'Evidence types analyzed' },
+  { value: '98.4%', label: 'AI scoring accuracy' },
+  { value: '<2 min', label: 'Average report time' },
+];
+
+const evidenceTypes = [
+  { icon: Code2, title: 'Code repositories', description: 'Commit history, structure, and dependency choices.' },
+  { icon: Video, title: 'Video walkthroughs', description: 'How a candidate reasons through their own decisions.' },
+  { icon: Layers, title: 'Architecture diagrams', description: 'System design trade-offs and scalability thinking.' },
+  { icon: BookOpen, title: 'Written documentation', description: 'Clarity of technical communication under review.' },
+];
 
 const capabilities = [
   {
@@ -89,45 +105,45 @@ export default function FeaturesPage() {
         </div>
       </nav>
 
-      <header className="feat-hero">
-        <div className="wrap feat-hero-grid">
-          <div>
-            <div className="eyebrow">AI-Powered Verification</div>
-            <h1>
-              The Tech Behind <span className="accent-line">The Truth</span>
-            </h1>
-            <p className="lede">
-              SkillProof AI goes beyond questionnaires. Our proprietary Multilayered
-              Verification engine analyzes real-world evidence code, video, and technical
-              logic to provide an objective truth about expertise.
-            </p>
-            <div className="hero-actions">
-              <a href="#capabilities" className="btn btn-primary">
-                Explore the Engine <ArrowRight size={15} />
-              </a>
-              <a href="#" className="btn btn-ghost">
-                <Play size={15} /> Watch Tech Demo
-              </a>
-            </div>
+      <header className="feat-hero-v2">
+        <div className="wrap">
+          <div className="eyebrow" style={{ margin: '0 auto 20px' }}>AI-Powered Verification</div>
+          <h1>
+            Evidence Speaks Louder <span className="accent-line">Than Buzzwords.</span>
+          </h1>
+          <p className="lede">
+            SkillProof AI goes beyond questionnaires. Our proprietary Multilayered Verification
+            engine analyzes real-world evidence code, video, and technical logic to provide an
+            objective truth about expertise.
+          </p>
+          <div className="hero-actions">
+            <a href="#capabilities" className="btn btn-primary">
+              Explore the Engine <ArrowRight size={15} />
+            </a>
+            <a href="#" className="btn btn-ghost">
+              <Play size={15} /> Watch Tech Demo
+            </a>
           </div>
-          <div className="hero-visual">
-            <div className="hero-terminal">
-              <div className="term-dots">
-                <span />
-                <span />
-                <span />
+
+          <div className="hero-stats">
+            {heroStats.map((stat) => (
+              <div className="hero-stat" key={stat.label}>
+                <div className="hero-stat-value">{stat.value}</div>
+                <div className="hero-stat-label">{stat.label}</div>
               </div>
-              <div className="term-line" />
-              <div className="term-line short" />
-              <div className="term-line" />
-              <div className="term-graph">
-                <Cpu size={26} />
+            ))}
+          </div>
+
+          <div className="evidence-grid">
+            {evidenceTypes.map((item) => (
+              <div className="evidence-card" key={item.title}>
+                <div className="evidence-icon">
+                  <item.icon size={20} />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
-            </div>
-            <div className="hero-badge">
-              <div className="hero-badge-label">Analyzing evidence...</div>
-              <div className="hero-badge-value">98.4% Confidence</div>
-            </div>
+            ))}
           </div>
         </div>
       </header>
