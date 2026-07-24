@@ -7,11 +7,6 @@ import {
   Users,
   ShieldCheck,
   Sparkles,
-  Cloud,
-  Layers,
-  Database,
-  Network,
-  Lock,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
@@ -21,14 +16,6 @@ const heroStats = [
   { icon: Users, value: '50K+', label: 'Verified profiles' },
   { icon: ShieldCheck, value: '98.4%', label: 'AI accuracy' },
   { icon: Sparkles, value: '600+', label: 'Companies hiring' },
-];
-
-const trustedCompanies = [
-  { name: 'CloudScale', icon: Cloud },
-  { name: 'NeoVibe', icon: Layers },
-  { name: 'StructIQ', icon: Database },
-  { name: 'OpenNode', icon: Network },
-  { name: 'SecureLayer', icon: Lock },
 ];
 
 const compareRows: Array<

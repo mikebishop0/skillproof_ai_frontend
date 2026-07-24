@@ -18,6 +18,7 @@ import {
 import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
 import bannerImg from '../../assets/bannerimg1.jpeg';
+import hiringImg from '../../assets/verification-globe.jpeg';
 import './howItWorksPage.css';
 
 const journeySteps = [
@@ -387,17 +388,7 @@ export default function HowItWorksPage() {
       <section className="how-hiring">
         <div className="wrap how-hiring-grid">
           <div className="hiring-visual">
-            <div className="hiring-board">
-              <svg viewBox="0 0 200 70" preserveAspectRatio="none">
-                <polyline points="0,55 30,40 60,45 90,20 120,30 150,12 180,22" fill="none" stroke="#0058be" strokeWidth="2.5" />
-                <polyline points="0,60 30,58 60,50 90,52 120,40 150,44 180,35" fill="none" stroke="#22c07a" strokeWidth="2.5" />
-              </svg>
-            </div>
-            <div className="hiring-people">
-              <span />
-              <span />
-              <span />
-            </div>
+            <img src={hiringImg} alt="AI-verified identity and evidence matching" className="hiring-img" />
           </div>
           <div>
             <h2>Evidence-Based Hiring</h2>
