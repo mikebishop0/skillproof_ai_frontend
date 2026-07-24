@@ -198,6 +198,33 @@
   width: 100%;
   max-width: 400px;
 }
+.spai-auth .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--spai-slate);
+  margin-bottom: 22px;
+  cursor: pointer;
+  background: var(--spai-ink-lighter);
+  border: 1px solid var(--spai-line);
+  border-radius: 20px;
+  font-family: inherit;
+  padding: 7px 14px 7px 10px;
+  transition: all 0.15s ease;
+}
+.spai-auth .back-link svg {
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+.spai-auth .back-link:hover {
+  color: var(--spai-white);
+  border-color: var(--spai-slate);
+}
+.spai-auth .back-link:hover svg {
+  transform: translateX(-2px);
+}
 .spai-auth .form-box h1 {
   font-size: 26px;
   margin-bottom: 8px;

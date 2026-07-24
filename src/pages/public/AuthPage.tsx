@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { Users, ShieldCheck, TrendingUp } from 'lucide-react';
+import { Users, ShieldCheck, TrendingUp, ArrowLeft } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { candidate } from '../../data/candidateMock';
 import logo from '../../assets/logo1.png';
@@ -87,6 +87,9 @@ export default function AuthPage() {
 
         <div className="form-side">
           <div className="form-box">
+            <Link to="/" className="back-link">
+              <ArrowLeft size={14} /> Back to home
+            </Link>
             <div className="tabs">
               <div
                 className={`tab ${mode === 'login' ? 'active' : ''}`}
