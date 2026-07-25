@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Send } from 'lucide-react';
+import { Send, Search } from 'lucide-react';
 import { messageThreads } from '../../data/recruiterMock';
 
 export default function Messages() {
   const [activeId, setActiveId] = useState(messageThreads[0]?.id ?? '');
   const [draft, setDraft] = useState('');
+  const [query, setQuery] = useState('');
   const active = messageThreads.find((t) => t.id === activeId);
+  const filteredThreads = messageThreads.filter((t) =>
+    t.candidateName.toLowerCase().includes(query.toLowerCase()),
+  );
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +30,37 @@ export default function Messages() {
       <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', minHeight: 420 }}>
           <div style={{ borderRight: '1px solid var(--spai-line)' }}>
-            {messageThreads.map((thread) => (
+            <div style={{ padding: '12px 14px', borderBottom: '1px solid var(--spai-line)' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  background: 'var(--spai-ink-lighter)',
+                  border: '1px solid var(--spai-line)',
+                  borderRadius: 8,
+                  padding: '8px 10px',
+                }}
+              >
+                <Search size={14} color="var(--spai-slate)" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search candidates"
+                  style={{
+                    flex: 1,
+                    background: 'none',
+                    border: 'none',
+                    outline: 'none',
+                    fontSize: 13,
+                    color: 'var(--spai-white)',
+                    fontFamily: 'inherit',
+                  }}
+                />
+              </div>
+            </div>
+            {filteredThreads.map((thread) => (
               <button
                 key={thread.id}
                 type="button"
@@ -62,6 +96,9 @@ export default function Messages() {
                 </div>
               </button>
             ))}
+            {filteredThreads.length === 0 && (
+              <p style={{ padding: '16px', color: 'var(--spai-slate)', fontSize: 13 }}>No candidates found.</p>
+            )}
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
