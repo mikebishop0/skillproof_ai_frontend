@@ -154,8 +154,7 @@ export default function PricingPage() {
               <div className="price-tier-icon price-tier-icon-featured"><Crown size={18} /></div>
               <div className="price-tier">Premium</div>
               <div className="price-amount">
-                <span>{premiumPrice}</span>
-                <span> / month</span>
+                {premiumPrice} <span>/ month</span>
               </div>
               <div className="price-desc">For candidates actively job hunting.</div>
               <ul className="price-features">
@@ -172,8 +171,7 @@ export default function PricingPage() {
               <div className="price-tier-icon"><Building2 size={18} /></div>
               <div className="price-tier">Enterprise</div>
               <div className="price-amount">
-                <span>{enterprisePrice}</span>
-                <span> / month</span>
+                {enterprisePrice} <span>/ month</span>
               </div>
               <div className="price-desc">For teams hiring and mapping skills.</div>
               <ul className="price-features">
