@@ -24,7 +24,7 @@ export default function CompanyProfile() {
         <p>This is what candidates see when they review your recruiter account.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="card" style={{ maxWidth: 640 }}>
+      <form onSubmit={handleSubmit} className="card">
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 22 }}>
           <div
             style={{
