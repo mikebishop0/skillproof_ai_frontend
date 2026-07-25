@@ -1,11 +1,40 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { candidatePool } from '../../data/recruiterMock';
+import toast from 'react-hot-toast';
+import { CalendarPlus } from 'lucide-react';
+import { candidatePool, type CandidateSummary } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
+import { useInterviewStore } from '../../store/interviewStore';
 
 export default function Shortlist() {
   const shortlistedIds = useShortlistStore((state) => state.shortlistedIds);
   const toggle = useShortlistStore((state) => state.toggle);
+  const scheduleInterview = useInterviewStore((state) => state.scheduleInterview);
   const candidates = candidatePool.filter((c) => shortlistedIds.includes(c.id));
+
+  const [schedulingFor, setSchedulingFor] = useState<CandidateSummary | null>(null);
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+
+  const closeModal = () => {
+    setSchedulingFor(null);
+    setDate('');
+    setTime('');
+  };
+
+  const handleSchedule = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!schedulingFor) return;
+    scheduleInterview({
+      candidateId: schedulingFor.id,
+      candidateName: schedulingFor.name,
+      role: schedulingFor.role,
+      date,
+      time,
+    });
+    toast.success(`Interview scheduled with ${schedulingFor.name}`);
+    closeModal();
+  };
 
   return (
     <div>
@@ -59,12 +88,60 @@ export default function Shortlist() {
                 >
                   View profile
                 </Link>
+                <button type="button" className="btn btn-ghost" onClick={() => setSchedulingFor(candidate)}>
+                  <CalendarPlus size={14} /> Schedule
+                </button>
                 <button type="button" className="btn btn-danger" onClick={() => toggle(candidate.id)}>
                   Remove
                 </button>
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {schedulingFor && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <form
+            className="card modal-card"
+            onClick={(e) => e.stopPropagation()}
+            onSubmit={handleSchedule}
+          >
+            <h2 style={{ fontSize: 16, marginBottom: 4 }}>Schedule interview</h2>
+            <p style={{ color: 'var(--spai-slate)', fontSize: 13, marginBottom: 18 }}>
+              with {schedulingFor.name} {schedulingFor.role}
+            </p>
+            <div className="field-row">
+              <div className="field">
+                <label htmlFor="interview-date">Date</label>
+                <input
+                  id="interview-date"
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="field">
+                <label htmlFor="interview-time">Time</label>
+                <input
+                  id="interview-time"
+                  type="time"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
+              <button type="submit" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+                Confirm interview
+              </button>
+              <button type="button" className="btn btn-ghost" onClick={closeModal}>
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
       )}
     </div>

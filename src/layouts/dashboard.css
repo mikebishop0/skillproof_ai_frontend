@@ -805,3 +805,20 @@
 .spai-dashboard .badge-link-button { padding: 0; margin-top: 14px; border: 0; background: none; color: #fff; display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
 @media (max-width: 880px) { .spai-dashboard .badges-detail-grid { grid-template-columns: 1fr; } .spai-dashboard .badge-side-stack { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .spai-dashboard .badges-summary-row { gap: 15px; padding: 15px; } .spai-dashboard .badges-summary-divider, .spai-dashboard .badges-summary-mark { display: none; } .spai-dashboard .badge-side-stack { grid-template-columns: 1fr; } .spai-dashboard .badge-certificate-card { padding: 24px 16px; } .spai-dashboard .certificate-actions { flex-direction: column; } }
+
+/* MODAL */
+.spai-dashboard .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.spai-dashboard .modal-card {
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+}

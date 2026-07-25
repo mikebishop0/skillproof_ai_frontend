@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock } from 'lucide-react';
-import { interviews } from '../../data/recruiterMock';
+import { useInterviewStore } from '../../store/interviewStore';
 
 type StatusFilter = 'all' | 'scheduled' | 'completed' | 'cancelled';
 
@@ -12,6 +12,8 @@ const statusColor: Record<string, string> = {
 };
 
 export default function Interviews() {
+  const interviews = useInterviewStore((state) => state.interviews);
+  const cancelInterview = useInterviewStore((state) => state.cancelInterview);
   const [filter, setFilter] = useState<StatusFilter>('all');
   const filtered = interviews.filter((i) => filter === 'all' || i.status === filter);
   const scheduledCount = interviews.filter((i) => i.status === 'scheduled').length;
@@ -90,6 +92,11 @@ export default function Interviews() {
               >
                 {interview.status}
               </span>
+              {interview.status === 'scheduled' && (
+                <button type="button" className="btn btn-ghost" onClick={() => cancelInterview(interview.id)}>
+                  Cancel
+                </button>
+              )}
             </div>
           </div>
         ))}
