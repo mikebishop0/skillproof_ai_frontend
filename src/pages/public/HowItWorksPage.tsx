@@ -19,6 +19,7 @@ import Footer from '../../components/Footer';
 import logo from '../../assets/logo1.png';
 import bannerImg from '../../assets/bannerimg1.jpeg';
 import hiringImg from '../../assets/verification-globe.jpeg';
+import antiFraudImg from '../../assets/bannerimg2.jpeg';
 import './howItWorksPage.css';
 
 const journeySteps = [
@@ -326,7 +327,7 @@ export default function HowItWorksPage() {
                 code-style fingerprinting maintain the highest trust levels.
               </p>
               <div className="globe-frame">
-                <div className="globe" />
+                <img src={antiFraudImg} alt="AI-powered anti-fraud monitoring" />
               </div>
             </div>
 
