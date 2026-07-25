@@ -665,7 +665,7 @@
 .spai-dashboard .candidate-shell .card [style*='font-size: 32px'] { text-shadow: 0 6px 14px rgba(0, 88, 190, .1); }
 
 /* Settings page layout */
-.spai-dashboard .settings-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .78fr); gap: 22px; align-items: start; max-width: 1020px; }
+.spai-dashboard .settings-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .78fr); gap: 22px; align-items: start; }
 .spai-dashboard .settings-side-card { text-align: left; }
 .spai-dashboard .settings-side-icon { width: 40px; height: 40px; border-radius: 11px; background: rgba(0, 88, 190, 0.1); color: var(--spai-verified); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
 .spai-dashboard .settings-side-value { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; }
@@ -676,7 +676,7 @@
 }
 
 /* Live public-profile preview */
-.spai-dashboard .profile-editor-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(285px, .82fr); gap: 22px; align-items: start; max-width: 1020px; }
+.spai-dashboard .profile-editor-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(285px, .82fr); gap: 22px; align-items: start;}
 .spai-dashboard .profile-form-card { max-width: none !important; }
 .spai-dashboard .profile-form-heading { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; padding-bottom: 18px; margin-bottom: 20px; border-bottom: 1px solid var(--spai-line); }
 .spai-dashboard .profile-form-heading > div:first-child > span { color: #1f3554; font-size: 14px; font-weight: 700; }
@@ -706,15 +706,8 @@
 }
 .spai-dashboard .candidate-profile-link {
   margin-top: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--spai-verified);
-  font-size: 13px;
-  font-weight: 650;
   white-space: nowrap;
 }
-.spai-dashboard .candidate-profile-link:hover { color: var(--spai-verified-dim); }
 .spai-dashboard .candidate-content-grid { align-items: stretch; }
 .spai-dashboard .candidate-content-grid .card { min-height: 255px; }
 .spai-dashboard .card-title-row { display: flex; align-items: flex-start; justify-content: space-between; color: var(--spai-verified); margin-bottom: 12px; }
@@ -790,7 +783,7 @@
 .spai-dashboard .badge-choice-icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 16px; color: var(--spai-verified); background: #e2efff; border: 1px solid #9ec5fa; border-radius: 14px; }
 .spai-dashboard .badge-choice h3 { font-family: 'Fraunces', serif; font-size: 17px !important; margin: 6px 0 5px; }
 .spai-dashboard .badge-choice .mono { color: var(--spai-slate); font-size: 11.5px; }
-.spai-dashboard .badges-detail-grid { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(260px, .62fr); gap: 20px; max-width: 990px; }
+.spai-dashboard .badges-detail-grid { display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(260px, .62fr); gap: 20px; }
 .spai-dashboard .badge-certificate-card { position: relative; overflow: hidden; min-height: 328px; padding: 28px 34px; text-align: center; border: 1px solid #d8e5f4; border-radius: 17px; background: linear-gradient(145deg, #fff, #f4f8fe); box-shadow: 0 14px 28px rgba(15, 23, 42, .045); }
 .spai-dashboard .certificate-watermark { position: absolute; right: -36px; top: -46px; color: #dfeeff; opacity: .7; }
 .spai-dashboard .badge-certificate-card .eyebrow { position: relative; justify-content: center; }

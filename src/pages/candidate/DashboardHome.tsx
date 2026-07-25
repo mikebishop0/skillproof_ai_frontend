@@ -21,7 +21,7 @@ export default function DashboardHome() {
           <h1>Welcome back, {candidate.name.split(' ')[0]}.</h1>
           <p>Build a proof-backed profile recruiters can trust.</p>
         </div>
-        <Link to="/dashboard/profile" className="candidate-profile-link">Complete profile <ArrowUpRight size={16} /></Link>
+        <Link to="/dashboard/profile" className="btn btn-primary candidate-profile-link">Complete profile <ArrowUpRight size={16} /></Link>
       </div>
 
       <div className="stat-grid">
