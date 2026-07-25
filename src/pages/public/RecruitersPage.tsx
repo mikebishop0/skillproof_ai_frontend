@@ -208,8 +208,23 @@ export default function RecruitersPage() {
               </div>
               <p className="intel-sub">Global distribution of top-tier verified React developers.</p>
               <div className="map-mock">
+                <svg className="map-network" viewBox="0 0 400 220" preserveAspectRatio="none">
+                  <defs>
+                    <pattern id="mapDots" width="16" height="16" patternUnits="userSpaceOnUse">
+                      <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(0,88,190,0.14)" />
+                    </pattern>
+                  </defs>
+                  <rect width="400" height="220" fill="url(#mapDots)" />
+                  <path d="M88,84 C140,60 220,60 300,145" fill="none" stroke="var(--spai-verified)" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
+                  <path d="M88,84 C60,120 90,150 150,168" fill="none" stroke="var(--spai-verified)" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
+                  <path d="M300,145 C330,120 320,90 340,60" fill="none" stroke="var(--spai-verified)" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
+                  <circle cx="150" cy="168" r="5" fill="var(--spai-verified)" />
+                  <circle cx="340" cy="60" r="5" fill="var(--spai-verified)" />
+                </svg>
                 <div className="map-pin" style={{ top: '38%', left: '22%' }}>SF: 1,240 Verified</div>
-                <div className="map-pin" style={{ top: '58%', left: '68%' }}>London: 800 Verified</div>
+                <div className="map-pin" style={{ top: '66%', left: '38%' }}>London: 800 Verified</div>
+                <div className="map-pin map-pin-sm" style={{ top: '77%', left: '38%' }}>Berlin: 410</div>
+                <div className="map-pin map-pin-sm" style={{ top: '27%', left: '85%' }}>Singapore: 260</div>
               </div>
             </div>
 

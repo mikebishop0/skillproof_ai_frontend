@@ -482,6 +482,13 @@
   border-radius: 10px;
   background: var(--spai-ink-lighter);
   border: 1px solid var(--spai-line);
+  overflow: hidden;
+}
+.spai-recruiters .map-network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 .spai-recruiters .map-pin {
   position: absolute;
@@ -493,6 +500,14 @@
   padding: 5px 10px;
   border-radius: 12px;
   white-space: nowrap;
+  z-index: 1;
+}
+.spai-recruiters .map-pin-sm {
+  background: #ffffff;
+  color: var(--spai-verified);
+  border: 1px solid var(--spai-verified);
+  font-size: 10px;
+  padding: 3px 8px;
 }
 .spai-recruiters .trend-list {
   margin-bottom: 22px;
