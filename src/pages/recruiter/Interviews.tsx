@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock, Video, Phone, MapPin } from 'lucide-react';
 import { useInterviewStore } from '../../store/interviewStore';
+import type { InterviewMode } from '../../data/recruiterMock';
 
 type StatusFilter = 'all' | 'scheduled' | 'completed' | 'cancelled';
 
@@ -9,6 +10,12 @@ const statusColor: Record<string, string> = {
   scheduled: 'var(--spai-verified)',
   completed: 'var(--spai-slate)',
   cancelled: 'var(--spai-danger)',
+};
+
+const modeIcon: Record<InterviewMode, typeof Video> = {
+  'Video call': Video,
+  'Phone call': Phone,
+  'In-person': MapPin,
 };
 
 export default function Interviews() {
@@ -74,6 +81,15 @@ export default function Interviews() {
               <div className="mono" style={{ fontSize: 12, color: 'var(--spai-slate)', marginTop: 2 }}>
                 {interview.role}
               </div>
+              {interview.mode && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, color: 'var(--spai-verified)', marginTop: 4 }}>
+                  {(() => {
+                    const ModeIcon = modeIcon[interview.mode] ?? Video;
+                    return <ModeIcon size={12} />;
+                  })()}
+                  {interview.mode} {interview.location}
+                </div>
+              )}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12.5, color: 'var(--spai-slate)' }}>

@@ -2,9 +2,17 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { CalendarPlus } from 'lucide-react';
-import { candidatePool, type CandidateSummary } from '../../data/recruiterMock';
+import { candidatePool, type CandidateSummary, type InterviewMode } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
 import { useInterviewStore } from '../../store/interviewStore';
+
+const modeOptions: InterviewMode[] = ['Video call', 'Phone call', 'In-person'];
+
+function defaultLocation(mode: InterviewMode, candidateId: string) {
+  if (mode === 'Video call') return `meet.google.com/skp-${candidateId}-${Math.random().toString(36).slice(2, 6)}`;
+  if (mode === 'Phone call') return '';
+  return '';
+}
 
 export default function Shortlist() {
   const shortlistedIds = useShortlistStore((state) => state.shortlistedIds);
@@ -15,11 +23,25 @@ export default function Shortlist() {
   const [schedulingFor, setSchedulingFor] = useState<CandidateSummary | null>(null);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [mode, setMode] = useState<InterviewMode>('Video call');
+  const [location, setLocation] = useState('');
+
+  const openModal = (candidate: CandidateSummary) => {
+    setSchedulingFor(candidate);
+    setMode('Video call');
+    setLocation(defaultLocation('Video call', candidate.id));
+  };
+
+  const changeMode = (next: InterviewMode) => {
+    setMode(next);
+    if (schedulingFor) setLocation(defaultLocation(next, schedulingFor.id));
+  };
 
   const closeModal = () => {
     setSchedulingFor(null);
     setDate('');
     setTime('');
+    setLocation('');
   };
 
   const handleSchedule = (e: React.FormEvent) => {
@@ -31,6 +53,8 @@ export default function Shortlist() {
       role: schedulingFor.role,
       date,
       time,
+      mode,
+      location,
     });
     toast.success(`Interview scheduled with ${schedulingFor.name}`);
     closeModal();
@@ -88,7 +112,7 @@ export default function Shortlist() {
                 >
                   View profile
                 </Link>
-                <button type="button" className="btn btn-ghost" onClick={() => setSchedulingFor(candidate)}>
+                <button type="button" className="btn btn-ghost" onClick={() => openModal(candidate)}>
                   <CalendarPlus size={14} /> Schedule
                 </button>
                 <button type="button" className="btn btn-danger" onClick={() => toggle(candidate.id)}>
@@ -132,6 +156,37 @@ export default function Shortlist() {
                   required
                 />
               </div>
+            </div>
+            <div className="field">
+              <label htmlFor="interview-mode">Interview mode</label>
+              <select
+                id="interview-mode"
+                value={mode}
+                onChange={(e) => changeMode(e.target.value as InterviewMode)}
+              >
+                {modeOptions.map((m) => (
+                  <option key={m} value={m}>{m}</option>
+                ))}
+              </select>
+            </div>
+            <div className="field">
+              <label htmlFor="interview-location">
+                {mode === 'Video call' ? 'Meeting link' : mode === 'Phone call' ? 'Phone number' : 'Address'}
+              </label>
+              <input
+                id="interview-location"
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder={
+                  mode === 'Video call'
+                    ? 'meet.google.com/xxx-xxxx-xxx'
+                    : mode === 'Phone call'
+                      ? '+91 98765 43210'
+                      : 'Office address'
+                }
+                required
+              />
             </div>
             <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
               <button type="submit" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>

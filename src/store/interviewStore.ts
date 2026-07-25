@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { interviews as initialInterviews, type InterviewEntry } from '../data/recruiterMock';
+import { interviews as initialInterviews, type InterviewEntry, type InterviewMode } from '../data/recruiterMock';
 
 interface ScheduleInterviewInput {
   candidateId: string;
@@ -8,6 +8,8 @@ interface ScheduleInterviewInput {
   role: string;
   date: string;
   time: string;
+  mode: InterviewMode;
+  location: string;
 }
 
 interface InterviewState {
@@ -34,6 +36,14 @@ export const useInterviewStore = create<InterviewState>()(
           ),
         })),
     }),
-    { name: 'skillproof-interviews' },
+    {
+      name: 'skillproof-interviews',
+      version: 1,
+      migrate: (persistedState) => {
+        const state = persistedState as InterviewState;
+        const hasNewSchema = state.interviews?.every((entry) => 'mode' in entry && 'location' in entry);
+        return hasNewSchema ? state : { ...state, interviews: initialInterviews };
+      },
+    },
   ),
 );

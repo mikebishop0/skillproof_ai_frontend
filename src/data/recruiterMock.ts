@@ -125,6 +125,8 @@ export const skillGaps = [
   { skill: 'Cost optimization', teamsAffected: 1, severity: 'low' as const },
 ];
 
+export type InterviewMode = 'Video call' | 'Phone call' | 'In-person';
+
 export interface InterviewEntry {
   id: string;
   candidateId: string;
@@ -132,15 +134,17 @@ export interface InterviewEntry {
   role: string;
   date: string;
   time: string;
+  mode: InterviewMode;
+  location: string;
   status: 'scheduled' | 'completed' | 'cancelled';
 }
 
 export const interviews: InterviewEntry[] = [
-  { id: '1', candidateId: 'mayur-ramgir', candidateName: 'Mayur Ramgir', role: 'Java Architecture Backend Systems', date: '2026-07-25', time: '11:00 AM', status: 'scheduled' },
-  { id: '2', candidateId: 'priya-nair', candidateName: 'Priya Nair', role: 'Frontend Engineer React', date: '2026-07-26', time: '3:30 PM', status: 'scheduled' },
-  { id: '3', candidateId: 'arjun-mehta', candidateName: 'Arjun Mehta', role: 'DevOps Engineer Cloud Infrastructure', date: '2026-07-18', time: '10:00 AM', status: 'completed' },
-  { id: '4', candidateId: 'rohit-verma', candidateName: 'Rohit Verma', role: 'Security Engineer Application Security', date: '2026-07-15', time: '2:00 PM', status: 'completed' },
-  { id: '5', candidateId: 'sana-sheikh', candidateName: 'Sana Sheikh', role: 'Data Engineer Distributed Systems', date: '2026-07-20', time: '4:00 PM', status: 'cancelled' },
+  { id: '1', candidateId: 'mayur-ramgir', candidateName: 'Mayur Ramgir', role: 'Java Architecture Backend Systems', date: '2026-07-25', time: '11:00 AM', mode: 'Video call', location: 'meet.google.com/skp-mayur-int', status: 'scheduled' },
+  { id: '2', candidateId: 'priya-nair', candidateName: 'Priya Nair', role: 'Frontend Engineer React', date: '2026-07-26', time: '3:30 PM', mode: 'Video call', location: 'meet.google.com/skp-priya-int', status: 'scheduled' },
+  { id: '3', candidateId: 'arjun-mehta', candidateName: 'Arjun Mehta', role: 'DevOps Engineer Cloud Infrastructure', date: '2026-07-18', time: '10:00 AM', mode: 'Video call', location: 'meet.google.com/skp-arjun-int', status: 'completed' },
+  { id: '4', candidateId: 'rohit-verma', candidateName: 'Rohit Verma', role: 'Security Engineer Application Security', date: '2026-07-15', time: '2:00 PM', mode: 'Phone call', location: '+91 98765 43210', status: 'completed' },
+  { id: '5', candidateId: 'sana-sheikh', candidateName: 'Sana Sheikh', role: 'Data Engineer Distributed Systems', date: '2026-07-20', time: '4:00 PM', mode: 'Video call', location: 'meet.google.com/skp-sana-int', status: 'cancelled' },
 ];
 
 export interface MessageThread {
