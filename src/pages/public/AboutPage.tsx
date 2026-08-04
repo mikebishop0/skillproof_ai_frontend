@@ -1,5 +1,5 @@
 import PublicLayout from '../../layouts/PublicLayout';
-import { ShieldCheck, Cpu, Users, Award, Sparkles, Target, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Cpu, Users, Award, Sparkles, ArrowRight } from 'lucide-react';
 import bannerImg from '../../assets/bannerimg1.jpeg';
 import globeImg from '../../assets/verification-globe.jpeg';
 import { Link } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PublicLayout from '../../layouts/PublicLayout';
-import { Mail, MapPin, Clock, Send, MessageSquare, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, MessageSquare, ShieldCheck } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function ContactPage() {
