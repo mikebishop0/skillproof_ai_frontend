@@ -11,6 +11,15 @@ import RecruitersPage from './pages/public/RecruitersPage';
 import FeaturesPage from './pages/public/FeaturesPage';
 import HowItWorksPage from './pages/public/HowItWorksPage';
 
+import AboutPage from './pages/public/AboutPage';
+import CareersPage from './pages/public/CareersPage';
+import BlogPage from './pages/public/BlogPage';
+import ContactPage from './pages/public/ContactPage';
+import HelpCenterPage from './pages/public/HelpCenterPage';
+import FAQPage from './pages/public/FAQPage';
+import PrivacyPolicyPage from './pages/public/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/public/TermsOfServicePage';
+
 import DashboardHome from './pages/candidate/DashboardHome';
 import ProfileEdit from './pages/candidate/ProfileEdit';
 import Projects from './pages/candidate/Projects';
@@ -97,6 +106,14 @@ function App() {
       <Route path="login" element={<AuthPage />} />
       <Route path="register" element={<AuthPage />} />
       <Route path="forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="careers" element={<CareersPage />} />
+      <Route path="blog" element={<BlogPage />} />
+      <Route path="contact" element={<ContactPage />} />
+      <Route path="help" element={<HelpCenterPage />} />
+      <Route path="faq" element={<FAQPage />} />
+      <Route path="privacy" element={<PrivacyPolicyPage />} />
+      <Route path="terms" element={<TermsOfServicePage />} />
 
       {/* Candidate dashboard */}
       <Route

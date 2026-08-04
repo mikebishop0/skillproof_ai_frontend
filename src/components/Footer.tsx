@@ -30,24 +30,24 @@ export default function Footer() {
             <h4>Product</h4>
             <a href="/#features">Features</a>
             <Link to="/pricing">Pricing</Link>
-            <span>Assessments</span>
-            <span>Badges</span>
+            <Link to="/dashboard/assessments">Assessments</Link>
+            <Link to="/dashboard/badges">Badges</Link>
           </div>
 
           <div className="footer-col">
             <h4>Company</h4>
-            <span>About Us</span>
-            <span>Careers</span>
-            <span>Blog</span>
-            <span>Contact</span>
+            <Link to="/about">About Us</Link>
+            <Link to="/careers">Careers</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/contact">Contact</Link>
           </div>
 
           <div className="footer-col">
             <h4>Support</h4>
-            <span>Help Center</span>
-            <span>FAQ</span>
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <Link to="/help">Help Center</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
 
           <div className="footer-col newsletter">
