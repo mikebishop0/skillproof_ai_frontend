@@ -13,9 +13,9 @@ export default function Search() {
   const [minScore, setMinScore] = useState(0);
 
   const toggle = useShortlistStore((state) => state.toggle);
-  const isShortlisted = useShortlistStore((state) => state.isShortlisted);
+  const shortlistedIds = useShortlistStore((state) => state.shortlistedIds);
   const toggleSaved = useSavedProfilesStore((state) => state.toggle);
-  const isSaved = useSavedProfilesStore((state) => state.isSaved);
+  const savedIds = useSavedProfilesStore((state) => state.savedIds);
 
   const results = useMemo(() => {
     return candidatePool.filter((candidate) => {
@@ -89,59 +89,63 @@ export default function Search() {
       </p>
 
       <div className="grid-2">
-        {results.map((candidate) => (
-          <div key={candidate.id} className="card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
-              <div>
-                <h3 style={{ fontSize: 15 }}>{candidate.name}</h3>
-                <p style={{ color: 'var(--spai-slate)', fontSize: 12.5, marginTop: 2 }}>{candidate.role}</p>
+        {results.map((candidate) => {
+          const isCandShortlisted = shortlistedIds.includes(candidate.id);
+          const isCandSaved = savedIds.includes(candidate.id);
+          return (
+            <div key={candidate.id} className="card">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                <div>
+                  <h3 style={{ fontSize: 15 }}>{candidate.name}</h3>
+                  <p style={{ color: 'var(--spai-slate)', fontSize: 12.5, marginTop: 2 }}>{candidate.role}</p>
+                </div>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 12,
+                    color: 'var(--spai-verified)',
+                    background: 'rgba(0,88,190,0.12)',
+                    padding: '3px 9px',
+                    borderRadius: 12,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {candidate.score}%
+                </span>
               </div>
-              <span
-                className="mono"
-                style={{
-                  fontSize: 12,
-                  color: 'var(--spai-verified)',
-                  background: 'rgba(0,88,190,0.12)',
-                  padding: '3px 9px',
-                  borderRadius: 12,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {candidate.score}%
-              </span>
+              <p style={{ color: 'var(--spai-slate)', fontSize: 12.5, marginBottom: 10 }}>{candidate.location}</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 14 }}>
+                {candidate.skills.slice(0, 3).map((s) => (
+                  <span className="tag" key={s}>{s}</span>
+                ))}
+              </div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <Link to={`/recruiter/candidate/${candidate.id}`} className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+                  View profile
+                </Link>
+                <button
+                  type="button"
+                  className="btn btn-ghost"
+                  onClick={() => toggle(candidate.id)}
+                  title={isCandShortlisted ? 'Remove from shortlist' : 'Add to shortlist'}
+                  style={isCandShortlisted ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+                >
+                  <Star size={14} fill={isCandShortlisted ? 'currentColor' : 'none'} />
+                  {isCandShortlisted ? 'Shortlisted' : 'Shortlist'}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-ghost"
+                  onClick={() => toggleSaved(candidate.id)}
+                  title={isCandSaved ? 'Remove from saved profiles' : 'Save profile'}
+                  style={isCandSaved ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+                >
+                  <Bookmark size={14} fill={isCandSaved ? 'currentColor' : 'none'} />
+                </button>
+              </div>
             </div>
-            <p style={{ color: 'var(--spai-slate)', fontSize: 12.5, marginBottom: 10 }}>{candidate.location}</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 14 }}>
-              {candidate.skills.slice(0, 3).map((s) => (
-                <span className="tag" key={s}>{s}</span>
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: 8 }}>
-              <Link to={`/recruiter/candidate/${candidate.id}`} className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
-                View profile
-              </Link>
-              <button
-                type="button"
-                className="btn btn-ghost"
-                onClick={() => toggle(candidate.id)}
-                title={isShortlisted(candidate.id) ? 'Remove from shortlist' : 'Add to shortlist'}
-                style={isShortlisted(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
-              >
-                <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
-                {isShortlisted(candidate.id) ? 'Shortlisted' : 'Shortlist'}
-              </button>
-              <button
-                type="button"
-                className="btn btn-ghost"
-                onClick={() => toggleSaved(candidate.id)}
-                title={isSaved(candidate.id) ? 'Remove from saved profiles' : 'Save profile'}
-                style={isSaved(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
-              >
-                <Bookmark size={14} fill={isSaved(candidate.id) ? 'currentColor' : 'none'} />
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
         {results.length === 0 && (
           <p style={{ color: 'var(--spai-slate)', fontSize: 14 }}>No candidates match these filters.</p>
         )}

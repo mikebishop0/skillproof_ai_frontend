@@ -78,7 +78,7 @@ export default function ContactPage() {
               <p style={{ color: '#64748b', marginBottom: '24px' }}>
                 Thank you for contacting us, <strong>{formData.name}</strong>. We have sent a confirmation email to <strong>{formData.email}</strong>.
               </p>
-              <button 
+              <button
                 type="button"
                 className="public-btn-primary"
                 onClick={() => setSubmitted(false)}
@@ -95,24 +95,24 @@ export default function ContactPage() {
               <div className="public-grid-2" style={{ margin: 0, gap: '16px' }}>
                 <div className="public-form-group">
                   <label htmlFor="contact-name">Your Full Name *</label>
-                  <input 
+                  <input
                     id="contact-name"
-                    type="text" 
-                    placeholder="e.g. Mayur Ramgir" 
+                    type="text"
+                    placeholder="e.g. Henry Wilson"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required 
+                    required
                   />
                 </div>
                 <div className="public-form-group">
                   <label htmlFor="contact-email">Email Address *</label>
-                  <input 
+                  <input
                     id="contact-email"
-                    type="email" 
-                    placeholder="name@company.com" 
+                    type="email"
+                    placeholder="name@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required 
+                    required
                   />
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
               <div className="public-grid-2" style={{ margin: 0, gap: '16px' }}>
                 <div className="public-form-group">
                   <label htmlFor="contact-category">Inquiry Category</label>
-                  <select 
+                  <select
                     id="contact-category"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
@@ -134,10 +134,10 @@ export default function ContactPage() {
                 </div>
                 <div className="public-form-group">
                   <label htmlFor="contact-subject">Subject</label>
-                  <input 
+                  <input
                     id="contact-subject"
-                    type="text" 
-                    placeholder="Brief description" 
+                    type="text"
+                    placeholder="Brief description"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   />
@@ -146,9 +146,9 @@ export default function ContactPage() {
 
               <div className="public-form-group">
                 <label htmlFor="contact-message">Message *</label>
-                <textarea 
+                <textarea
                   id="contact-message"
-                  rows={5} 
+                  rows={5}
                   placeholder="Tell us how we can help you..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

@@ -46,49 +46,7 @@
 }
 
 /* NAV (shared pattern) */
-.spai-recruiters nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--spai-line);
-}
-.spai-recruiters nav .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  height: 72px;
-}
-.spai-recruiters .logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.spai-recruiters .logo-img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
-.spai-recruiters .nav-links {
-  display: flex;
-  gap: 36px;
-  font-size: 14px;
-  color: var(--spai-slate);
-}
-.spai-recruiters .nav-links a:hover {
-  color: var(--spai-white);
-}
-.spai-recruiters .nav-links a.active {
-  color: var(--spai-verified);
-}
-.spai-recruiters .nav-cta {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-shrink: 0;
-}
+
 .spai-recruiters .btn {
   padding: 10px 20px;
   border-radius: 6px;
@@ -129,11 +87,7 @@
 .spai-recruiters .btn-full {
   width: 100%;
 }
-@media (max-width: 800px) {
-  .spai-recruiters .nav-links {
-    display: none;
-  }
-}
+
 
 /* HERO */
 .spai-recruiters .rec-hero {

@@ -36,50 +36,7 @@
 }
 
 /* NAV */
-.spai-pricing nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--spai-line);
-}
-.spai-pricing nav .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
-}
-.spai-pricing .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Fraunces', serif;
-  font-size: 19px;
-  font-weight: 600;
-}
-.spai-pricing .logo-img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
-.spai-pricing .nav-links {
-  display: flex;
-  gap: 36px;
-  font-size: 14px;
-  color: var(--spai-slate);
-}
-.spai-pricing .nav-links a:hover {
-  color: var(--spai-white);
-}
-.spai-pricing .nav-links a.active {
-  color: var(--spai-verified);
-}
-.spai-pricing .nav-cta {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
+
 .spai-pricing .btn {
   padding: 10px 20px;
   border-radius: 6px;
@@ -109,11 +66,7 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0, 88, 190, 0.28);
 }
-@media (max-width: 800px) {
-  .spai-pricing .nav-links {
-    display: none;
-  }
-}
+
 
 /* PAGE HEAD */
 .spai-pricing .page-head {

@@ -18,7 +18,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
-import logo from '../../assets/logo1.png';
+import Navbar from '../../components/Navbar';
 import './recruitersPage.css';
 
 const candidates = [
@@ -70,23 +70,7 @@ const trendingSkills = [
 export default function RecruitersPage() {
   return (
     <div className="spai-recruiters">
-      <nav>
-        <div className="wrap">
-          <div className="logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
-          <div className="nav-links">
-            <Link to="/">How it Works</Link>
-            <Link to="/features">Features</Link>
-            <Link to="/recruiters" className="active">Recruiters</Link>
-            <Link to="/pricing">Pricing</Link>
-          </div>
-          <div className="nav-cta">
-            <Link to="/login" className="btn btn-ghost">Log In</Link>
-            <Link to="/register" className="btn btn-primary">Get Started</Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar activePage="recruiters" />
 
       <header className="rec-hero">
         <div className="wrap">

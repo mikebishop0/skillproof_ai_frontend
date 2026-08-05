@@ -16,7 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
-import logo from '../../assets/logo1.png';
+import Navbar from '../../components/Navbar';
 import bannerImg from '../../assets/bannerimg1.jpeg';
 import hiringImg from '../../assets/verification-globe.jpeg';
 import antiFraudImg from '../../assets/bannerimg2.jpeg';
@@ -117,23 +117,7 @@ export default function HowItWorksPage() {
 
   return (
     <div className="spai-how">
-      <nav>
-        <div className="wrap">
-          <div className="logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
-          <div className="nav-links">
-            <Link to="/" className="active">How it Works</Link>
-            <Link to="/features">Features</Link>
-            <Link to="/recruiters">Recruiters</Link>
-            <Link to="/pricing">Pricing</Link>
-          </div>
-          <div className="nav-cta">
-            <Link to="/login" className="btn btn-ghost">Log In</Link>
-            <Link to="/register" className="btn btn-primary">Get Started</Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar activePage="how-it-works" />
 
       <header className="how-hero">
         <div className="wrap how-hero-grid">

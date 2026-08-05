@@ -43,50 +43,7 @@
 }
 
 /* NAV */
-.spai-how nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--spai-line);
-}
-.spai-how nav .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  height: 72px;
-}
-.spai-how .logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.spai-how .logo-img {
-  height: 40px;
-  width: auto;
-  display: block;
-}
-.spai-how .nav-links {
-  display: flex;
-  gap: 36px;
-  font-size: 16px;
-  color: var(--spai-slate);
-  font-weight: 500;
-}
-.spai-how .nav-links a:hover {
-  color: var(--spai-white);
-}
-.spai-how .nav-links a.active {
-  color: var(--spai-verified);
-}
-.spai-how .nav-cta {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-shrink: 0;
-}
+
 .spai-how .btn {
   padding: 10px 20px;
   border-radius: 6px;
@@ -123,19 +80,7 @@
 .spai-how .btn-ghost:hover {
   transform: translateY(-2px);
 }
-@media (max-width: 800px) {
-  .spai-how .nav-links {
-    display: none;
-  }
-  .spai-how .logo-img {
-    height: 32px;
-  }
-}
-@media (max-width: 480px) {
-  .spai-how .logo-img {
-    height: 26px;
-  }
-}
+
 
 /* HERO */
 .spai-how .how-hero {

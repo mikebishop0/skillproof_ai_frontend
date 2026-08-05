@@ -9,7 +9,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
-import logo from '../../assets/logo1.png';
+import Navbar from '../../components/Navbar';
 import './pricingPage.css';
 
 const heroStats = [
@@ -78,23 +78,7 @@ export default function PricingPage() {
 
   return (
     <div className="spai-pricing">
-      <nav>
-        <div className="wrap">
-          <div className="logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
-          <div className="nav-links">
-            <Link to="/">How it Works</Link>
-            <Link to="/features">Features</Link>
-            <Link to="/recruiters">Recruiters</Link>
-            <Link to="/pricing" className="active">Pricing</Link>
-          </div>
-          <div className="nav-cta">
-            <Link to="/login" className="btn btn-ghost">Log In</Link>
-            <Link to="/register" className="btn btn-primary">Get Started</Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar activePage="pricing" />
 
       <header className="page-head">
         <div className="wrap">

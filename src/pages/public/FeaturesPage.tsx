@@ -19,7 +19,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import Footer from '../../components/Footer';
-import logo from '../../assets/logo1.png';
+import Navbar from '../../components/Navbar';
 import heroImg from '../../assets/bannerimg2.jpeg';
 import './featuresPage.css';
 
@@ -87,23 +87,7 @@ const trustPoints = [
 export default function FeaturesPage() {
   return (
     <div className="spai-features">
-      <nav>
-        <div className="wrap">
-          <div className="logo">
-            <img src={logo} alt="SkillProof AI" className="logo-img" />
-          </div>
-          <div className="nav-links">
-            <Link to="/">How it Works</Link>
-            <Link to="/features" className="active">Features</Link>
-            <Link to="/recruiters">Recruiters</Link>
-            <Link to="/pricing">Pricing</Link>
-          </div>
-          <div className="nav-cta">
-            <Link to="/login" className="btn btn-ghost">Log In</Link>
-            <Link to="/register" className="btn btn-primary">Get Started</Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar activePage="features" />
 
       <header className="feat-hero-v2">
         <div className="wrap feat-hero-split">

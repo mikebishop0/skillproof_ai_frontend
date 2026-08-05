@@ -8,9 +8,9 @@ export default function CandidateView() {
   const { id } = useParams();
   const candidate = candidatePool.find((c) => c.id === id);
   const toggle = useShortlistStore((state) => state.toggle);
-  const isShortlisted = useShortlistStore((state) => state.isShortlisted);
+  const shortlistedIds = useShortlistStore((state) => state.shortlistedIds);
   const toggleSaved = useSavedProfilesStore((state) => state.toggle);
-  const isSaved = useSavedProfilesStore((state) => state.isSaved);
+  const savedIds = useSavedProfilesStore((state) => state.savedIds);
 
   if (!candidate) {
     return (
@@ -22,6 +22,9 @@ export default function CandidateView() {
       </div>
     );
   }
+
+  const isCandShortlisted = shortlistedIds.includes(candidate.id);
+  const isCandSaved = savedIds.includes(candidate.id);
 
   return (
     <div>
@@ -36,19 +39,19 @@ export default function CandidateView() {
             type="button"
             className="btn btn-ghost"
             onClick={() => toggle(candidate.id)}
-            style={isShortlisted(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+            style={isCandShortlisted ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
           >
-            <Star size={14} fill={isShortlisted(candidate.id) ? 'currentColor' : 'none'} />
-            {isShortlisted(candidate.id) ? 'Shortlisted' : 'Shortlist'}
+            <Star size={14} fill={isCandShortlisted ? 'currentColor' : 'none'} />
+            {isCandShortlisted ? 'Shortlisted' : 'Shortlist'}
           </button>
           <button
             type="button"
             className="btn btn-ghost"
             onClick={() => toggleSaved(candidate.id)}
-            style={isSaved(candidate.id) ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
+            style={isCandSaved ? { color: 'var(--spai-verified)', borderColor: 'rgba(0,88,190,0.35)' } : undefined}
           >
-            <Bookmark size={14} fill={isSaved(candidate.id) ? 'currentColor' : 'none'} />
-            {isSaved(candidate.id) ? 'Saved' : 'Save profile'}
+            <Bookmark size={14} fill={isCandSaved ? 'currentColor' : 'none'} />
+            {isCandSaved ? 'Saved' : 'Save profile'}
           </button>
           <Link to={`/profile/${candidate.id}`} className="btn btn-ghost">
             Open public profile
