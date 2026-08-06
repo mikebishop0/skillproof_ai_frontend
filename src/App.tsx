@@ -94,9 +94,39 @@ const adminNavItems = [
   { label: 'Settings', to: '/admin/settings' },
 ];
 
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!hash) {
+      const scroll = () => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTo(0, 0);
+        document.body.scrollTo(0, 0);
+      };
+      scroll();
+      const timer = setTimeout(scroll, 25);
+      return () => clearTimeout(timer);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       {/* Standalone pages (ship their own nav/footer) */}
       <Route path="/" element={<HowItWorksPage />} />
       <Route path="pricing" element={<PricingPage />} />
@@ -184,6 +214,7 @@ function App() {
         <Route path="settings" element={<AdminSettings />} />
       </Route>
     </Routes>
+    </>
   );
 }
 

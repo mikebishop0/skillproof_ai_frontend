@@ -1,19 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { BriefcaseBusiness, CheckCircle2, Code2, Link2, MapPin, Sparkles } from 'lucide-react';
-import { candidate, skills as initialSkills } from '../../data/candidateMock';
+import { profileApi } from '../../services/profileApi';
+import type { UserProfileDto } from '../../services/profileApi';
 
 export default function ProfileEdit() {
-  const [name, setName] = useState(candidate.name);
-  const [role, setRole] = useState(candidate.role);
-  const [location, setLocation] = useState(candidate.location);
-  const [bio, setBio] = useState(candidate.bio);
-  const [github, setGithub] = useState(candidate.github);
-  const [linkedin, setLinkedin] = useState(candidate.linkedin);
-  const [skillTags, setSkillTags] = useState(initialSkills.map((s) => s.name));
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+  const [location, setLocation] = useState('');
+  const [bio, setBio] = useState('');
+  const [github, setGithub] = useState('');
+  const [linkedin, setLinkedin] = useState('');
+  const [skillTags, setSkillTags] = useState<string[]>([]);
   const [skillInput, setSkillInput] = useState('');
+  const [profileExists, setProfileExists] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const completedFields = [name, role, location, bio, github, linkedin, skillTags.length > 0].filter(Boolean).length;
   const profileCompletion = Math.round((completedFields / 7) * 100);
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const res = await profileApi.getCandidateProfile();
+        const data = res.data;
+        if (data) {
+          setProfileExists(true);
+          setName(`${data.first_name || ''} ${data.last_name || ''}`.trim());
+          setRole(data.professional_headline || '');
+          setLocation(data.location || '');
+          setBio(data.about_section || '');
+          setGithub(data.github_url || '');
+          setLinkedin(data.linkedin_url || '');
+          setSkillTags(data.skills ? data.skills.split(',').filter(Boolean) : []);
+        }
+      } catch (err: any) {
+        console.error('Failed to load profile, user may not have one yet:', err);
+        setProfileExists(false);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadProfile();
+  }, []);
 
   const addSkill = () => {
     const value = skillInput.trim();
@@ -27,10 +56,40 @@ export default function ProfileEdit() {
     setSkillTags((prev) => prev.filter((s) => s !== skill));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Profile saved (backend not connected yet)');
+    const [firstName = '', ...lastNameParts] = name.trim().split(' ');
+    const lastName = lastNameParts.join(' ');
+
+    const payload: UserProfileDto = {
+      first_name: firstName,
+      last_name: lastName,
+      professional_headline: role,
+      location,
+      about_section: bio,
+      github_url: github,
+      linkedin_url: linkedin,
+      skills: skillTags.join(','),
+    };
+
+    try {
+      if (profileExists) {
+        await profileApi.updateCandidateProfile(payload);
+      } else {
+        await profileApi.createCandidateProfile(payload);
+        setProfileExists(true);
+      }
+      toast.success('Profile saved successfully!');
+    } catch (err: any) {
+      console.error(err);
+      toast.error(err.response?.data?.message || err.message || 'Failed to save profile');
+    }
   };
+
+
+  if (loading) {
+    return <div style={{ padding: 24, textAlign: 'center', color: 'var(--spai-slate)' }}>Loading profile details...</div>;
+  }
 
   return (
     <div>

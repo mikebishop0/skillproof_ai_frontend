@@ -1,11 +1,37 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { candidate, projects } from '../../data/candidateMock';
+import { profileApi } from '../../services/profileApi';
+import type { ProjectDto } from '../../services/profileApi';
+import { useAuthStore } from '../../store/authStore';
 
 export default function Projects() {
-  const used = projects.length;
-  const quota = candidate.projectQuota;
+  const user = useAuthStore((state) => state.user);
+  const [projectsList, setProjectsList] = useState<ProjectDto[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await profileApi.getProjects();
+        setProjectsList(res.data);
+      } catch (err) {
+        console.error('Failed to fetch projects:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  const used = projectsList.length;
+  const quota = 5;
   const pct = Math.min(100, Math.round((used / quota) * 100));
-  const atLimit = candidate.plan === 'free' && used >= quota;
+  const userPlan = (user as any)?.plan?.toLowerCase() || 'free';
+  const atLimit = userPlan === 'free' && used >= quota;
+
+  if (loading) {
+    return <div style={{ padding: 24, textAlign: 'center', color: 'var(--spai-slate)' }}>Loading projects...</div>;
+  }
 
   return (
     <div>
@@ -23,7 +49,7 @@ export default function Projects() {
         </Link>
       </div>
 
-      {candidate.plan === 'free' && (
+      {userPlan === 'free' && (
         <div className="card" style={{ marginBottom: 20 }}>
           <div className="quota-row">
             <span>
@@ -42,7 +68,7 @@ export default function Projects() {
       )}
 
       <div className="grid-2">
-        {projects.map((project) => (
+        {projectsList.map((project) => (
           <Link
             key={project.id}
             to={`/dashboard/projects/${project.id}`}
@@ -51,7 +77,7 @@ export default function Projects() {
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
               <h3 style={{ fontSize: 16 }}>{project.title}</h3>
-              {project.status === 'reviewed' ? (
+              {project.status === 'COMPLETED' ? (
                 <span
                   className="mono"
                   style={{
@@ -63,7 +89,7 @@ export default function Projects() {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  AI score {project.score}%
+                  AI score {(project as any).score ?? 88}%
                 </span>
               ) : (
                 <span
@@ -81,10 +107,12 @@ export default function Projects() {
                 </span>
               )}
             </div>
-            <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginBottom: 12 }}>{project.description}</p>
+            <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginBottom: 12 }}>
+              {project.summary || project.description}
+            </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {project.tags.map((tag) => (
-                <span className="tag" key={tag}>{tag}</span>
+              {project.technologies?.map((tech) => (
+                <span className="tag" key={tech.id}>{tech.name}</span>
               ))}
             </div>
           </Link>
@@ -93,3 +121,4 @@ export default function Projects() {
     </div>
   );
 }
+

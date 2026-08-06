@@ -120,9 +120,9 @@ export default function DashboardLayout({ roleLabel, navItems }: DashboardLayout
               <span>{roleLabel === 'Candidate' ? 'Improve with AI' : 'Analyze with AI'}</span>
             </Link>
             <div className="dash-secondary-nav">
-              <a href="mailto:developer@zonopact.com" title={collapsed ? 'Support' : undefined}>
+              <Link to="/contact" title={collapsed ? 'Support' : undefined}>
                 <HelpCircle size={18} /> <span>Support</span>
-              </a>
+              </Link>
             </div>
             <div className="dash-account">
               <div className="dash-avatar">{user?.name?.charAt(0) ?? roleLabel.charAt(0)}</div>

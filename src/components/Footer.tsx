@@ -2,9 +2,11 @@ import { Globe, Share2, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import logo from '../assets/logo1.png';
+import { useAuthStore } from '../store/authStore';
 import './footer.css';
 
 export default function Footer() {
+  const user = useAuthStore((state) => state.user);
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Subscribed (backend not connected yet)');
@@ -28,10 +30,10 @@ export default function Footer() {
 
           <div className="footer-col">
             <h4>Product</h4>
-            <a href="/#features">Features</a>
+            <Link to="/features">Features</Link>
             <Link to="/pricing">Pricing</Link>
-            <Link to="/dashboard/assessments">Assessments</Link>
-            <Link to="/dashboard/badges">Badges</Link>
+            <Link to={user ? "/dashboard/assessments" : "/register"}>Assessments</Link>
+            <Link to={user ? "/dashboard/badges" : "/register"}>Badges</Link>
           </div>
 
           <div className="footer-col">
