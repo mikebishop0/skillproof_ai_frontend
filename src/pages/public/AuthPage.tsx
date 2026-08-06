@@ -60,6 +60,7 @@ export default function AuthPage() {
           lastName,
           phoneNumber,
           country,
+          role: role.toUpperCase() as 'CANDIDATE' | 'RECRUITER',
         });
         toast.success('Registration code sent to your email!');
         setIsConfirming(true);
@@ -84,7 +85,7 @@ export default function AuthPage() {
 
         // Fetch actual user details
         const meRes = await authApi.getMe();
-        const userDto = meRes.data;
+        const userDto = meRes.data.data;
 
         const loggedInUser = {
           id: userDto.id,

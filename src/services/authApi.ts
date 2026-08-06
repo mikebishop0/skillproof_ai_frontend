@@ -10,6 +10,7 @@ export interface RegisterPayload extends LoginPayload {
   lastName: string;
   phoneNumber: string;
   country: string;
+  role: 'CANDIDATE' | 'RECRUITER';
 }
 
 export interface ConfirmSignUpPayload {
@@ -53,7 +54,7 @@ export const authApi = {
   resendCode: (email: string) =>
     userApiClient.post<any>('/api/v1/auth/resend-verification-code', { email }),
   getMe: () =>
-    userApiClient.get<UserDto>('/api/v1/users/me'),
+    userApiClient.get<{ message: string; data: UserDto }>('/api/v1/auth/users/me'),
   logout: () =>
     userApiClient.post<any>('/api/v1/auth/logout'),
 };

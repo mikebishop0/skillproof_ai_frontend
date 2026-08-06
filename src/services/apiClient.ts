@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
-// Dynamic Single API Gateway URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || import.meta.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+// Dynamic Single API Gateway URL. Must be VITE_API_URL on Vercel - Vite only
+// exposes VITE_-prefixed vars to client code, so NEXT_PUBLIC_API_URL (a
+// Next.js convention) is never actually readable here and always undefined.
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://68.183.250.94.nip.io';
 
 export const userApiClient = axios.create({
   baseURL: API_BASE_URL,
