@@ -13,8 +13,8 @@ export interface CandidateSummary {
 
 export const candidatePool: CandidateSummary[] = [
   {
-    id: 'mayur-ramgir',
-    name: 'Mayur Ramgir',
+    id: 'jack-williams',
+    name: 'Jack Williams',
     role: 'Java Architecture Backend Systems',
     location: 'Pune, India',
     score: 92,
@@ -109,7 +109,7 @@ export const allSkills = Array.from(new Set(candidatePool.flatMap((c) => c.skill
 export const allBadges = Array.from(new Set(candidatePool.flatMap((c) => c.badges))).sort();
 
 export const orgEmployees = [
-  { name: 'Mayur Ramgir', team: 'Platform', topSkill: 'Java architecture', score: 92, gap: 'Security optimization' },
+  { name: 'Jack Williams', team: 'Platform', topSkill: 'Java architecture', score: 92, gap: 'Security optimization' },
   { name: 'Priya Nair', team: 'Web', topSkill: 'React', score: 88, gap: 'Testing coverage' },
   { name: 'Arjun Mehta', team: 'Infra', topSkill: 'Kubernetes', score: 85, gap: 'Cost optimization' },
   { name: 'Sana Sheikh', team: 'Data', topSkill: 'Apache Spark', score: 79, gap: 'Streaming pipelines' },
@@ -140,7 +140,7 @@ export interface InterviewEntry {
 }
 
 export const interviews: InterviewEntry[] = [
-  { id: '1', candidateId: 'mayur-ramgir', candidateName: 'Mayur Ramgir', role: 'Java Architecture Backend Systems', date: '2026-07-25', time: '11:00 AM', mode: 'Video call', location: 'meet.google.com/skp-mayur-int', status: 'scheduled' },
+  { id: '1', candidateId: 'jack-williams', candidateName: 'Jack Williams', role: 'Java Architecture Backend Systems', date: '2026-07-25', time: '11:00 AM', mode: 'Video call', location: 'meet.google.com/skp-jack-int', status: 'scheduled' },
   { id: '2', candidateId: 'priya-nair', candidateName: 'Priya Nair', role: 'Frontend Engineer React', date: '2026-07-26', time: '3:30 PM', mode: 'Video call', location: 'meet.google.com/skp-priya-int', status: 'scheduled' },
   { id: '3', candidateId: 'arjun-mehta', candidateName: 'Arjun Mehta', role: 'DevOps Engineer Cloud Infrastructure', date: '2026-07-18', time: '10:00 AM', mode: 'Video call', location: 'meet.google.com/skp-arjun-int', status: 'completed' },
   { id: '4', candidateId: 'rohit-verma', candidateName: 'Rohit Verma', role: 'Security Engineer Application Security', date: '2026-07-15', time: '2:00 PM', mode: 'Phone call', location: '+91 98765 43210', status: 'completed' },
@@ -161,14 +161,14 @@ export interface MessageThread {
 export const messageThreads: MessageThread[] = [
   {
     id: '1',
-    candidateId: 'mayur-ramgir',
-    candidateName: 'Mayur Ramgir',
+    candidateId: 'jack-williams',
+    candidateName: 'Jack Williams',
     role: 'Java Architecture Backend Systems',
     lastMessage: 'Looking forward to the interview on the 25th!',
     timestamp: '10:42 AM',
     unread: true,
     messages: [
-      { fromRecruiter: true, text: "Hi Mayur, we'd love to schedule an interview based on your Spring Boot project.", time: 'Yesterday' },
+      { fromRecruiter: true, text: "Hi Jack, we'd love to schedule an interview based on your Spring Boot project.", time: 'Yesterday' },
       { fromRecruiter: false, text: 'Sounds great, I am available this week.', time: 'Yesterday' },
       { fromRecruiter: false, text: 'Looking forward to the interview on the 25th!', time: '10:42 AM' },
     ],

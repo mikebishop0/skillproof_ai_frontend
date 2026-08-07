@@ -31,7 +31,7 @@ function ToggleRow({ label, description, value, onChange }: ToggleRowProps) {
 }
 
 export default function Settings() {
-  const [email, setEmail] = useState('mayur.ramgir@example.com');
+  const [email, setEmail] = useState('jack.williams@example.com');
   const [publicProfile, setPublicProfile] = useState(true);
   const [showInSearch, setShowInSearch] = useState(true);
   const [emailOnReview, setEmailOnReview] = useState(true);

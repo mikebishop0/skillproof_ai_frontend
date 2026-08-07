@@ -30,7 +30,7 @@ export default function DashboardHome() {
     fetchData();
   }, []);
 
-  const profileName = profile ? `${profile.first_name || ''} ${profile.last_name || ''}`.trim() : user?.name || 'Mayur';
+  const profileName = profile ? `${profile.first_name || ''} ${profile.last_name || ''}`.trim() : user?.name || 'Jack';
   const profileFields = profile ? [profile.about_section, profile.github_url, profile.linkedin_url, profile.skills] : [];
   const completeness = profile ? Math.round((profileFields.filter(Boolean).length / profileFields.length) * 100) : 0;
   
@@ -120,7 +120,7 @@ export default function DashboardHome() {
             </p>
             </div>
           </div>
-          <Link to={`/profile/${profile?.username || 'mayur-ramgir'}`} className="btn btn-primary">
+          <Link to={`/profile/${profile?.username || 'jack-williams'}`} className="btn btn-primary">
             View public profile
           </Link>
         </div>

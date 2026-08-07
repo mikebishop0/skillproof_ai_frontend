@@ -80,10 +80,10 @@ export default function PublicProfilePage() {
         <div className="wrap">
           <div className="hero-top">
             <div className="identity">
-              <div className="avatar">MR</div>
+              <div className="avatar">JW</div>
               <div>
                 <div className="name-row">
-                  <h1>Mayur Ramgir</h1>
+                  <h1>Jack Williams</h1>
                   <span className="stamp">✓ verified</span>
                 </div>
                 <div className="role">Java Architecture Backend Systems</div>
@@ -231,7 +231,7 @@ export default function PublicProfilePage() {
           <div className="cta-banner">
             <div>
               <h3>Hiring for a similar role?</h3>
-              <p>Search verified candidates like Mayur free for recruiters, no login required to browse.</p>
+              <p>Search verified candidates like Jack free for recruiters, no login required to browse.</p>
             </div>
             <Link to="/recruiter/search" className="btn btn-primary">Browse verified candidates</Link>
           </div>

@@ -78,7 +78,7 @@ export default function LandingPage() {
               <div className="card-proof">
                 <div className="proof-top">
                   <div>
-                    <div className="proof-name">Mayur Ramgir</div>
+                    <div className="proof-name">Jack Williams</div>
                     <div className="proof-role">Java Architecture</div>
                   </div>
                   <div className="stamp">✓ verified</div>
@@ -218,15 +218,15 @@ export default function LandingPage() {
                   <h3>Recruiter Transparency</h3>
                   <p>Eliminate resume bias with direct evidence links.</p>
                 </div>
-                <Link to="/profile/mayur-ramgir" className="btn btn-primary btn-small">
+                <Link to="/profile/jack-williams" className="btn btn-primary btn-small">
                   View Sample Report
                 </Link>
               </div>
               <div className="engine-report-mock">
                 <div className="engine-report-row">
-                  <div className="engine-report-avatar">M</div>
+                  <div className="engine-report-avatar">J</div>
                   <div>
-                    <div className="engine-report-name">Mayur Ramgir</div>
+                    <div className="engine-report-name">Jack Williams</div>
                     <div className="engine-report-role">Java Architecture, Verified</div>
                   </div>
                 </div>

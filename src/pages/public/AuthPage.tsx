@@ -170,7 +170,7 @@ export default function AuthPage() {
 
             <div className="mini-card">
               <div className="mini-top">
-                <div className="mini-name">Mayur Ramgir</div>
+                <div className="mini-name">Jack Williams</div>
                 <div className="mini-stamp">✓ verified</div>
               </div>
               <div className="mini-score">92%</div>
@@ -195,7 +195,7 @@ export default function AuthPage() {
           </div>
         </div>
 
-        <div className="form-side">
+        <div className={`form-side ${mode === 'login' ? 'login-mode' : 'signup-mode'}`}>
           <div className="form-box">
             <Link to="/" className="back-link">
               <ArrowLeft size={14} /> Back to home
@@ -312,7 +312,7 @@ export default function AuthPage() {
                           <input
                             type="text"
                             id="fname"
-                            placeholder="Mayur"
+                            placeholder="Jack"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             required
@@ -323,7 +323,7 @@ export default function AuthPage() {
                           <input
                             type="text"
                             id="lname"
-                            placeholder="Ramgir"
+                            placeholder="Williams"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             required

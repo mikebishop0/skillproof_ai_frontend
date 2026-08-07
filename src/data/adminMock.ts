@@ -78,7 +78,7 @@ export interface PlatformUser {
 }
 
 export const platformUsers: PlatformUser[] = [
-  { id: '1', name: 'Mayur Ramgir', email: 'mayur.ramgir@example.com', role: 'candidate', status: 'active' },
+  { id: '1', name: 'Jack Williams', email: 'jack.williams@example.com', role: 'candidate', status: 'active' },
   { id: '2', name: 'Priya Nair', email: 'priya.nair@example.com', role: 'candidate', status: 'active' },
   { id: '3', name: 'Arjun Mehta', email: 'arjun.mehta@example.com', role: 'candidate', status: 'active' },
   { id: '4', name: 'Recruiter Team', email: 'recruiter@example.com', role: 'recruiter', status: 'active' },

@@ -1,10 +1,10 @@
 export const candidate = {
-  name: 'Mayur Ramgir',
+  name: 'Jack Williams',
   role: 'Java Architecture Backend Systems',
   location: 'Pune, India',
   bio: 'Backend engineer focused on microservices architecture and event-driven systems. Open to remote roles.',
-  github: 'github.com/mayurramgir',
-  linkedin: 'linkedin.com/in/mayurramgir',
+  github: 'github.com/jackwilliams',
+  linkedin: 'linkedin.com/in/jackwilliams',
   plan: 'free' as 'free' | 'premium' | 'enterprise',
   projectQuota: 3,
 };
@@ -37,7 +37,7 @@ export const projects: CandidateProject[] = [
     score: 92,
     description:
       'A multi-service order management system built with Spring Boot, handling checkout, inventory, and payment flows across five independently deployed services.',
-    github: 'github.com/mayurramgir/order-platform',
+    github: 'github.com/jackwilliams/order-platform',
     tags: ['Spring Boot', 'PostgreSQL', 'Docker', 'Kubernetes'],
     strengths: ['Strong microservices knowledge', 'Excellent architecture skills'],
     improvements: ['Security optimization', 'Better monitoring design'],
@@ -49,7 +49,7 @@ export const projects: CandidateProject[] = [
     score: 85,
     description:
       'Kafka-based event pipeline replacing a synchronous REST chain, cutting order-processing latency and decoupling downstream services.',
-    github: 'github.com/mayurramgir/event-pipeline',
+    github: 'github.com/jackwilliams/event-pipeline',
     tags: ['Apache Kafka', 'Java 21', 'Redis'],
     strengths: ['Clean event schema design'],
     improvements: ['Add dead-letter queue handling'],
@@ -60,7 +60,7 @@ export const projects: CandidateProject[] = [
     status: 'pending',
     score: null,
     description: 'Terraform + GitHub Actions pipeline for zero-downtime deploys across staging and production.',
-    github: 'github.com/mayurramgir/deploy-automation',
+    github: 'github.com/jackwilliams/deploy-automation',
     tags: ['Terraform', 'GitHub Actions', 'AWS'],
     strengths: [],
     improvements: [],

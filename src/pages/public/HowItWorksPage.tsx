@@ -70,7 +70,7 @@ const journeySteps = [
     title: 'Share one link',
     description: 'Your public profile is free to view — no login, no paywall. Recruiters see the evidence instantly.',
     type: 'link' as const,
-    link: 'skillproof.ai/p/mayur-ramgir',
+    link: 'skillproof.ai/p/jack-williams',
   },
 ];
 
@@ -338,15 +338,15 @@ export default function HowItWorksPage() {
                   <h3>Recruiter Transparency</h3>
                   <p>Eliminate resume bias with direct evidence links.</p>
                 </div>
-                <Link to="/profile/mayur-ramgir" className="btn btn-primary btn-small">
+                <Link to="/profile/jack-williams" className="btn btn-primary btn-small">
                   View Sample Report
                 </Link>
               </div>
               <div className="engine-report-mock">
                 <div className="engine-report-row">
-                  <div className="engine-report-avatar">M</div>
+                  <div className="engine-report-avatar">J</div>
                   <div>
-                    <div className="engine-report-name">Mayur Ramgir</div>
+                    <div className="engine-report-name">Jack Williams</div>
                     <div className="engine-report-role">Java Architecture, Verified</div>
                   </div>
                 </div>
