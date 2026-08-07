@@ -345,9 +345,14 @@
 .spai-auth .phone-row input {
   flex: 1;
   min-width: 0;
+  box-sizing: border-box;
 }
 .spai-auth .dial-code-select {
-  flex: 0 0 110px;
+  flex: 0 0 85px;
+  width: 85px;
+  min-width: 85px;
+  max-width: 85px;
+  box-sizing: border-box;
   background: var(--spai-ink-lighter);
   border: 1px solid var(--spai-line);
   border-radius: 8px;
@@ -355,6 +360,9 @@
   color: var(--spai-white);
   font-size: 14px;
   font-family: 'Inter', sans-serif;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .spai-auth .dial-code-select:focus {
   outline: none;
