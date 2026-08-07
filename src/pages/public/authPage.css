@@ -338,6 +338,29 @@
   gap: 12px;
 }
 
+.spai-auth .phone-row {
+  display: flex;
+  gap: 8px;
+}
+.spai-auth .phone-row input {
+  flex: 1;
+  min-width: 0;
+}
+.spai-auth .dial-code-select {
+  flex: 0 0 110px;
+  background: var(--spai-ink-lighter);
+  border: 1px solid var(--spai-line);
+  border-radius: 8px;
+  padding: 12px 6px;
+  color: var(--spai-white);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+.spai-auth .dial-code-select:focus {
+  outline: none;
+  border-color: var(--spai-verified);
+}
+
 .spai-auth .row-between {
   display: flex;
   justify-content: space-between;

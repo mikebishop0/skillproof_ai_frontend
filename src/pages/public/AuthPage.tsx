@@ -17,6 +17,8 @@ const trustStats = [
 ];
 
 import { authApi } from '../../services/authApi';
+import { extractErrorMessage } from '../../services/apiClient';
+import { countryCodes } from '../../data/countryCodes';
 
 export default function AuthPage() {
   const location = useLocation();
@@ -31,7 +33,8 @@ export default function AuthPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [dialCode, setDialCode] = useState('+1');
+  const [localPhone, setLocalPhone] = useState('');
   const [country, setCountry] = useState('United States');
   const [code, setCode] = useState('');
   const [isConfirming, setIsConfirming] = useState(false);
@@ -47,7 +50,7 @@ export default function AuthPage() {
     if (loading) return;
 
     if (mode === 'signup') {
-      if (!firstName || !lastName || !email || !password || !phoneNumber || !country) {
+      if (!firstName || !lastName || !email || !password || !localPhone || !country) {
         toast.error('All fields are required');
         return;
       }
@@ -58,7 +61,7 @@ export default function AuthPage() {
           password,
           firstName,
           lastName,
-          phoneNumber,
+          phoneNumber: `${dialCode}${localPhone.replace(/\D/g, '')}`,
           country,
           role: role.toUpperCase() as 'CANDIDATE' | 'RECRUITER',
         });
@@ -66,7 +69,7 @@ export default function AuthPage() {
         setIsConfirming(true);
       } catch (err: any) {
         console.error(err);
-        toast.error(err.response?.data?.message || err.message || 'Registration failed');
+        toast.error(extractErrorMessage(err, 'Registration failed'));
       } finally {
         setLoading(false);
       }
@@ -106,7 +109,7 @@ export default function AuthPage() {
         }
       } catch (err: any) {
         console.error(err);
-        toast.error(err.response?.data?.message || err.message || 'Invalid email or password');
+        toast.error(extractErrorMessage(err, 'Invalid email or password'));
       } finally {
         setLoading(false);
       }
@@ -128,7 +131,7 @@ export default function AuthPage() {
       setMode('login');
     } catch (err: any) {
       console.error(err);
-      toast.error(err.response?.data?.message || err.message || 'Verification failed');
+      toast.error(extractErrorMessage(err, 'Verification failed'));
     } finally {
       setLoading(false);
     }
@@ -144,7 +147,7 @@ export default function AuthPage() {
       toast.success('Verification code resent successfully!');
     } catch (err: any) {
       console.error(err);
-      toast.error(err.response?.data?.message || err.message || 'Failed to resend code');
+      toast.error(extractErrorMessage(err, 'Failed to resend code'));
     }
   };
 
@@ -330,14 +333,28 @@ export default function AuthPage() {
                       <div className="field-row">
                         <div className="field">
                           <label htmlFor="phone">Phone number</label>
-                          <input
-                            type="text"
-                            id="phone"
-                            placeholder="+1234567890"
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            required
-                          />
+                          <div className="phone-row">
+                            <select
+                              id="dialCode"
+                              className="dial-code-select"
+                              value={dialCode}
+                              onChange={(e) => setDialCode(e.target.value)}
+                            >
+                              {countryCodes.map((c) => (
+                                <option key={`${c.name}-${c.dial}`} value={c.dial}>
+                                  {c.dial} {c.name}
+                                </option>
+                              ))}
+                            </select>
+                            <input
+                              type="text"
+                              id="phone"
+                              placeholder="9871960338"
+                              value={localPhone}
+                              onChange={(e) => setLocalPhone(e.target.value.replace(/\D/g, ''))}
+                              required
+                            />
+                          </div>
                         </div>
                         <div className="field">
                           <label htmlFor="country">Country</label>

@@ -35,3 +35,16 @@ userApiClient.interceptors.request.use(injectTokenInterceptor);
 profileApiClient.interceptors.request.use(injectTokenInterceptor);
 storageApiClient.interceptors.request.use(injectTokenInterceptor);
 
+// Backend validation errors carry the actual reason in fieldErrors (e.g.
+// "Password must contain at least 8 characters..."); the top-level message
+// is just a generic "Validation failed" / "Invalid request" and isn't useful
+// to show the user on its own.
+export function extractErrorMessage(err: any, fallback: string): string {
+  const data = err?.response?.data;
+  if (data?.fieldErrors && typeof data.fieldErrors === 'object') {
+    const firstFieldError = Object.values(data.fieldErrors)[0];
+    if (typeof firstFieldError === 'string') return firstFieldError;
+  }
+  return data?.message || err?.message || fallback;
+}
+

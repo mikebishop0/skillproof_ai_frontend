@@ -1,0 +1,61 @@
+export interface CountryCode {
+  name: string;
+  dial: string;
+}
+
+// Common E.164 calling codes. The backend requires phone numbers in strict
+// international format (+<country code><number>, no spaces), so the signup
+// form pairs this dial-code picker with a digits-only local number field
+// instead of asking users to type the full international number themselves.
+export const countryCodes: CountryCode[] = [
+  { name: 'United States', dial: '+1' },
+  { name: 'Canada', dial: '+1' },
+  { name: 'United Kingdom', dial: '+44' },
+  { name: 'India', dial: '+91' },
+  { name: 'Australia', dial: '+61' },
+  { name: 'Germany', dial: '+49' },
+  { name: 'France', dial: '+33' },
+  { name: 'Spain', dial: '+34' },
+  { name: 'Italy', dial: '+39' },
+  { name: 'Netherlands', dial: '+31' },
+  { name: 'Ireland', dial: '+353' },
+  { name: 'Portugal', dial: '+351' },
+  { name: 'Sweden', dial: '+46' },
+  { name: 'Norway', dial: '+47' },
+  { name: 'Denmark', dial: '+45' },
+  { name: 'Finland', dial: '+358' },
+  { name: 'Switzerland', dial: '+41' },
+  { name: 'Austria', dial: '+43' },
+  { name: 'Belgium', dial: '+32' },
+  { name: 'Poland', dial: '+48' },
+  { name: 'United Arab Emirates', dial: '+971' },
+  { name: 'Saudi Arabia', dial: '+966' },
+  { name: 'Israel', dial: '+972' },
+  { name: 'South Africa', dial: '+27' },
+  { name: 'Nigeria', dial: '+234' },
+  { name: 'Kenya', dial: '+254' },
+  { name: 'Egypt', dial: '+20' },
+  { name: 'China', dial: '+86' },
+  { name: 'Japan', dial: '+81' },
+  { name: 'South Korea', dial: '+82' },
+  { name: 'Singapore', dial: '+65' },
+  { name: 'Malaysia', dial: '+60' },
+  { name: 'Indonesia', dial: '+62' },
+  { name: 'Philippines', dial: '+63' },
+  { name: 'Thailand', dial: '+66' },
+  { name: 'Vietnam', dial: '+84' },
+  { name: 'Pakistan', dial: '+92' },
+  { name: 'Bangladesh', dial: '+880' },
+  { name: 'Sri Lanka', dial: '+94' },
+  { name: 'New Zealand', dial: '+64' },
+  { name: 'Brazil', dial: '+55' },
+  { name: 'Mexico', dial: '+52' },
+  { name: 'Argentina', dial: '+54' },
+  { name: 'Chile', dial: '+56' },
+  { name: 'Colombia', dial: '+57' },
+  { name: 'Peru', dial: '+51' },
+  { name: 'Russia', dial: '+7' },
+  { name: 'Ukraine', dial: '+380' },
+  { name: 'Turkey', dial: '+90' },
+  { name: 'Greece', dial: '+30' },
+];
