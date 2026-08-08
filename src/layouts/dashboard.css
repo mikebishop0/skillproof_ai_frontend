@@ -16,7 +16,8 @@
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 .spai-dashboard h1,
 .spai-dashboard h2,
@@ -33,7 +34,7 @@
 /* SHELL */
 .spai-dashboard .dash-shell {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* SIDEBAR */
@@ -215,6 +216,8 @@
   flex: 1;
   padding: 42px 54px;
   min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 .spai-dashboard .dash-head {
   margin-bottom: 32px;
