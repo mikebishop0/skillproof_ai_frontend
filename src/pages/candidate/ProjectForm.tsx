@@ -1,19 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { projects } from '../../data/candidateMock';
+import { profileApi } from '../../services/profileApi';
 
 export default function ProjectForm() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const existing = id ? projects.find((p) => p.id === id) : undefined;
-  const isEdit = Boolean(existing);
+  const isEdit = Boolean(id);
 
-  const [title, setTitle] = useState(existing?.title ?? '');
-  const [description, setDescription] = useState(existing?.description ?? '');
-  const [github, setGithub] = useState(existing?.github ?? '');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [github, setGithub] = useState('');
   const [tagInput, setTagInput] = useState('');
-  const [tags, setTags] = useState(existing?.tags ?? []);
+  const [tags, setTags] = useState<string[]>([]);
+  const [loading, setLoading] = useState(isEdit);
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchProject = async () => {
+      try {
+        const res = await profileApi.getProject(id);
+        const p = res.data;
+        setTitle(p.title ?? '');
+        setDescription(p.description ?? '');
+        setGithub(p.github_url ?? '');
+        setTags(p.technologies?.map((t) => t.name) ?? []);
+      } catch (err) {
+        console.error('Failed to fetch project:', err);
+        toast.error('Failed to load project details');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProject();
+  }, [id]);
 
   const addTag = () => {
     const value = tagInput.trim();
@@ -27,13 +47,35 @@ export default function ProjectForm() {
     setTags((prev) => prev.filter((t) => t !== tag));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success(
-      isEdit ? 'Project updated (backend not connected yet)' : 'Project submitted for AI review (backend not connected yet)',
-    );
-    navigate('/dashboard/projects');
+    try {
+      const dto = {
+        title,
+        description,
+        summary: description.slice(0, 150),
+        github_url: github,
+        category: 'WEB_DEVELOPMENT' as const,
+        status: 'IN_PROGRESS' as const,
+      };
+
+      if (isEdit && id) {
+        await profileApi.updateProject(id, dto);
+        toast.success('Project updated successfully');
+      } else {
+        await profileApi.createProject(dto);
+        toast.success('Project submitted for AI review');
+      }
+      navigate('/dashboard/projects');
+    } catch (err) {
+      console.error('Failed to save project:', err);
+      toast.error('Failed to save project. Please try again.');
+    }
   };
+
+  if (loading) {
+    return <div style={{ padding: 24, textAlign: 'center', color: 'var(--spai-slate)' }}>Loading project...</div>;
+  }
 
   return (
     <div>
