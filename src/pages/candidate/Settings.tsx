@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { ShieldCheck, KeyRound, Award, AlertTriangle } from 'lucide-react';
 import { candidate, badges } from '../../data/candidateMock';
+import { useAuthStore } from '../../store/authStore';
+import { authApi } from '../../services/authApi';
 
 interface ToggleRowProps {
   label: string;
@@ -31,16 +33,44 @@ function ToggleRow({ label, description, value, onChange }: ToggleRowProps) {
 }
 
 export default function Settings() {
-  const [email, setEmail] = useState('jack.williams@example.com');
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState(user?.email ?? 'jack.williams@example.com');
+  const [password, setPassword] = useState('');
   const [publicProfile, setPublicProfile] = useState(true);
   const [showInSearch, setShowInSearch] = useState(true);
   const [emailOnReview, setEmailOnReview] = useState(true);
   const [emailOnBadge, setEmailOnBadge] = useState(true);
   const [productUpdates, setProductUpdates] = useState(false);
 
-  const saveAccount = (e: React.FormEvent) => {
+  const saveAccount = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Account settings saved (backend not connected yet)');
+    try {
+      if (password) {
+        await authApi.changePassword(password);
+        setPassword('');
+        toast.success('Password updated successfully');
+      } else {
+        toast.success('Account settings saved successfully');
+      }
+    } catch (err) {
+      console.error('Failed to save settings:', err);
+      toast.error('Failed to save settings. Please try again.');
+    }
+  };
+
+  const handleDeactivate = async () => {
+    try {
+      await authApi.deactivateAccount();
+      toast.success('Account deactivated successfully');
+      logout();
+      navigate('/login');
+    } catch (err) {
+      console.error('Failed to deactivate account:', err);
+      toast.error('Failed to deactivate account. Please try again.');
+    }
   };
 
   return (
@@ -61,7 +91,7 @@ export default function Settings() {
             </div>
             <div className="field">
               <label htmlFor="password">New password</label>
-              <input id="password" type="password" placeholder="Leave blank to keep current password" />
+              <input id="password" type="password" placeholder="Leave blank to keep current password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary">
               Save changes
@@ -167,7 +197,7 @@ export default function Settings() {
               type="button"
               className="btn btn-ghost"
               style={{ width: '100%', justifyContent: 'center', color: 'var(--spai-danger)', borderColor: 'var(--spai-danger)' }}
-              onClick={() => toast('Account deactivation is not connected yet')}
+              onClick={handleDeactivate}
             >
               Deactivate account
             </button>

@@ -57,5 +57,9 @@ export const authApi = {
     userApiClient.get<{ message: string; data: UserDto }>('/api/v1/auth/users/me'),
   logout: () =>
     userApiClient.post<any>('/api/v1/auth/logout'),
+  changePassword: (password: string) =>
+    userApiClient.post<any>('/api/v1/auth/change-password', { password }),
+  deactivateAccount: () =>
+    userApiClient.delete<any>('/api/v1/auth/users/me'),
 };
 
