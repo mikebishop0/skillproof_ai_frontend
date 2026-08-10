@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { ShieldCheck, KeyRound, Award, AlertTriangle } from 'lucide-react';
 import { candidate, badges } from '../../data/candidateMock';
@@ -34,8 +34,6 @@ function ToggleRow({ label, description, value, onChange }: ToggleRowProps) {
 
 export default function Settings() {
   const user = useAuthStore((state) => state.user);
-  const logout = useAuthStore((state) => state.logout);
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState(user?.email ?? 'jack.williams@example.com');
   const [password, setPassword] = useState('');
