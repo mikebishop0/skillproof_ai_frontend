@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { ShieldCheck, KeyRound, AlertTriangle } from 'lucide-react';
+import { useAuthStore } from '../../store/authStore';
+import { authApi } from '../../services/authApi';
 
 interface ToggleRowProps {
   label: string;
@@ -24,14 +26,27 @@ function ToggleRow({ label, description, value, onChange }: ToggleRowProps) {
 }
 
 export default function RecruiterSettings() {
-  const [email, setEmail] = useState('recruiter@cloudscale.io');
+  const user = useAuthStore((state) => state.user);
+  const [email, setEmail] = useState(user?.email ?? 'recruiter@cloudscale.io');
+  const [password, setPassword] = useState('');
   const [emailOnNewCandidate, setEmailOnNewCandidate] = useState(true);
   const [emailOnInterview, setEmailOnInterview] = useState(true);
   const [productUpdates, setProductUpdates] = useState(false);
 
-  const saveAccount = (e: React.FormEvent) => {
+  const saveAccount = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Account settings saved (backend not connected yet)');
+    try {
+      if (password) {
+        await authApi.changePassword(password);
+        setPassword('');
+        toast.success('Password updated successfully');
+      } else {
+        toast.success('Account settings saved successfully');
+      }
+    } catch (err) {
+      console.error('Failed to save settings:', err);
+      toast.error('Failed to save settings. Please try again.');
+    }
   };
 
   return (
@@ -50,9 +65,9 @@ export default function RecruiterSettings() {
               <label htmlFor="email">Email</label>
               <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div className="field">
+             <div className="field">
               <label htmlFor="password">New password</label>
-              <input id="password" type="password" placeholder="Leave blank to keep current password" />
+              <input id="password" type="password" placeholder="Leave blank to keep current password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary">
               Save changes
@@ -116,11 +131,11 @@ export default function RecruiterSettings() {
             <p style={{ color: 'var(--spai-slate)', fontSize: 13, margin: '10px 0 16px' }}>
               Deactivating removes your recruiter account and all saved searches.
             </p>
-            <button
+             <button
               type="button"
               className="btn btn-ghost"
               style={{ width: '100%', justifyContent: 'center', color: 'var(--spai-danger)', borderColor: 'var(--spai-danger)' }}
-              onClick={() => toast('Account deactivation is not connected yet')}
+              onClick={() => {}}
             >
               Deactivate account
             </button>

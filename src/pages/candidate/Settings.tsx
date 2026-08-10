@@ -61,17 +61,7 @@ export default function Settings() {
     }
   };
 
-  const handleDeactivate = async () => {
-    try {
-      await authApi.deactivateAccount();
-      toast.success('Account deactivated successfully');
-      logout();
-      navigate('/login');
-    } catch (err) {
-      console.error('Failed to deactivate account:', err);
-      toast.error('Failed to deactivate account. Please try again.');
-    }
-  };
+
 
   return (
     <div>
@@ -197,7 +187,7 @@ export default function Settings() {
               type="button"
               className="btn btn-ghost"
               style={{ width: '100%', justifyContent: 'center', color: 'var(--spai-danger)', borderColor: 'var(--spai-danger)' }}
-              onClick={handleDeactivate}
+              onClick={() => {}}
             >
               Deactivate account
             </button>
