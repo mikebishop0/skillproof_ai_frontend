@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { profileApi } from '../../services/profileApi';
+import { storageApi } from '../../services/storageApi';
 
 export default function ProjectForm() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ export default function ProjectForm() {
   const [github, setGithub] = useState('');
   const [tagInput, setTagInput] = useState('');
   const [tags, setTags] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(isEdit);
 
   useEffect(() => {
@@ -59,13 +61,24 @@ export default function ProjectForm() {
         status: 'IN_PROGRESS' as const,
       };
 
+      let projectId = id;
       if (isEdit && id) {
         await profileApi.updateProject(id, dto);
         toast.success('Project updated successfully');
       } else {
-        await profileApi.createProject(dto);
+        const res = await profileApi.createProject(dto);
+        projectId = res.data.id;
         toast.success('Project submitted for AI review');
       }
+
+      if (files.length > 0 && projectId) {
+        const uploadPromises = files.map((file) =>
+          storageApi.uploadFile(file, 'PROJECT', projectId, 'PUBLIC')
+        );
+        await Promise.all(uploadPromises);
+        toast.success('Files uploaded successfully');
+      }
+
       navigate('/dashboard/projects');
     } catch (err) {
       console.error('Failed to save project:', err);
@@ -120,7 +133,15 @@ export default function ProjectForm() {
 
         <div className="field">
           <label>Architecture diagrams / certificates</label>
-          <input type="file" multiple />
+          <input
+            type="file"
+            multiple
+            onChange={(e) => {
+              if (e.target.files) {
+                setFiles(Array.from(e.target.files));
+              }
+            }}
+          />
           <div className="field-hint">PDF, PNG, or JPG up to 10MB each.</div>
         </div>
 
