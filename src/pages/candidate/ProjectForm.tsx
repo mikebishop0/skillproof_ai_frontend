@@ -16,6 +16,7 @@ export default function ProjectForm() {
   const [tags, setTags] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(isEdit);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -51,6 +52,10 @@ export default function ProjectForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+
+    let projectId = id;
     try {
       const dto = {
         title,
@@ -61,7 +66,6 @@ export default function ProjectForm() {
         status: 'IN_PROGRESS' as const,
       };
 
-      let projectId = id;
       if (isEdit && id) {
         await profileApi.updateProject(id, dto);
         toast.success('Project updated successfully');
@@ -70,20 +74,35 @@ export default function ProjectForm() {
         projectId = res.data.id;
         toast.success('Project submitted for AI review');
       }
+    } catch (err) {
+      console.error('Failed to save project:', err);
+      toast.error('Failed to save project. Please try again.');
+      setSubmitting(false);
+      return;
+    }
 
-      if (files.length > 0 && projectId) {
+    // The project itself is already saved at this point - a failure here is
+    // an upload problem, not a "save failed" problem, so it gets its own
+    // message instead of implying the whole submission needs to be retried
+    // (retrying would just create another duplicate project).
+    if (files.length > 0 && projectId) {
+      try {
         const uploadPromises = files.map((file) =>
           storageApi.uploadFile(file, 'PROJECT', projectId, 'PUBLIC')
         );
         await Promise.all(uploadPromises);
         toast.success('Files uploaded successfully');
+      } catch (err) {
+        console.error('Failed to upload project files:', err);
+        toast.error('Project saved, but file upload failed. You can retry uploading from the project page.');
+        setSubmitting(false);
+        navigate('/dashboard/projects');
+        return;
       }
-
-      navigate('/dashboard/projects');
-    } catch (err) {
-      console.error('Failed to save project:', err);
-      toast.error('Failed to save project. Please try again.');
     }
+
+    setSubmitting(false);
+    navigate('/dashboard/projects');
   };
 
   if (loading) {
@@ -176,10 +195,10 @@ export default function ProjectForm() {
         </div>
 
         <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
-          <button type="submit" className="btn btn-primary">
-            {isEdit ? 'Save changes' : 'Submit for AI review'}
+          <button type="submit" className="btn btn-primary" disabled={submitting}>
+            {submitting ? 'Saving...' : isEdit ? 'Save changes' : 'Submit for AI review'}
           </button>
-          <button type="button" className="btn btn-ghost" onClick={() => navigate('/dashboard/projects')}>
+          <button type="button" className="btn btn-ghost" onClick={() => navigate('/dashboard/projects')} disabled={submitting}>
             Cancel
           </button>
         </div>
