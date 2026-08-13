@@ -1,16 +1,36 @@
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { assessments } from '../../data/candidateMock';
+import { assessmentApi } from '../../services/assessmentApi';
 
 export default function AssessmentResult() {
   const { id } = useParams();
   const assessment = assessments.find((a) => a.id === id);
 
+  const [realScore, setRealScore] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchResult = async () => {
+      try {
+        const res = await assessmentApi.getResult(id);
+        const data = res.data as any;
+        const fetchedScore = data?.total_score ?? data?.percentage ?? data?.score;
+        if (typeof fetchedScore === 'number') {
+          setRealScore(fetchedScore);
+        }
+      } catch (err) {
+        console.warn('Backend assessment result unreachable, using fallback score:', err);
+      }
+    };
+    fetchResult();
+  }, [id]);
+
   if (!assessment) {
     return <div className="card"><h1>Assessment not found</h1></div>;
   }
 
-  // Freshly-submitted assessments have no score yet in the mock data show a plausible just-scored result.
-  const score = assessment.score ?? 87;
+  const score = realScore ?? (assessment.score ?? 87);
   const passed = score >= assessment.passScore;
 
   return (

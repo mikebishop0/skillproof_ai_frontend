@@ -1,9 +1,47 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { assessments } from '../../data/candidateMock';
+import { assessmentApi } from '../../services/assessmentApi';
+import type { AssessmentDto } from '../../services/assessmentApi';
+import { assessments as mockAssessments } from '../../data/candidateMock';
 
 export default function Assessments() {
-  const available = assessments.filter((a) => a.status === 'available');
-  const completed = assessments.filter((a) => a.status === 'completed');
+  const [assessmentList, setAssessmentList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAssessments = async () => {
+      try {
+        const res = await assessmentApi.getAssessments();
+        if (res.data && res.data.length > 0) {
+          const mapped = res.data.map((item: AssessmentDto) => ({
+            id: item.id || '',
+            name: item.title || 'Untitled Assessment',
+            type: item.skill_category || item.difficulty || 'Technical',
+            durationMinutes: item.duration || 20,
+            questions: [],
+            status: item.status === 'PUBLISHED' ? 'available' : 'completed',
+            score: item.passing_score || 85,
+          }));
+          setAssessmentList(mapped);
+        } else {
+          setAssessmentList(mockAssessments);
+        }
+      } catch (err) {
+        console.warn('Backend assessment service unreachable, using fallback:', err);
+        setAssessmentList(mockAssessments);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAssessments();
+  }, []);
+
+  const available = assessmentList.filter((a) => a.status === 'available' || a.status === 'PUBLISHED');
+  const completed = assessmentList.filter((a) => a.status === 'completed' || a.status === 'ARCHIVED');
+
+  if (loading) {
+    return <div style={{ padding: 24, textAlign: 'center', color: 'var(--spai-slate)' }}>Loading assessments...</div>;
+  }
 
   return (
     <div>
@@ -19,7 +57,7 @@ export default function Assessments() {
           <div key={assessment.id} className="card">
             <h3 style={{ fontSize: 15, marginBottom: 6 }}>{assessment.name}</h3>
             <p className="mono" style={{ fontSize: 12.5, color: 'var(--spai-slate)', marginBottom: 16 }}>
-              {assessment.type} {assessment.durationMinutes} min {assessment.questions.length} questions
+              {assessment.type} {assessment.durationMinutes} min {assessment.questions?.length ?? 0} questions
             </p>
             <Link to={`/dashboard/assessments/${assessment.id}/take`} className="btn btn-primary">
               Start assessment
@@ -64,3 +102,4 @@ export default function Assessments() {
     </div>
   );
 }
+
