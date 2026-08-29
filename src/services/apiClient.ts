@@ -21,6 +21,11 @@ export const storageApiClient = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+export const assessmentApiClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: { 'Content-Type': 'application/json' },
+});
+
 // Request interceptor to dynamically inject Authorization header using idToken
 const injectTokenInterceptor = (config: any) => {
   const state = useAuthStore.getState();
@@ -34,6 +39,7 @@ const injectTokenInterceptor = (config: any) => {
 userApiClient.interceptors.request.use(injectTokenInterceptor);
 profileApiClient.interceptors.request.use(injectTokenInterceptor);
 storageApiClient.interceptors.request.use(injectTokenInterceptor);
+assessmentApiClient.interceptors.request.use(injectTokenInterceptor);
 
 // Backend validation errors carry the actual reason in fieldErrors (e.g.
 // "Password must contain at least 8 characters..."); the top-level message
