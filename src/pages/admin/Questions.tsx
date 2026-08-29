@@ -4,20 +4,21 @@ import { extractErrorMessage } from '../../services/apiClient';
 import {
   assessmentApi,
   type CategoryDto,
-  type CodingTestCaseDto,
-  type Difficulty,
+  type CreateCodingTestCaseDto,
+  type CreateQuestionOptionDto,
+  type CreateScenarioQuestionDto,
   type QuestionDto,
-  type QuestionOptionDto,
-  type QuestionType,
-  type ScenarioQuestionDto,
 } from '../../services/assessmentApi';
+
+type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
+type QuestionType = 'MCQ' | 'CODING' | 'SCENARIO' | 'ARCHITECTURE';
 
 const questionTypes: QuestionType[] = ['MCQ', 'CODING', 'SCENARIO', 'ARCHITECTURE'];
 const difficulties: Difficulty[] = ['EASY', 'MEDIUM', 'HARD'];
 
-const emptyOption = (): QuestionOptionDto => ({ option_text: '', is_correct: false });
-const emptyTestCase = (): CodingTestCaseDto => ({ input: '', expected_output: '', visibility: 'PUBLIC', weight: 1 });
-const emptyScenario = (): ScenarioQuestionDto => ({ expected_concepts: '', key_points: '', scoring_rubric: '', max_score: 10 });
+const emptyOption = (): CreateQuestionOptionDto => ({ option_text: '', is_correct: false });
+const emptyTestCase = (): CreateCodingTestCaseDto => ({ input: '', expected_output: '', visibility: 'PUBLIC', weight: 1 });
+const emptyScenario = (): CreateScenarioQuestionDto => ({ expected_concepts: '', key_points: '', scoring_rubric: '', max_score: 10 });
 
 export default function AdminQuestions() {
   const [questions, setQuestions] = useState<QuestionDto[]>([]);
@@ -32,16 +33,16 @@ export default function AdminQuestions() {
   const [categoryId, setCategoryId] = useState('');
   const [marks, setMarks] = useState(1);
   const [explanation, setExplanation] = useState('');
-  const [options, setOptions] = useState<QuestionOptionDto[]>([emptyOption(), emptyOption()]);
-  const [testCases, setTestCases] = useState<CodingTestCaseDto[]>([emptyTestCase()]);
-  const [scenario, setScenario] = useState<ScenarioQuestionDto>(emptyScenario());
+  const [options, setOptions] = useState<CreateQuestionOptionDto[]>([emptyOption(), emptyOption()]);
+  const [testCases, setTestCases] = useState<CreateCodingTestCaseDto[]>([emptyTestCase()]);
+  const [scenario, setScenario] = useState<CreateScenarioQuestionDto>(emptyScenario());
 
   const loadData = async () => {
     setLoading(true);
     try {
       const [questionsRes, categoriesRes] = await Promise.all([
-        assessmentApi.getQuestions(),
-        assessmentApi.getCategories(),
+        assessmentApi.getAllQuestions(),
+        assessmentApi.getAllCategories(),
       ]);
       setQuestions(questionsRes.data);
       setCategories(categoriesRes.data);
@@ -381,7 +382,7 @@ export default function AdminQuestions() {
               <span className="mono" style={{ fontSize: 11.5, textTransform: 'uppercase', color: difficultyColor(question.difficulty) }}>
                 {question.difficulty ?? '—'}
               </span>
-              <button type="button" className="btn btn-danger" onClick={() => remove(question.question_group_id)}>
+              <button type="button" className="btn btn-danger" onClick={() => remove(question.question_group_id!)}>
                 Delete
               </button>
             </div>

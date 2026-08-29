@@ -5,10 +5,10 @@ import {
   assessmentApi,
   type AssessmentDto,
   type CategoryDto,
-  type Difficulty,
   type QuestionDto,
 } from '../../services/assessmentApi';
 
+type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
 const difficulties: Difficulty[] = ['EASY', 'MEDIUM', 'HARD'];
 
 export default function AdminAssessments() {
@@ -39,7 +39,7 @@ export default function AdminAssessments() {
     try {
       const [assessmentsRes, categoriesRes] = await Promise.all([
         assessmentApi.getAssessments(),
-        assessmentApi.getCategories(),
+        assessmentApi.getAllCategories(),
       ]);
       setAssessments(assessmentsRes.data);
       setCategories(categoriesRes.data);
@@ -101,7 +101,7 @@ export default function AdminAssessments() {
 
   const setStatus = async (assessment: AssessmentDto, status: 'PUBLISHED' | 'DRAFT' | 'ARCHIVED') => {
     try {
-      await assessmentApi.updateAssessment(assessment.id, { status });
+      await assessmentApi.updateAssessment(assessment.id!, { status });
       setAssessments((prev) => prev.map((a) => (a.id === assessment.id ? { ...a, status } : a)));
       toast.success(`Assessment ${status.toLowerCase()}`);
     } catch (err) {
@@ -125,7 +125,7 @@ export default function AdminAssessments() {
     e.preventDefault();
     if (!newCategoryName.trim()) return;
     try {
-      const res = await assessmentApi.createCategory(newCategoryName.trim());
+      const res = await assessmentApi.createCategory({ name: newCategoryName.trim() });
       setCategories((prev) => [...prev, res.data]);
       setNewCategoryName('');
       toast.success('Category added');
@@ -301,7 +301,7 @@ export default function AdminAssessments() {
                 >
                   {assessment.status}
                 </span>
-                <button type="button" className="btn btn-ghost" onClick={() => setManageId(manageId === assessment.id ? null : assessment.id)}>
+                <button type="button" className="btn btn-ghost" onClick={() => setManageId(manageId === assessment.id ? null : (assessment.id ?? null))}>
                   {manageId === assessment.id ? 'Close' : 'Questions'}
                 </button>
                 {assessment.status === 'PUBLISHED' ? (
@@ -313,7 +313,7 @@ export default function AdminAssessments() {
                     Publish
                   </button>
                 )}
-                <button type="button" className="btn btn-danger" onClick={() => remove(assessment.id)}>
+                <button type="button" className="btn btn-danger" onClick={() => remove(assessment.id!)}>
                   Delete
                 </button>
               </div>
@@ -339,8 +339,8 @@ function ManageQuestions({ assessment }: { assessment: AssessmentDto }) {
     setLoading(true);
     try {
       const [linkedRes, bankRes] = await Promise.all([
-        assessmentApi.getAssessmentQuestions(assessment.id),
-        assessmentApi.getQuestions(),
+        assessmentApi.getAssessmentQuestions(assessment.id!),
+        assessmentApi.getAllQuestions(),
       ]);
       setLinked(linkedRes.data);
       setBank(bankRes.data);
@@ -363,7 +363,7 @@ function ManageQuestions({ assessment }: { assessment: AssessmentDto }) {
   const addQuestion = async (questionId: string) => {
     if (!questionId) return;
     try {
-      await assessmentApi.linkQuestion(assessment.id, questionId);
+      await assessmentApi.linkQuestion(assessment.id!, questionId);
       toast.success('Question added to assessment');
       setAddingId('');
       load();
@@ -375,7 +375,7 @@ function ManageQuestions({ assessment }: { assessment: AssessmentDto }) {
 
   const removeQuestion = async (questionId: string) => {
     try {
-      await assessmentApi.unlinkQuestion(assessment.id, questionId);
+      await assessmentApi.unlinkQuestion(assessment.id!, questionId);
       toast.success('Question removed from assessment');
       setLinked((prev) => prev.filter((q) => q.id !== questionId));
     } catch (err) {
@@ -396,7 +396,7 @@ function ManageQuestions({ assessment }: { assessment: AssessmentDto }) {
       {linked.map((q) => (
         <div key={q.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
           <span style={{ fontSize: 13 }}>{q.content}</span>
-          <button type="button" className="btn btn-ghost" onClick={() => removeQuestion(q.id)}>
+          <button type="button" className="btn btn-ghost" onClick={() => removeQuestion(q.id!)}>
             Remove
           </button>
         </div>
@@ -406,7 +406,7 @@ function ManageQuestions({ assessment }: { assessment: AssessmentDto }) {
           <option value="">Select a question to add...</option>
           {available.map((q) => (
             <option key={q.id} value={q.id}>
-              [{q.question_type}] {q.content.slice(0, 60)}
+              [{q.question_type}] {(q.content ?? '').slice(0, 60)}
             </option>
           ))}
         </select>
