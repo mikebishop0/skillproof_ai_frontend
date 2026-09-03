@@ -253,6 +253,18 @@ export interface UpdateAssessmentDto {
   max_attempts?: number;
 }
 
+export interface TechnicalCompetencyResultDto {
+  id?: string;
+  candidate_id?: string;
+  overall_competency_score?: number;
+  technical_depth_score?: number;
+  architecture_score?: number;
+  code_quality_score?: number;
+  problem_solving_score?: number;
+  cloud_knowledge_score?: number;
+  evidence_summary?: string;
+}
+
 export interface AttemptSubmissionsDto {
   attempt_id?: string;
   code_submissions?: CodeSubmissionDto[];
@@ -336,4 +348,8 @@ export const assessmentApi = {
     assessmentApiClient.patch<CategoryDto>(`/api/v1/admin/assessment-categories/${name}`, payload),
   getAllCategories: () =>
     assessmentApiClient.get<CategoryDto[]>('/api/v1/assessment-categories'),
+
+  // AI Evaluation
+  runTechnicalCompetencyEvaluation: (candidateId: string) =>
+    assessmentApiClient.post<TechnicalCompetencyResultDto>(`/api/v1/candidates/${candidateId}/technical-competency`),
 };

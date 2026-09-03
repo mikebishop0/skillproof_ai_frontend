@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Star, Check, Bookmark } from 'lucide-react';
+import { Star, Check, Bookmark, Sparkles } from 'lucide-react';
+import toast from 'react-hot-toast';
 import { candidatePool } from '../../data/recruiterMock';
 import { useShortlistStore } from '../../store/shortlistStore';
 import { useSavedProfilesStore } from '../../store/savedProfilesStore';
+import { extractErrorMessage } from '../../services/apiClient';
+import { profileApi, type PortfolioReviewResultDto } from '../../services/profileApi';
+import { assessmentApi, type TechnicalCompetencyResultDto } from '../../services/assessmentApi';
 
 export default function CandidateView() {
   const { id } = useParams();
@@ -11,6 +16,41 @@ export default function CandidateView() {
   const shortlistedIds = useShortlistStore((state) => state.shortlistedIds);
   const toggleSaved = useSavedProfilesStore((state) => state.toggle);
   const savedIds = useSavedProfilesStore((state) => state.savedIds);
+
+  const [portfolioResult, setPortfolioResult] = useState<PortfolioReviewResultDto | null>(null);
+  const [portfolioLoading, setPortfolioLoading] = useState(false);
+  const [competencyResult, setCompetencyResult] = useState<TechnicalCompetencyResultDto | null>(null);
+  const [competencyLoading, setCompetencyLoading] = useState(false);
+
+  const runPortfolioReview = async () => {
+    if (!id) return;
+    setPortfolioLoading(true);
+    try {
+      const res = await profileApi.runPortfolioEvaluation(id);
+      setPortfolioResult(res.data);
+      toast.success('Portfolio review complete');
+    } catch (err) {
+      console.error('Failed to run portfolio review:', err);
+      toast.error(extractErrorMessage(err, 'Failed to run portfolio review'));
+    } finally {
+      setPortfolioLoading(false);
+    }
+  };
+
+  const runCompetencyEvaluation = async () => {
+    if (!id) return;
+    setCompetencyLoading(true);
+    try {
+      const res = await assessmentApi.runTechnicalCompetencyEvaluation(id);
+      setCompetencyResult(res.data);
+      toast.success('Technical competency evaluation complete');
+    } catch (err) {
+      console.error('Failed to run technical competency evaluation:', err);
+      toast.error(extractErrorMessage(err, 'Failed to run technical competency evaluation'));
+    } finally {
+      setCompetencyLoading(false);
+    }
+  };
 
   if (!candidate) {
     return (
@@ -91,6 +131,92 @@ export default function CandidateView() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      <div className="card" style={{ marginBottom: 16 }}>
+        <h2 style={{ fontSize: 16, marginBottom: 14 }}>
+          <Sparkles size={16} style={{ verticalAlign: -2, marginRight: 6 }} />
+          AI evaluation
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <h3 style={{ fontSize: 14 }}>Portfolio review</h3>
+              <button type="button" className="btn btn-ghost" onClick={runPortfolioReview} disabled={portfolioLoading}>
+                {portfolioLoading ? 'Running...' : portfolioResult ? 'Re-run' : 'Run AI portfolio review'}
+              </button>
+            </div>
+            {portfolioResult && (
+              <div>
+                <div className="stat-grid" style={{ marginBottom: 12 }}>
+                  <div className="stat-cell">
+                    <div className="num">{portfolioResult.overall_portfolio_score ?? '—'}%</div>
+                    <div className="lbl">Overall score</div>
+                  </div>
+                  <div className="stat-cell">
+                    <div className="num">{portfolioResult.technical_depth_score ?? '—'}%</div>
+                    <div className="lbl">Technical depth</div>
+                  </div>
+                  <div className="stat-cell">
+                    <div className="num">{portfolioResult.evidence_quality_score ?? '—'}%</div>
+                    <div className="lbl">Evidence quality</div>
+                  </div>
+                </div>
+                {portfolioResult.summary && (
+                  <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginBottom: 10 }}>{portfolioResult.summary}</p>
+                )}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                  {portfolioResult.strengths && portfolioResult.strengths.length > 0 && (
+                    <div>
+                      <div className="eyebrow" style={{ marginBottom: 6 }}>Strengths</div>
+                      <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
+                        {portfolioResult.strengths.map((s, i) => <li key={i}>{s}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                  {portfolioResult.weaknesses && portfolioResult.weaknesses.length > 0 && (
+                    <div>
+                      <div className="eyebrow" style={{ marginBottom: 6 }}>Weaknesses</div>
+                      <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
+                        {portfolioResult.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <h3 style={{ fontSize: 14 }}>Technical competency</h3>
+              <button type="button" className="btn btn-ghost" onClick={runCompetencyEvaluation} disabled={competencyLoading}>
+                {competencyLoading ? 'Running...' : competencyResult ? 'Re-run' : 'Run AI competency evaluation'}
+              </button>
+            </div>
+            {competencyResult && (
+              <div>
+                <div className="stat-grid" style={{ marginBottom: 12 }}>
+                  <div className="stat-cell">
+                    <div className="num">{competencyResult.overall_competency_score ?? '—'}%</div>
+                    <div className="lbl">Overall score</div>
+                  </div>
+                  <div className="stat-cell">
+                    <div className="num">{competencyResult.code_quality_score ?? '—'}%</div>
+                    <div className="lbl">Code quality</div>
+                  </div>
+                  <div className="stat-cell">
+                    <div className="num">{competencyResult.problem_solving_score ?? '—'}%</div>
+                    <div className="lbl">Problem solving</div>
+                  </div>
+                </div>
+                {competencyResult.evidence_summary && (
+                  <p style={{ color: 'var(--spai-slate)', fontSize: 13.5 }}>{competencyResult.evidence_summary}</p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

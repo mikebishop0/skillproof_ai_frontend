@@ -57,6 +57,20 @@ export interface ProjectDto extends CreateProjectDto {
   technologies?: Array<{ id: string; name: string }>;
 }
 
+export interface PortfolioReviewResultDto {
+  id?: string;
+  candidate_id?: string;
+  project_quality_score?: number;
+  project_diversity_score?: number;
+  technology_usage_score?: number;
+  evidence_quality_score?: number;
+  technical_depth_score?: number;
+  overall_portfolio_score?: number;
+  strengths?: string[];
+  weaknesses?: string[];
+  summary?: string;
+}
+
 export const profileApi = {
   // Candidate Profile
   getCandidateProfile: () =>
@@ -85,4 +99,8 @@ export const profileApi = {
     profileApiClient.patch<ProjectDto>(`/api/v1/projects/${projectId}`, project),
   deleteProject: (projectId: string) =>
     profileApiClient.delete<any>(`/api/v1/projects/${projectId}`),
+
+  // AI Evaluation
+  runPortfolioEvaluation: (candidateId: string) =>
+    profileApiClient.post<PortfolioReviewResultDto>(`/api/v1/candidates/${candidateId}/portfolio-evaluation`),
 };
