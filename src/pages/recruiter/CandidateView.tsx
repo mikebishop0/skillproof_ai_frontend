@@ -53,12 +53,34 @@ export default function CandidateView() {
   };
 
   if (!candidate) {
+    // No mock candidate matches this id - fall back to a minimal real-data view so a
+    // real cognito_id (e.g. pasted into the URL for testing) can still reach the AI
+    // evaluation endpoints instead of being blocked entirely.
+    if (!id) {
+      return (
+        <div className="card">
+          <h1>Candidate not found</h1>
+          <Link to="/recruiter/search" className="btn btn-ghost" style={{ marginTop: 16 }}>
+            Back to search
+          </Link>
+        </div>
+      );
+    }
     return (
-      <div className="card">
-        <h1>Candidate not found</h1>
-        <Link to="/recruiter/search" className="btn btn-ghost" style={{ marginTop: 16 }}>
-          Back to search
-        </Link>
+      <div>
+        <div className="dash-head">
+          <div className="eyebrow">Candidate profile (real data)</div>
+          <h1 className="mono" style={{ fontSize: 20 }}>{id}</h1>
+          <p>Not in the demo candidate list - showing AI evaluation only, keyed directly off this candidate id.</p>
+        </div>
+        <AiEvaluationCard
+          portfolioResult={portfolioResult}
+          portfolioLoading={portfolioLoading}
+          runPortfolioReview={runPortfolioReview}
+          competencyResult={competencyResult}
+          competencyLoading={competencyLoading}
+          runCompetencyEvaluation={runCompetencyEvaluation}
+        />
       </div>
     );
   }
@@ -134,91 +156,14 @@ export default function CandidateView() {
         </div>
       </div>
 
-      <div className="card" style={{ marginBottom: 16 }}>
-        <h2 style={{ fontSize: 16, marginBottom: 14 }}>
-          <Sparkles size={16} style={{ verticalAlign: -2, marginRight: 6 }} />
-          AI evaluation
-        </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <h3 style={{ fontSize: 14 }}>Portfolio review</h3>
-              <button type="button" className="btn btn-ghost" onClick={runPortfolioReview} disabled={portfolioLoading}>
-                {portfolioLoading ? 'Running...' : portfolioResult ? 'Re-run' : 'Run AI portfolio review'}
-              </button>
-            </div>
-            {portfolioResult && (
-              <div>
-                <div className="stat-grid" style={{ marginBottom: 12 }}>
-                  <div className="stat-cell">
-                    <div className="num">{portfolioResult.overall_portfolio_score ?? '—'}%</div>
-                    <div className="lbl">Overall score</div>
-                  </div>
-                  <div className="stat-cell">
-                    <div className="num">{portfolioResult.technical_depth_score ?? '—'}%</div>
-                    <div className="lbl">Technical depth</div>
-                  </div>
-                  <div className="stat-cell">
-                    <div className="num">{portfolioResult.evidence_quality_score ?? '—'}%</div>
-                    <div className="lbl">Evidence quality</div>
-                  </div>
-                </div>
-                {portfolioResult.summary && (
-                  <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginBottom: 10 }}>{portfolioResult.summary}</p>
-                )}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                  {portfolioResult.strengths && portfolioResult.strengths.length > 0 && (
-                    <div>
-                      <div className="eyebrow" style={{ marginBottom: 6 }}>Strengths</div>
-                      <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
-                        {portfolioResult.strengths.map((s, i) => <li key={i}>{s}</li>)}
-                      </ul>
-                    </div>
-                  )}
-                  {portfolioResult.weaknesses && portfolioResult.weaknesses.length > 0 && (
-                    <div>
-                      <div className="eyebrow" style={{ marginBottom: 6 }}>Weaknesses</div>
-                      <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
-                        {portfolioResult.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <h3 style={{ fontSize: 14 }}>Technical competency</h3>
-              <button type="button" className="btn btn-ghost" onClick={runCompetencyEvaluation} disabled={competencyLoading}>
-                {competencyLoading ? 'Running...' : competencyResult ? 'Re-run' : 'Run AI competency evaluation'}
-              </button>
-            </div>
-            {competencyResult && (
-              <div>
-                <div className="stat-grid" style={{ marginBottom: 12 }}>
-                  <div className="stat-cell">
-                    <div className="num">{competencyResult.overall_competency_score ?? '—'}%</div>
-                    <div className="lbl">Overall score</div>
-                  </div>
-                  <div className="stat-cell">
-                    <div className="num">{competencyResult.code_quality_score ?? '—'}%</div>
-                    <div className="lbl">Code quality</div>
-                  </div>
-                  <div className="stat-cell">
-                    <div className="num">{competencyResult.problem_solving_score ?? '—'}%</div>
-                    <div className="lbl">Problem solving</div>
-                  </div>
-                </div>
-                {competencyResult.evidence_summary && (
-                  <p style={{ color: 'var(--spai-slate)', fontSize: 13.5 }}>{competencyResult.evidence_summary}</p>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      <AiEvaluationCard
+        portfolioResult={portfolioResult}
+        portfolioLoading={portfolioLoading}
+        runPortfolioReview={runPortfolioReview}
+        competencyResult={competencyResult}
+        competencyLoading={competencyLoading}
+        runCompetencyEvaluation={runCompetencyEvaluation}
+      />
 
       <div className="card" style={{ marginBottom: 16 }}>
         <h2 style={{ fontSize: 16, marginBottom: 10 }}>Evidence top project</h2>
@@ -255,6 +200,110 @@ export default function CandidateView() {
         ) : (
           <p style={{ color: 'var(--spai-slate)', fontSize: 13.5 }}>No badges earned yet.</p>
         )}
+      </div>
+    </div>
+  );
+}
+
+function AiEvaluationCard({
+  portfolioResult,
+  portfolioLoading,
+  runPortfolioReview,
+  competencyResult,
+  competencyLoading,
+  runCompetencyEvaluation,
+}: {
+  portfolioResult: PortfolioReviewResultDto | null;
+  portfolioLoading: boolean;
+  runPortfolioReview: () => void;
+  competencyResult: TechnicalCompetencyResultDto | null;
+  competencyLoading: boolean;
+  runCompetencyEvaluation: () => void;
+}) {
+  return (
+    <div className="card" style={{ marginBottom: 16 }}>
+      <h2 style={{ fontSize: 16, marginBottom: 14 }}>
+        <Sparkles size={16} style={{ verticalAlign: -2, marginRight: 6 }} />
+        AI evaluation
+      </h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+            <h3 style={{ fontSize: 14 }}>Portfolio review</h3>
+            <button type="button" className="btn btn-ghost" onClick={runPortfolioReview} disabled={portfolioLoading}>
+              {portfolioLoading ? 'Running...' : portfolioResult ? 'Re-run' : 'Run AI portfolio review'}
+            </button>
+          </div>
+          {portfolioResult && (
+            <div>
+              <div className="stat-grid" style={{ marginBottom: 12 }}>
+                <div className="stat-cell">
+                  <div className="num">{portfolioResult.overall_portfolio_score ?? '—'}%</div>
+                  <div className="lbl">Overall score</div>
+                </div>
+                <div className="stat-cell">
+                  <div className="num">{portfolioResult.technical_depth_score ?? '—'}%</div>
+                  <div className="lbl">Technical depth</div>
+                </div>
+                <div className="stat-cell">
+                  <div className="num">{portfolioResult.evidence_quality_score ?? '—'}%</div>
+                  <div className="lbl">Evidence quality</div>
+                </div>
+              </div>
+              {portfolioResult.summary && (
+                <p style={{ color: 'var(--spai-slate)', fontSize: 13.5, marginBottom: 10 }}>{portfolioResult.summary}</p>
+              )}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                {portfolioResult.strengths && portfolioResult.strengths.length > 0 && (
+                  <div>
+                    <div className="eyebrow" style={{ marginBottom: 6 }}>Strengths</div>
+                    <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
+                      {portfolioResult.strengths.map((s, i) => <li key={i}>{s}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {portfolioResult.weaknesses && portfolioResult.weaknesses.length > 0 && (
+                  <div>
+                    <div className="eyebrow" style={{ marginBottom: 6 }}>Weaknesses</div>
+                    <ul style={{ fontSize: 13, color: 'var(--spai-slate)', paddingLeft: 18 }}>
+                      {portfolioResult.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+            <h3 style={{ fontSize: 14 }}>Technical competency</h3>
+            <button type="button" className="btn btn-ghost" onClick={runCompetencyEvaluation} disabled={competencyLoading}>
+              {competencyLoading ? 'Running...' : competencyResult ? 'Re-run' : 'Run AI competency evaluation'}
+            </button>
+          </div>
+          {competencyResult && (
+            <div>
+              <div className="stat-grid" style={{ marginBottom: 12 }}>
+                <div className="stat-cell">
+                  <div className="num">{competencyResult.overall_competency_score ?? '—'}%</div>
+                  <div className="lbl">Overall score</div>
+                </div>
+                <div className="stat-cell">
+                  <div className="num">{competencyResult.code_quality_score ?? '—'}%</div>
+                  <div className="lbl">Code quality</div>
+                </div>
+                <div className="stat-cell">
+                  <div className="num">{competencyResult.problem_solving_score ?? '—'}%</div>
+                  <div className="lbl">Problem solving</div>
+                </div>
+              </div>
+              {competencyResult.evidence_summary && (
+                <p style={{ color: 'var(--spai-slate)', fontSize: 13.5 }}>{competencyResult.evidence_summary}</p>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
