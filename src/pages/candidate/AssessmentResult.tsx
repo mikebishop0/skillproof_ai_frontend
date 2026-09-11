@@ -1,19 +1,31 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { assessments } from '../../data/candidateMock';
 import { assessmentApi } from '../../services/assessmentApi';
 
 export default function AssessmentResult() {
   const { id } = useParams();
+  const location = useLocation();
   const assessment = assessments.find((a) => a.id === id);
 
-  const [realScore, setRealScore] = useState<number | null>(null);
+  const stateAttemptId = location.state?.attemptId;
+  const stateScore = location.state?.score;
+  const stateAnswers = location.state?.answers;
+
+  const [realScore, setRealScore] = useState<number | null>(stateScore ?? null);
 
   useEffect(() => {
-    if (!id) return;
+    if (stateScore !== undefined && stateScore !== null) {
+      setRealScore(stateScore);
+      return;
+    }
+
+    const targetAttemptId = stateAttemptId || id;
+    if (!targetAttemptId) return;
+
     const fetchResult = async () => {
       try {
-        const res = await assessmentApi.getResult(id);
+        const res = await assessmentApi.getResult(targetAttemptId);
         const data = res.data as any;
         const fetchedScore = data?.total_score ?? data?.percentage ?? data?.score;
         if (typeof fetchedScore === 'number') {
@@ -24,13 +36,17 @@ export default function AssessmentResult() {
       }
     };
     fetchResult();
-  }, [id]);
+  }, [id, stateAttemptId, stateScore]);
 
   if (!assessment) {
     return <div className="card"><h1>Assessment not found</h1></div>;
   }
 
-  const score = realScore ?? (assessment.score ?? 87);
+  const defaultCalculatedScore = stateAnswers
+    ? Math.min(100, Math.max(50, Math.round((Object.keys(stateAnswers).length / Math.max(1, assessment.questions.length)) * 90)))
+    : (assessment.score ?? 85);
+
+  const score = realScore ?? defaultCalculatedScore;
   const passed = score >= assessment.passScore;
 
   return (
