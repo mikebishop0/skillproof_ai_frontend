@@ -349,7 +349,7 @@ export default function AuthPage() {
                             <input
                               type="text"
                               id="phone"
-                              placeholder="9871960338"
+                              placeholder="1234567890"
                               value={localPhone}
                               onChange={(e) => setLocalPhone(e.target.value.replace(/\D/g, ''))}
                               required
