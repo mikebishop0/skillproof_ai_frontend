@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { assessments } from '../../data/candidateMock';
+import { assessments, calculateAssessmentScore } from '../../data/candidateMock';
 import { assessmentApi } from '../../services/assessmentApi';
 
 function formatTime(totalSeconds: number) {
@@ -42,18 +42,8 @@ export default function AssessmentTake() {
     let resultScore: number | null = null;
     let createdAttemptId: string | null = null;
 
-    // Calculate dynamic score based on candidate's answers
-    const totalQuestions = assessment.questions.length;
-    let answeredCount = 0;
-    assessment.questions.forEach((q) => {
-      const userAns = answers[q.id];
-      if (userAns && userAns.trim() !== '') {
-        answeredCount++;
-      }
-    });
-
-    const completionRatio = totalQuestions > 0 ? answeredCount / totalQuestions : 1;
-    const dynamicScore = Math.min(100, Math.max(50, Math.round(completionRatio * 85 + (answeredCount % 3) * 5)));
+    // Calculate actual score based on correct vs incorrect answers
+    const dynamicScore = calculateAssessmentScore(assessment.questions, answers);
 
     try {
       if (id) {

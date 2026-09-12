@@ -78,6 +78,34 @@ export interface AssessmentQuestion {
   type: 'mcq' | 'coding' | 'scenario';
   prompt: string;
   options?: string[];
+  correctAnswer?: string;
+}
+
+export function calculateAssessmentScore(
+  questions: AssessmentQuestion[],
+  answers: Record<string, string>
+): number {
+  if (!questions || questions.length === 0) return 0;
+  let earnedPoints = 0;
+
+  questions.forEach((q) => {
+    const userAns = answers[q.id];
+    if (!userAns || userAns.trim() === '') return;
+
+    if (q.type === 'mcq') {
+      if (q.correctAnswer && userAns === q.correctAnswer) {
+        earnedPoints += 1;
+      }
+    } else if (q.type === 'coding' || q.type === 'scenario') {
+      if (userAns.trim().length >= 10) {
+        earnedPoints += 1;
+      } else if (userAns.trim().length > 0) {
+        earnedPoints += 0.5;
+      }
+    }
+  });
+
+  return Math.round((earnedPoints / questions.length) * 100);
 }
 
 export interface Assessment {
@@ -138,6 +166,7 @@ export const assessments: Assessment[] = [
         type: 'mcq',
         prompt: 'Which pattern best decouples a producer from multiple consumers reacting to the same event?',
         options: ['Request-response', 'Publish-subscribe', 'Two-phase commit', 'Shared database'],
+        correctAnswer: 'Publish-subscribe',
       },
       {
         id: 'q2',
@@ -149,6 +178,7 @@ export const assessments: Assessment[] = [
           'Producers cannot retry failed sends',
           'It requires a single consumer per topic',
         ],
+        correctAnswer: 'Consumers must handle duplicate messages idempotently',
       },
       {
         id: 'q3',
@@ -182,12 +212,14 @@ export const assessments: Assessment[] = [
           'Sharing one IAM role across all services',
           'Disabling all access controls in staging',
         ],
+        correctAnswer: 'Granting only the permissions required to perform a task',
       },
       {
         id: 'q2',
         type: 'mcq',
         prompt: 'Which of these should never be committed to a public repository?',
         options: ['README.md', 'Environment variable names', 'API keys and secrets', 'Unit tests'],
+        correctAnswer: 'API keys and secrets',
       },
     ],
   },

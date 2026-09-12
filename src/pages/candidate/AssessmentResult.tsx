@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
-import { assessments } from '../../data/candidateMock';
+import { assessments, calculateAssessmentScore } from '../../data/candidateMock';
 import { assessmentApi } from '../../services/assessmentApi';
 
 export default function AssessmentResult() {
@@ -43,8 +43,8 @@ export default function AssessmentResult() {
   }
 
   const defaultCalculatedScore = stateAnswers
-    ? Math.min(100, Math.max(50, Math.round((Object.keys(stateAnswers).length / Math.max(1, assessment.questions.length)) * 90)))
-    : (assessment.score ?? 85);
+    ? calculateAssessmentScore(assessment.questions, stateAnswers)
+    : (assessment.score ?? 0);
 
   const score = realScore ?? defaultCalculatedScore;
   const passed = score >= assessment.passScore;
