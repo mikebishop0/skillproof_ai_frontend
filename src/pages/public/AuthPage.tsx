@@ -18,7 +18,93 @@ const trustStats = [
 
 import { authApi } from '../../services/authApi';
 import { extractErrorMessage } from '../../services/apiClient';
-import { countryCodes } from '../../data/countryCodes';
+import { countryCodes, type CountryCode } from '../../data/countryCodes';
+import { ChevronDown, Search } from 'lucide-react';
+
+function CountryDialPicker({
+  selectedDial,
+  onSelect,
+}: {
+  selectedDial: string;
+  onSelect: (c: CountryCode) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filtered = countryCodes.filter(
+    (c) =>
+      c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.dial.includes(searchTerm)
+  );
+
+  return (
+    <div className="custom-dial-picker">
+      <button
+        type="button"
+        className="dial-trigger-btn"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>{selectedDial}</span>
+        <ChevronDown size={14} />
+      </button>
+
+      {isOpen && (
+        <>
+          <div className="dial-overlay" onClick={() => setIsOpen(false)} />
+          <div className="dial-dropdown">
+            <div className="dial-search-wrap">
+              <Search size={14} className="search-icon" />
+              <input
+                type="text"
+                placeholder="Search country or code..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                autoFocus
+              />
+            </div>
+            <div className="dial-list">
+              {filtered.map((c) => (
+                <div
+                  key={`${c.name}-${c.dial}`}
+                  className={`dial-item ${c.dial === selectedDial ? 'active' : ''}`}
+                  onClick={() => {
+                    onSelect(c);
+                    setIsOpen(false);
+                  }}
+                >
+                  <span className="dial-code">{c.dial}</span>
+                  <span className="dial-name">{c.name}</span>
+                </div>
+              ))}
+              {filtered.length === 0 && (
+                <div className="dial-no-res">No countries found</div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+const validatePassword = (pwd: string): { valid: boolean; error?: string } => {
+  if (pwd.length < 8) {
+    return { valid: false, error: 'Password must be at least 8 characters long.' };
+  }
+  if (!/[A-Z]/.test(pwd)) {
+    return { valid: false, error: 'Password must contain at least one uppercase letter (A-Z).' };
+  }
+  if (!/[a-z]/.test(pwd)) {
+    return { valid: false, error: 'Password must contain at least one lowercase letter (a-z).' };
+  }
+  if (!/[0-9]/.test(pwd)) {
+    return { valid: false, error: 'Password must contain at least one number (0-9).' };
+  }
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwd)) {
+    return { valid: false, error: 'Password must contain at least one special character (!@#$%^&*).' };
+  }
+  return { valid: true };
+};
 
 export default function AuthPage() {
   const location = useLocation();
@@ -50,8 +136,13 @@ export default function AuthPage() {
     if (loading) return;
 
     if (mode === 'signup') {
-      if (!firstName || !lastName || !email || !password || !localPhone || !country) {
+      if (!firstName || !lastName || !email || !password || !localPhone) {
         toast.error('All fields are required');
+        return;
+      }
+      const pwdValidation = validatePassword(password);
+      if (!pwdValidation.valid) {
+        toast.error(pwdValidation.error || 'Password is too weak');
         return;
       }
       setLoading(true);
@@ -330,40 +421,22 @@ export default function AuthPage() {
                           />
                         </div>
                       </div>
-                      <div className="field-row">
-                        <div className="field">
-                          <label htmlFor="phone">Phone number</label>
-                          <div className="phone-row">
-                            <select
-                              id="dialCode"
-                              className="dial-code-select"
-                              value={dialCode}
-                              onChange={(e) => setDialCode(e.target.value)}
-                            >
-                              {countryCodes.map((c) => (
-                                <option key={`${c.name}-${c.dial}`} value={c.dial}>
-                                  {c.dial} {c.name}
-                                </option>
-                              ))}
-                            </select>
-                            <input
-                              type="text"
-                              id="phone"
-                              placeholder="1234567890"
-                              value={localPhone}
-                              onChange={(e) => setLocalPhone(e.target.value.replace(/\D/g, ''))}
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div className="field">
-                          <label htmlFor="country">Country</label>
+                      <div className="field">
+                        <label htmlFor="phone">Phone number</label>
+                        <div className="phone-row">
+                          <CountryDialPicker
+                            selectedDial={dialCode}
+                            onSelect={(c) => {
+                              setDialCode(c.dial);
+                              setCountry(c.name);
+                            }}
+                          />
                           <input
                             type="text"
-                            id="country"
-                            placeholder="United States"
-                            value={country}
-                            onChange={(e) => setCountry(e.target.value)}
+                            id="phone"
+                            placeholder="1234567890"
+                            value={localPhone}
+                            onChange={(e) => setLocalPhone(e.target.value.replace(/\D/g, ''))}
                             required
                           />
                         </div>
@@ -388,11 +461,16 @@ export default function AuthPage() {
                     <input
                       type="password"
                       id="password"
-                      placeholder="At least 8 characters"
+                      placeholder={mode === 'signup' ? 'Min 8 chars, uppercase, symbol' : 'At least 8 characters'}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
+                    {mode === 'signup' && (
+                      <span className="pwd-hint">
+                        Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number & 1 special char.
+                      </span>
+                    )}
                   </div>
 
                   {mode === 'login' && (
